@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mark</title>
+  </head>
+  <body>
+    <center>
+      <h1>Check your grade here....</h1>
+      <input id="per" type="number" placeholder="Enter your percentage" />
+      <button onclick="check()">Check</button>
+      <h2 id="result"></h2>
+    </center>
+  </body>
+</html>
+
+<script>
+  function check() {
+    var mark = document.getElementById("per").value;
+
+    if (mark <= 100 && mark >= 0) {
+      if (mark <= 100 && mark >= 81) {
+        print("result", "Your grade is A");
+      } else if (mark <= 80 && mark >= 61) {
+        print("result", "Your grade is B");
+      } else if (mark <= 60 && mark >= 51) {
+        print("result", "Your grade is C");
+      } else if (mark <= 50 && mark >= 35) {
+        print("result", "Your grade is D");
+      } else {
+        print("result", "You are fail...");
+      }
+    } else {
+      console.log("hiiii...");
+      print("result", "pleas enter valid input between 1 to 100");
+    }
+  }
+  function print(id, result) {
+    document.getElementById(id).innerHTML = result;
+  }
+</script>

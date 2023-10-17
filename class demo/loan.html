@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loan</title>
+  </head>
+  <body>
+    <center>
+      <h1>Thank You For Choosing Us</h1>
+      <h2>Choose Options For Your Loan Type And Other Details</h2>
+      <div class="loan_menu">
+        <label for="">Enter Amount That You Want</label>
+        <input id="Amount" type="number" placeholder="Amouunt in RS" />
+        <label for="">Enter Year For Loan Installments</label>
+        <input id="years" type="number" placeholder="No. Of Years" />
+        <select name="" id="type">
+          <option value="">Home Loan</option>
+          <option value="">Car Loan</option>
+          <option value="">Personal Loan</option>
+        </select>
+        <button onclick="check()">Submit</button>
+      </div>
+      <h2 id="result"></h2>
+    </center>
+  </body>
+</html>
+
+<script>
+ function check() {
+    var Amount = document.getElementById("Amount").value;
+    var years = document.getElementById("years").value;
+    var type = document.getElementById("type").value;
+
+  if (type == "Home Loan") {
+    var intrest = 8;
+    print("Amount", "years", "intrest");
+  } else if (type == "Car Loan") {
+    var intrest = 12;
+  } else if (type == "Personal Loan") {
+    var intrest = 18;
+  }
+
+  
+ }
+ function print(Amount, years, intrest) {
+    var total = (Amount * years * intrest) / 100;
+    document.getElementById("result").innerHTML = total;
+  }
