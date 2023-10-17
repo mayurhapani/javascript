@@ -15,9 +15,9 @@
         <label for="">Enter Year For Loan Installments</label>
         <input id="years" type="number" placeholder="No. Of Years" />
         <select name="" id="type">
-          <option value="">Home Loan</option>
-          <option value="">Car Loan</option>
-          <option value="">Personal Loan</option>
+          <option value="Home Loan">Home Loan</option>
+          <option value="Car Loan">Car Loan</option>
+          <option value="Personal Loan">Personal Loan</option>
         </select>
         <button onclick="check()">Submit</button>
       </div>
@@ -27,23 +27,25 @@
 </html>
 
 <script>
- function check() {
+  function check() {
     var Amount = document.getElementById("Amount").value;
     var years = document.getElementById("years").value;
     var type = document.getElementById("type").value;
 
-  if (type == "Home Loan") {
-    var intrest = 8;
-    print("Amount", "years", "intrest");
-  } else if (type == "Car Loan") {
-    var intrest = 12;
-  } else if (type == "Personal Loan") {
-    var intrest = 18;
+    if (type == "Home Loan") {
+      var intrest = 8;
+      print(Amount, years, intrest);
+    } else if (type == "Car Loan") {
+      var intrest = 12;
+      print(Amount, years, intrest);
+    } else if (type == "Personal Loan") {
+      var intrest = 18;
+      print(Amount, years, intrest);
+    }
+    // parseInt("");
   }
-
-  
- }
- function print(Amount, years, intrest) {
+  function print(Amount, years, intrest) {
     var total = (Amount * years * intrest) / 100;
     document.getElementById("result").innerHTML = total;
   }
+</script>

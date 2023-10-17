@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bill</title>
+  </head>
+  <body>
+    <center>
+      <table border="1" cellspacing="0" width="800" height="900">
+        <tr>
+          <td>
+            <center>
+              <table border="0" width="700" height="90">
+                <tr>
+                  <td width="30%">LOGO</td>
+                  <td width="30%"></td>
+                  <td width="40%" align="right">
+                    <h1>INVOICE</h1>
+                    Invoice No. #12345 <br />
+                    DATE 00/00/0000S
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h2>INVOICE TO :</h2>
+                    Lotem Ipsum <br />
+                    Name Street 5th, <br />
+                    Location, Lorem Ipsum, <br />
+                    12345
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </center>
+            <center>
+              <table
+                bordercolor="red"
+                cellspacing="0"
+                border="1"
+                width="700"
+                height="300"
+              >
+                <tr bgcolor="yellow">
+                  <th>SL.</th>
+                  <th align="left">&nbsp; ITEM DESCRIPTION</th>
+                  <th>PRISE</th>
+                  <th>QTY</th>
+                  <th>TOTAL</th>
+                </tr>
+                <tr>
+                  <td align="center">1</td>
+                  <td>
+                    <select
+                      onclick="select(this.value,'pro1_prise','pro1_total')"
+                      style="width: 100%; height: 100%"
+                      name=""
+                      id="item1"
+                    >
+                      <option value="0">Choose option.....</option>
+                      <option value="1">Keybord</option>
+                      <option value="2">Mouse</option>
+                      <option value="3">Moniter</option>
+                      <option value="4">Hdd</option>
+                      <option value="5">Cpu</option>
+                    </select>
+                  </td>
+                  <td align="center">$ <span id="pro1_prise"></span></td>
+                  <td style="width: 50px" align="center">
+                    <input
+                      id="QTY1"
+                      onclick="click1('QTY1','pro1_total','pro1_prise')"
+                      value="0"
+                      style="
+                        width: 80%;
+                        height: 80%;
+                        text-align: center;
+                        outline: none;
+                      "
+                      type="number"
+                    />
+                  </td>
+                  <td align="center">$ <span id="pro1_total">0</span></td>
+                </tr>
+                <tr>
+                  <td align="center">2</td>
+                  <td>
+                    <select
+                      onclick="select(this.value,'pro2_prise','pro2_total')"
+                      style="width: 100%; height: 100%"
+                      name=""
+                      id="item2"
+                    >
+                      <option value="0">Choose option.....</option>
+                      <option value="1">Keybord</option>
+                      <option value="2">Mouse</option>
+                      <option value="3">Moniter</option>
+                      <option value="4">Hdd</option>
+                      <option value="5">Cpu</option>
+                    </select>
+                  </td>
+                  <td align="center">$ <span id="pro2_prise"></span></td>
+                  <td style="width: 50px" align="center">
+                    <input
+                      id="QTY2"
+                      onclick="click1('QTY2','pro2_total','pro2_prise')"
+                      value="0"
+                      style="
+                        width: 80%;
+                        height: 80%;
+                        text-align: center;
+                        outline: none;
+                      "
+                      type="number"
+                    />
+                  </td>
+                  <td align="center">$ <span id="pro2_total">0</span></td>
+                </tr>
+                <tr>
+                  <td align="center">3</td>
+                  <td>
+                    <select
+                      onclick="select(this.value,'pro3_prise','pro3_total')"
+                      style="width: 100%; height: 100%"
+                      name=""
+                      id="item3"
+                    >
+                      <option value="0">Choose option.....</option>
+                      <option value="1">Keybord</option>
+                      <option value="2">Mouse</option>
+                      <option value="3">Moniter</option>
+                      <option value="4">Hdd</option>
+                      <option value="5">Cpu</option>
+                    </select>
+                  </td>
+                  <td align="center">$ <span id="pro3_prise"></span></td>
+                  <td style="width: 50px" align="center">
+                    <input
+                      id="QTY3"
+                      onclick="click1('QTY3','pro3_total','pro3_prise')"
+                      value="0"
+                      style="
+                        width: 80%;
+                        height: 80%;
+                        text-align: center;
+                        outline: none;
+                      "
+                      type="number"
+                    />
+                  </td>
+                  <td align="center">$ <span id="pro3_total">0</span></td>
+                </tr>
+                <tr>
+                  <td align="center">4</td>
+                  <td>
+                    <select
+                      onclick="select(this.value,'pro4_prise','pro4_total')"
+                      style="width: 100%; height: 100%"
+                      name=""
+                      id="item4"
+                    >
+                      <option value="0">Choose option.....</option>
+                      <option value="1">Keybord</option>
+                      <option value="2">Mouse</option>
+                      <option value="3">Moniter</option>
+                      <option value="4">Hdd</option>
+                      <option value="5">Cpu</option>
+                    </select>
+                  </td>
+                  <td align="center">$ <span id="pro4_prise"></span></td>
+                  <td style="width: 50px" align="center">
+                    <input
+                      id="QTY4"
+                      onclick="click1('QTY4','pro4_total','pro4_prise')"
+                      value="0"
+                      style="
+                        width: 80%;
+                        height: 80%;
+                        text-align: center;
+                        outline: none;
+                      "
+                      type="number"
+                    />
+                  </td>
+                  <td align="center">$ <span id="pro4_total">0</span></td>
+                </tr>
+                <tr>
+                  <td align="center">5</td>
+                  <td>
+                    <select
+                      onclick="select(this.value,'pro5_prise','pro5_total')"
+                      style="width: 100%; height: 100%"
+                      name=""
+                      id="item5"
+                    >
+                      <option value="0">Choose option.....</option>
+                      <option value="1">Keybord</option>
+                      <option value="2">Mouse</option>
+                      <option value="3">Moniter</option>
+                      <option value="4">Hdd</option>
+                      <option value="5">Cpu</option>
+                    </select>
+                  </td>
+                  <td align="center">$ <span id="pro5_prise"></span></td>
+                  <td style="width: 50px" align="center">
+                    <input
+                      id="QTY5"
+                      onclick="click1('QTY5','pro5_total','pro5_prise')"
+                      value="0"
+                      style="
+                        width: 80%;
+                        height: 80%;
+                        text-align: center;
+                        outline: none;
+                      "
+                      type="number"
+                    />
+                  </td>
+                  <td align="center">$ <span id="pro5_total">0</span></td>
+                </tr>
+                <tr>
+                  <td align="right" colspan="4" fontsize="200px">
+                    Sub Total &nbsp;
+                  </td>
+                  <td align="center">
+                    <span>$</span> <span id="sub_total"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right" colspan="4" fontsize="200px">
+                    Gst 18% &nbsp;
+                  </td>
+                  <td align="center">
+                    <span>$</span>
+                    <span id="gst">0</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right" colspan="4" fontsize="200px">
+                    Total &nbsp;
+                  </td>
+                  <td align="center">
+                    <span>$</span>
+                    <span id="main_total">0</span>
+                  </td>
+                </tr>
+              </table>
+            </center>
+            <br />
+            <center>
+              <table border="0" width="700" height="90">
+                <tr>
+                  <td width="35%">
+                    <table border="0" width="250">
+                      <tr>
+                        <td colspan="2"><b>Payment Info :</b></td>
+                      </tr>
+                      <tr>
+                        <td>Account no.</td>
+                        <td>#12345678</td>
+                      </tr>
+                      <tr>
+                        <td>A/C</td>
+                        <td>Company Name</td>
+                      </tr>
+                      <tr>
+                        <td>Bank Detail</td>
+                        <td>Bank Name</td>
+                      </tr>
+                    </table>
+                    <button
+                      style="
+                        padding: 10px 20px;
+                        margin: 30px 50px 0px;
+                        font-size: large;
+                      "
+                      onclick="printer()"
+                    >
+                      print
+                    </button>
+                  </td>
+                  <td width="30%"></td>
+                  <td width="35%">
+                    <b>Term & Condition</b><br />
+                    ********************* <br />
+                    ********************* <br />
+                    ********************* <br />
+                    ********************* <br />
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td><h3>Authorized Sign</h3></td>
+                </tr>
+              </table>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+
+<script>
+  function select(pro, id, total) {
+    if (pro == 1) {
+      disp(id, 500);
+    }
+    if (pro == 2) {
+      disp(id, 250);
+    }
+    if (pro == 3) {
+      disp(id, 4000);
+    }
+    if (pro == 4) {
+      disp(id, 4500);
+    }
+    if (pro == 5) {
+      disp(id, 7000);
+    }
+  }
+
+  function disp(id, price) {
+    var PRISE = price;
+    document.getElementById(id).innerHTML = price;
+  }
+
+  function click1(Q_id, p_total_id, p_prise_id) {
+    var QTY = document.getElementById(Q_id).value;
+
+    if (QTY >= 0) {
+      var PRISE = document.getElementById(p_prise_id).innerHTML;
+      var total = QTY * PRISE;
+      document.getElementById(p_total_id).innerHTML = total;
+    }
+
+    //  sub total
+    // var sub_tot = 0;
+    // var pro1_total = 0;
+    // var pro2_total = 0;
+    // var pro3_total = 0;
+    // var pro4_total = 0;
+    // var pro5_total = 0;
+
+    var pro1_total = parseInt(document.getElementById("pro1_total").innerHTML);
+    var pro2_total = parseInt(document.getElementById("pro2_total").innerHTML);
+    var pro3_total = parseInt(document.getElementById("pro3_total").innerHTML);
+    var pro4_total = parseInt(document.getElementById("pro4_total").innerHTML);
+    var pro5_total = parseInt(document.getElementById("pro5_total").innerHTML);
+
+    console.log(pro1_total);
+    sub_tot = pro1_total + pro2_total + pro3_total + pro4_total + pro5_total;
+
+    document.getElementById("sub_total").innerHTML = sub_tot;
+
+    var gst = (sub_tot * 18) / 100;
+    document.getElementById("gst").innerHTML = gst;
+
+    var g_total = sub_tot + gst;
+    document.getElementById("main_total").innerHTML = g_total;
+  }
+
+  function printer() {
+    window.print();
+  }
+</script>
