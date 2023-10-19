@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>salary</title>
+    <style>
+      .block {
+        display: block !important;
+      }
+      .none {
+        display: none;
+      }
+      .ps-40 {
+        padding-left: 40px;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <center>
+      <div
+        style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; background-color: rgb(219, 217, 217)"
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 25%;
+            border-radius: 5%;
+            padding: 40px;
+            align-items: center;
+            background-color: rgb(208, 204, 204);
+          "
+        >
+          <h1>ENTER YOUR NAME AND SUBMIT</h1>
+          <input style="outline: none; background: rgb(193, 192, 192); width: 60%; font-size: 20px" type="text" name="" id="input" />
+          <button style="margin-top: 20px; padding: 6px 20px" onclick="check()">Submit</button>
+        </div>
+        <div style="position: absolute; right: 5%; bottom: 10%; background-color: rgb(208, 204, 204); border-radius: 5%; padding: 20px 40px">
+          <h2>USERS</h2>
+          <p id="user1">MAYUR</p>
+          <p id="user2">DIVYANG</p>
+          <p id="user3">DEEP</p>
+        </div>
+      </div>
+    </center>
+
+    <center id="home" class="">
+      <table border="0" width="700" height="140" cellpadding="0">
+        <tr>
+          <td colspan="2" rowspan="5" width="50%">
+            <img src="table7-1.jpg" alt="" />
+          </td>
+          <td align="right" width="25%" rowspan="4">
+            <b> Invoice Number</b> <br />
+            2563 <br />
+            <br />
+            <br />
+          </td>
+          <td align="right" width="25%" rowspan="4">
+            <b> Payment method</b> <br />
+            Bank Transfer <br />
+            Date <br />
+            20-01-2023
+          </td>
+        </tr>
+      </table>
+      <table border="0" width="700" height="40">
+        <tr></tr>
+      </table>
+      <table border="0" width="500" height="150" cellpadding="0">
+        <tr>
+          <td align="left" width="33.33%">
+            <b> Mr. </b>&nbsp; <span id="name"></span> <br />
+            <br />
+            <b> Account no.</b>
+            <span id="accountno"> </span>
+          </td>
+          <td width="33.33%"></td>
+          <td align="left" width="33.33%"><b> Address </b>&nbsp; <span id="address"> </span></td>
+        </tr>
+      </table>
+      <table border="0" width="700" height="300">
+        <tr>
+          <th width="40%">Description</th>
+          <th width="10%">Amount</th>
+          <th width="40%">Description</th>
+          <th width="10%">Amount</th>
+        </tr>
+        <tr>
+          <td>Basic salry :</td>
+          <td align="center"><span>$</span><span id="basic-s"></span></td>
+          <td class="ps-40">TDS ( 2% ) :</td>
+          <td align="center"><span>$</span><span id="TDS"></span></td>
+        </tr>
+        <tr>
+          <td>HBA ( 10% ) :</td>
+          <td align="center"><span>$</span><span id="HBA"></span></td>
+          <td class="ps-40">Health Insurance ( 4% ) :</td>
+          <td align="center"><span>$</span><span id="HEALTH"></span></td>
+        </tr>
+        <tr>
+          <td>Extra Expance ( 3% ) :</td>
+          <td align="center"><span>$</span><span id="EXTRA"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Transpotation Expance ( 5% ) :</td>
+          <td align="center"><span>$</span><span id="TRANSPO"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th>Sub Total A</th>
+          <th align="center"><span>$</span><span id="TOTAL_A"></span></th>
+          <th>Sub Total B</th>
+          <th align="center"><span>$</span><span id="TOTAL_B"></span></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Gross Total =</th>
+          <th align="center"><span>$</span><span id="G_TOTAL"></span></th>
+        </tr>
+      </table>
+      <table border="0" width="700" height="60">
+        <tr></tr>
+      </table>
+      <table border="0" width="700" height="100">
+        <tr>
+          <td width="50%">
+            <b>Terms and conditions</b><br />
+            A constellation consists of visible stars that from <br />
+            a perceived outline or pattern, usually <br />
+            representting an animal a person..
+          </td>
+          <td align="right">
+            <img src="table7-2.jpg" alt="" width="200" />
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+
+<script>
+  //VALIDATION
+
+  function check() {
+    var user = get_value("input");
+    var user1 = get_html("user1");
+    var user2 = get_html("user2");
+    var user3 = get_html("user3");
+
+    // console.log(user);
+
+    if (user == user1 || user == user2 || user == user3) {
+      //   $("#home").addClass("block");
+      //   document.getElementById("home").;
+      //   alert(user);
+
+      document.getElementById("name").innerHTML = user;
+      switch (user) {
+        case user1:
+          document.getElementById("address").innerHTML = "<br>" + "Vansk Avenue 11" + "<br>" + "1111 City" + "<br>" + "CRN : 123 456 789A";
+
+          document.getElementById("accountno").innerHTML = "<br>" + "111 111 111 111";
+
+          calc(20000);
+
+          break;
+
+        case user2:
+          document.getElementById("address").innerHTML = "<br>" + "Vansk Avenue 22" + "<br>" + "2222 City" + "<br>" + "CRN : 123 456 789A";
+
+          document.getElementById("accountno").innerHTML = "<br>" + "222 222 222 222";
+
+          calc(18000);
+          break;
+
+        case user3:
+          document.getElementById("address").innerHTML = "<br>" + "Vansk Avenue 33" + "<br>" + "3333 City" + "<br>" + "CRN : 123 456 789A";
+
+          document.getElementById("accountno").innerHTML = "<br>" + "333 333 333 333";
+
+          calc(17500);
+          break;
+      }
+    } else {
+      alert("Enter Valid User ID ...! ");
+    }
+  }
+
+  //   calc
+  function calc(salary) {
+    //BASIC SALARY
+    print("basic-s", salary);
+
+    // TDS
+    var TDS = (salary * 2) / 100;
+    print("TDS", TDS);
+
+    // HBA
+    var HBA = (salary * 10) / 100;
+    print("HBA", HBA);
+
+    // HEALTH
+    var HEALTH = (salary * 4) / 100;
+    print("HEALTH", HEALTH);
+
+    // EXTRA
+    var EXTRA = (salary * 3) / 100;
+    print("EXTRA", EXTRA);
+
+    // TRANSPO
+    var TRANSPO = (salary * 5) / 100;
+    print("TRANSPO", TRANSPO);
+
+    // TOTAL_A
+    var TOTAL_A = salary + HBA + EXTRA + TRANSPO;
+    print("TOTAL_A", TOTAL_A);
+
+    // TOTAL_B
+    var TOTAL_B = TDS + HEALTH;
+    print("TOTAL_B", TOTAL_B);
+
+    //GROSS TOTAL
+    var G_TOTAL = TOTAL_A - TOTAL_B;
+    print("G_TOTAL", G_TOTAL);
+  }
+
+  // COMMAN
+  function get_value(id) {
+    var output = document.getElementById(id).value;
+    return output;
+  }
+  function get_html(id) {
+    var output = document.getElementById(id).innerHTML;
+    return output;
+  }
+  function print(id, val) {
+    document.getElementById(id).innerHTML = val;
+  }
+</script>

@@ -1,0 +1,151 @@
+
+<script>
+  var sum = 0;
+  var sub_total = 0;
+  var total = 0;
+  var else_total = 0;
+  var temp = 0;
+  var answer = 0;
+  var temp_sum = 0;
+  var calculation;
+  var flag1 = 0;
+  var flag2 = 0;
+  var flag3 = 0;
+  var flag4 = 0;
+
+  function clk(id) {
+    var btn = document.getElementById(id).innerHTML;
+    sum += btn;
+    sum = parseInt(sum);
+    temp_sum = sum;
+    console.log("sum =", sum, temp_sum);
+    disp(sum);
+  }
+
+  function ans(id) {
+    calculation = document.getElementById(id).innerHTML;
+    console.log("calculation =", calculation);
+    switch (calculation) {
+      case "+":
+        console.log("falg3 =", flag3);
+        if (flag3 == 1) {
+          console.log("falg1 check", total, sum);
+          answer = total - sum;
+          console.log("flag1 ans check", answer);
+          disp(answer);
+        } else {
+          if (temp == 0) {
+            temp = sum;
+            sum = 0;
+          }
+          if (answer == 0) {
+            total = temp + sum;
+            temp = total;
+            answer = total;
+            disp(total);
+            flag1 = 1;
+            flag2 = 0;
+          } else {
+            else_total = temp + sum;
+            temp = else_total;
+            answer = else_total;
+            console.log("else of +", sum, else_total);
+            disp(else_total);
+            flag1 = 0;
+            flag2 = 1;
+          }
+        }
+
+        console.log("falg part of + =", flag1, flag2);
+        total = temp + sum;
+        sum = 0;
+        break;
+
+      case "-":
+        console.log("- entry answer =", answer, total, else_total, "sum=", sum, "temp=", temp);
+        console.log("falg1 =", flag1, flag2);
+
+        if (flag1 == 1) {
+          console.log("falg1 check", total, sum);
+          answer = total + sum;
+          console.log("flag1 ans check", answer);
+          disp(answer);
+        } else {
+          if (temp == 0) {
+            console.log("temp=0");
+            temp = sum;
+            sum = 0;
+          }
+          if (answer == 0) {
+            console.log("answer=0");
+
+            total = temp - sum;
+            temp = total;
+            answer = total;
+            disp(total);
+            flag3 = 1;
+            flag4 = 0;
+          } else {
+            console.log("else answer=", answer);
+
+            else_total = temp - sum;
+            temp = else_total;
+            answer = else_total;
+            console.log("else of -", sum, else_total);
+            disp(else_total);
+            flag3 = 0;
+            flag4 = 1;
+          }
+          if (flag1 == 0 && flag2 == 0) {
+            temp_else_total = else_total;
+          }
+        }
+        console.log("falg part of - =", flag3, flag4);
+
+        total = temp - sum;
+        sum = 0;
+        break;
+
+      case "*":
+        alert("*");
+        break;
+    }
+  }
+
+  //plus
+  // function plus() {
+  //   sub_total += sum;
+  //   disp(sub_total);
+  //   sum = 0;
+  // }
+
+  //minus
+  // function minus() {
+  //   sub_total -= sum;
+  //   disp(sub_total);
+  //   sum = 0;
+  // }
+
+  //display
+  function total1() {
+    console.log(calculation);
+    if (calculation == "+") {
+      // console.log("hii..");
+      console.log("total1 +", answer, temp_sum);
+      answer += temp_sum;
+      console.log("final total1 +", answer);
+
+      disp(answer);
+    } else if (calculation == "-") {
+      // console.log("hii..");
+      console.log("total1 -", answer, temp_sum);
+      answer -= temp_sum;
+      console.log("final total1 -", answer);
+
+      disp(answer);
+    }
+  }
+  function disp(val) {
+    document.getElementById("display").innerHTML = val;
+  }
+</script>
