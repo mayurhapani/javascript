@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>swaping</title>
+  </head>
+  <body>
+    <div>
+      <input type="number" id="val_x" placeholder="value for X" />
+      <input type="number" id="val_y" placeholder="value for Y" />
+      <input type="number" id="val_z" placeholder="value for Z" />
+      <button onclick="submit()">Submit</button>
+    </div>
+    <div>
+      <h3 id="display_1"></h3>
+      <h3 id="display_2"></h3>
+      <br />
+      <h3 id="display_3"></h3>
+      <h3 id="display_4"></h3>
+      <br />
+      <h3 id="display_5"></h3>
+      <h3 id="display_6"></h3>
+    </div>
+  </body>
+</html>
+
+<script>
+  function submit() {
+    // console.log("hii");
+    var x = parseInt(document.getElementById("val_x").value);
+    var y = parseInt(document.getElementById("val_y").value);
+    var z = parseInt(document.getElementById("val_z").value);
+
+    console.log(x, y, z);
+
+    //orignal input
+    document.getElementById("display_1").innerHTML = "Orignal Value of";
+    document.getElementById("display_2").innerHTML = " &nbsp  x = " + x + " &nbsp &nbsp y = " + y + " &nbsp &nbsp z = " + z;
+
+    //swaping
+    var a;
+    var b;
+    var c;
+
+    //1
+    if (x > y && x > z) {
+      a = x;
+      x = 0;
+    } else if (y > x && y > z) {
+      a = y;
+      y = 0;
+    } else if (z > x && z > y) {
+      a = z;
+      z = 0;
+    }
+
+    //2
+    if (x > y && x > z) {
+      b = x;
+      x = 0;
+    } else if (y > x && y > z) {
+      b = y;
+      y = 0;
+    } else if (z > x && z > y) {
+      b = z;
+      z = 0;
+    }
+
+    //3
+    if (x > y && x > z) {
+      c = x;
+      x = 0;
+    } else if (y > x && y > z) {
+      c = y;
+      y = 0;
+    } else if (z > x && z > y) {
+      c = z;
+      z = 0;
+    }
+
+    //final display
+    document.getElementById("display_5").innerHTML = "Value after swaping in descending ";
+    document.getElementById("display_4").innerHTML = "Value of x = " + c + "&nbsp &nbsp Value of y = " + b + "&nbsp &nbsp Value of z = " + a;
+    document.getElementById("display_3").innerHTML = "Value after swaping in ascending";
+    document.getElementById("display_6").innerHTML = "Value of x = " + a + "&nbsp &nbsp Value of y = " + b + "&nbsp &nbsp Value of z = " + c;
+  }
+</script>

@@ -6,14 +6,26 @@
     <title>demo1</title>
   </head>
   <body>
-    <div id="php">helloooooo</div>
+    <!-- <div id="php">helloooooo</div> -->
+    <button id="one" onclick="clk()">a</button>
+    <button id="two" onclick="disp()">b</button>
   </body>
 </html>
 
 <script>
+  var x;
+  function clk() {
+    x = document.getElementById("one").innerHTML;
+    console.log(x);
+  }
+
+  function disp() {
+    alert(x);
+  }
+
   //   alert("hello");
   //   console.log("hello con");
   // document.body.innerHTML = "hello";
-  document.getElementById("php").innerHTML = "<h1>hello html</h1>";
+  // document.getElementById("php").innerHTML = "<h1>hello html</h1>";
   // document.getElementById("php").textContent = "<h1>hello text</h1>";
 </script>

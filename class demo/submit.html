@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit</title>
+  </head>
+  <body>
+    <center>
+      <h1>login form</h1>
+      <form action="" onsubmit="return varify()">
+        <input type="text" id="user" placeholder="enter user name" />
+        <br />
+        <input type="password" id="password" placeholder="enter password" />
+        <br />
+        <button>login</button>
+      </form>
+    </center>
+  </body>
+</html>
+
+<script>
+  function varify() {
+    var user = document.getElementById("user").value;
+    var password = document.getElementById("password").value;
+    if (user == "mayur") {
+      if (password == 123) {
+        alert("login successful..");
+      } else {
+        alert("Wrong password !");
+      }
+    } else {
+      alert("Wrong user name !");
+    }
+  }
+</script>
