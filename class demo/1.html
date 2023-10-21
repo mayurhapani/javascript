@@ -14,21 +14,24 @@
 
 <script>
   var x;
-  function clk() {
-    x = document.getElementById("one").innerHTML;
-    console.log(x);
-  }
+  // function clk() {
+  //   x = document.getElementById("one").innerHTML;
+  //   console.log(x);
+  // }
 
-  function disp() {
-    alert(x);
-  }
+  const clk = () => `${(x = document.getElementById("one").innerHTML)}`;
 
-  debugger;
-  var a = 0;
-  while (a <= 10) {
-    console.log(a);
-    a++;
-  }
+  // function disp() {
+  //   alert(x);
+  // }
+
+  const disp = () => `${alert(x)}`;
+  // debugger;
+  // var a = 0;
+  // while (a <= 10) {
+  //   console.log(a);
+  //   a++;
+  // }
 
   //   alert("hello");
   //   console.log("hello con");

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <section class="welcome_page"></section>
+
+    <!-- <section class="card-section">
+      <div class="outer-div">
+        <div class="inner-div">
+          <div class="front">
+            <div class="front-photo-wrapper">
+              <div class="front-photo"></div>
+            </div>
+            <div class="front-text">
+              <h1>Human Being</h1>
+              <p>"Being Human"</p>
+              <button class="connect-button">Let's Connect</button>
+            </div>
+          </div>
+          <div class="back">
+            <a href="#" class="exit-icon"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <div class="social-media-wrapper">
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-snapchat-ghost"></i></a>
+              <a href="#" class="social-icon"><i class="fas fa-skull"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- java script -->
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+
+    <script>
+      // card js
+      $(document).ready(function () {
+        $(".connect-button").on("click", function () {
+          $(".inner-div").addClass("backface");
+          $(".outer-div").addClass("outer-div-clicked");
+          $(".social-icon").addClass("social-icon-backface");
+          $(".exit-icon").addClass("exit-backface");
+        });
+
+        $(".exit-icon").on("click", function () {
+          $(".inner-div").removeClass("backface");
+          $(".social-icon").removeClass("social-icon-backface");
+          $(".exit-icon").removeClass("exit-backface");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -18,7 +18,7 @@
     </style>
   </head>
   <body style="margin: 0; padding: 0">
-    <center>
+    <center id="login">
       <div
         style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; background-color: rgb(219, 217, 217)"
       >
@@ -47,7 +47,7 @@
       </div>
     </center>
 
-    <center id="home" class="">
+    <center id="home" style="display: none">
       <table border="0" width="700" height="140" cellpadding="0">
         <tr>
           <td colspan="2" rowspan="5" width="50%">
@@ -149,7 +149,6 @@
 
 <script>
   //VALIDATION
-
   function check() {
     var user = get_value("input");
     var user1 = get_html("user1");
@@ -159,9 +158,8 @@
     // console.log(user);
 
     if (user == user1 || user == user2 || user == user3) {
-      //   $("#home").addClass("block");
-      //   document.getElementById("home").;
-      //   alert(user);
+      document.getElementById("home").style.display = "block";
+      document.getElementById("login").style.display = "none";
 
       document.getElementById("name").innerHTML = user;
       switch (user) {
