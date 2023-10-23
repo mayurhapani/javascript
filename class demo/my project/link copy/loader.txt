@@ -1,0 +1,39 @@
+/* loader start */
+/* body {
+  width: 100%;
+  background-color: #0a0b20;
+  scroll-behavior: smooth;
+}
+#loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #0d1721;
+  z-index: 1000;
+  -webkit-transition: 0.3s ease opacity;
+  transition: 0.3s ease opacity;
+}
+#loader:before,
+#loader:after {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 2px solid #1946c1;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation-name: loaderCircleAnim;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#loader:after {
+  animation-delay: 1s;
+} */
+/* loader end */

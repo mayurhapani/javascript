@@ -9,56 +9,479 @@
     <link rel="stylesheet" href="assets/css/all.min.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/stylehome.css" />
+    <link rel="stylesheet" href="assets/css/stylecard.css" />
+    <link rel="stylesheet" href="assets/css/media.css" />
   </head>
   <body>
-    <section class="welcome_page"></section>
+    <!-- loader -->
+    <!-- <div id="loader"></div> -->
+    <section class="hero center" data-animation="animationContainer animated">
+      <div class="hero_inner"></div>
 
-    <!-- <section class="card-section">
-      <div class="outer-div">
-        <div class="inner-div">
+      <div class="lines">
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+        <div class="line-container">
+          <div class="animated-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card_section" id="card_section">
+      <div id="outer_div" class="outer-div">
+        <div class="inner-div" id="inner_div1">
           <div class="front">
-            <div class="front-photo-wrapper">
-              <div class="front-photo"></div>
-            </div>
             <div class="front-text">
-              <h1>Human Being</h1>
-              <p>"Being Human"</p>
-              <button class="connect-button">Let's Connect</button>
+              <h2>Project 1</h2>
+              <h3>Calculater</h3>
+            </div>
+
+            <div class="Select_button_div">
+              <button class="Select_button" onclick="addnew('inner_div1','exit_icon','outer_div','inner_div2')">Check Me</button>
             </div>
           </div>
           <div class="back">
-            <a href="#" class="exit-icon"><i class="fa fa-times" aria-hidden="true"></i></a>
-            <div class="social-media-wrapper">
-              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-snapchat-ghost"></i></a>
-              <a href="#" class="social-icon"><i class="fas fa-skull"></i></a>
+            <a href="#card_section" id="exit_icon" class="exit-icon" onclick="removeold('inner_div1','exit_icon','outer_div','inner_div2')"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
+
+            <div class="back_card_body">
+              <div class="cal">
+                <div>
+                  <div class="c_disp"><span id="display"></span></div>
+                  <div class="c_disp"><span id="display1"></span></div>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('1')"><span>1</span></button>
+                  <button class="btn" onclick="clk('2')"><span>2</span></button>
+                  <button class="btn" onclick="clk('3')"><span>3</span></button>
+                  <button class="btn" onclick="clk1('+')"><span>+</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('4')"><span>4</span></button>
+                  <button class="btn" onclick="clk('5')"><span>5</span></button>
+                  <button class="btn" onclick="clk('6')"><span>6</span></button>
+                  <button class="btn" onclick="clk1('-')"><span>-</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('7')"><span>7</span></button>
+                  <button class="btn" onclick="clk('8')"><span>8</span></button>
+                  <button class="btn" onclick="clk('9')"><span>9</span></button>
+                  <button class="btn" onclick="clk1('*')"><span>x</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="total()"><span>=</span></button>
+                  <button class="btn" onclick="clk('0')"><span>0</span></button>
+                  <button class="btn" onclick="clearall()"><span>C</span></button>
+                  <button class="btn" onclick="clk1('/')"><span>/</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inner-div" id="inner_div2">
+          <div class="front">
+            <div class="front-text">
+              <h2>Project 1</h2>
+              <h3>Calculater</h3>
+            </div>
+
+            <div class="Select_button_div">
+              <button class="Select_button" onclick="addnew('inner_div2','exit_icon2','outer_div','inner_div1')">Check Me</button>
+            </div>
+          </div>
+          <div class="back">
+            <a href="#card_section" id="exit_icon2" class="exit-icon" onclick="removeold('inner_div2','exit_icon2','outer_div','inner_div1')"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
+
+            <div class="back_card_body">
+              <!-- <div class="cal">
+                <div>
+                  <div class="c_disp"><span id="display"></span></div>
+                  <div class="c_disp"><span id="display1"></span></div>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('1')"><span>1</span></button>
+                  <button class="btn" onclick="clk('2')"><span>2</span></button>
+                  <button class="btn" onclick="clk('3')"><span>3</span></button>
+                  <button class="btn" onclick="clk1('+')"><span>+</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('4')"><span>4</span></button>
+                  <button class="btn" onclick="clk('5')"><span>5</span></button>
+                  <button class="btn" onclick="clk('6')"><span>6</span></button>
+                  <button class="btn" onclick="clk1('-')"><span>-</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('7')"><span>7</span></button>
+                  <button class="btn" onclick="clk('8')"><span>8</span></button>
+                  <button class="btn" onclick="clk('9')"><span>9</span></button>
+                  <button class="btn" onclick="clk1('*')"><span>x</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="total()"><span>=</span></button>
+                  <button class="btn" onclick="clk('0')"><span>0</span></button>
+                  <button class="btn" onclick="clearall()"><span>C</span></button>
+                  <button class="btn" onclick="clk1('/')"><span>/</span></button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="inner-div" id="inner_div3">
+          <div class="front">
+            <div class="front-text">
+              <h2>Project 1</h2>
+              <h3>Calculater</h3>
+            </div>
+
+            <div class="Select_button_div">
+              <button class="Select_button" onclick="addnew('inner_div3','exit_icon3','outer_div','inner_div1')">Check Me</button>
+            </div>
+          </div>
+          <div class="back">
+            <a href="#" id="exit_icon3" class="exit-icon" onclick="removeold('inner_div3','exit_icon3','outer_div','inner_div1')"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
+
+            <div class="back_card_body">
+              <!-- <div class="cal">
+                <div>
+                  <div class="c_disp"><span id="display"></span></div>
+                  <div class="c_disp"><span id="display1"></span></div>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('1')"><span>1</span></button>
+                  <button class="btn" onclick="clk('2')"><span>2</span></button>
+                  <button class="btn" onclick="clk('3')"><span>3</span></button>
+                  <button class="btn" onclick="clk1('+')"><span>+</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('4')"><span>4</span></button>
+                  <button class="btn" onclick="clk('5')"><span>5</span></button>
+                  <button class="btn" onclick="clk('6')"><span>6</span></button>
+                  <button class="btn" onclick="clk1('-')"><span>-</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('7')"><span>7</span></button>
+                  <button class="btn" onclick="clk('8')"><span>8</span></button>
+                  <button class="btn" onclick="clk('9')"><span>9</span></button>
+                  <button class="btn" onclick="clk1('*')"><span>x</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="total()"><span>=</span></button>
+                  <button class="btn" onclick="clk('0')"><span>0</span></button>
+                  <button class="btn" onclick="clearall()"><span>C</span></button>
+                  <button class="btn" onclick="clk1('/')"><span>/</span></button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="inner-div" id="inner_div4">
+          <div class="front">
+            <div class="front-text">
+              <h2>Project 1</h2>
+              <h3>Calculater</h3>
+            </div>
+
+            <div class="Select_button_div">
+              <button class="Select_button" onclick="addnew('inner_div4','exit_icon4','outer_div','inner_div2')">Check Me</button>
+            </div>
+          </div>
+          <div class="back">
+            <a href="#" id="exit_icon4" class="exit-icon" onclick="removeold('inner_div4','exit_icon4','outer_div','inner_div2')"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
+
+            <div class="back_card_body">
+              <!-- <div class="cal">
+                <div>
+                  <div class="c_disp"><span id="display"></span></div>
+                  <div class="c_disp"><span id="display1"></span></div>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('1')"><span>1</span></button>
+                  <button class="btn" onclick="clk('2')"><span>2</span></button>
+                  <button class="btn" onclick="clk('3')"><span>3</span></button>
+                  <button class="btn" onclick="clk1('+')"><span>+</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('4')"><span>4</span></button>
+                  <button class="btn" onclick="clk('5')"><span>5</span></button>
+                  <button class="btn" onclick="clk('6')"><span>6</span></button>
+                  <button class="btn" onclick="clk1('-')"><span>-</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('7')"><span>7</span></button>
+                  <button class="btn" onclick="clk('8')"><span>8</span></button>
+                  <button class="btn" onclick="clk('9')"><span>9</span></button>
+                  <button class="btn" onclick="clk1('*')"><span>x</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="total()"><span>=</span></button>
+                  <button class="btn" onclick="clk('0')"><span>0</span></button>
+                  <button class="btn" onclick="clearall()"><span>C</span></button>
+                  <button class="btn" onclick="clk1('/')"><span>/</span></button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="inner-div" id="inner_div5">
+          <div class="front">
+            <div class="front-text">
+              <h2>Project 1</h2>
+              <h3>Calculater</h3>
+            </div>
+
+            <div class="Select_button_div">
+              <button class="Select_button" onclick="addnew('inner_div5','exit_icon5','outer_div','inner_div2')">Check Me</button>
+            </div>
+          </div>
+          <div class="back">
+            <a href="#" id="exit_icon5" class="exit-icon" onclick="removeold('inner_div5','exit_icon5','outer_div','inner_div2')"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
+
+            <div class="back_card_body">
+              <!-- <div class="cal">
+                <div>
+                  <div class="c_disp"><span id="display"></span></div>
+                  <div class="c_disp"><span id="display1"></span></div>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('1')"><span>1</span></button>
+                  <button class="btn" onclick="clk('2')"><span>2</span></button>
+                  <button class="btn" onclick="clk('3')"><span>3</span></button>
+                  <button class="btn" onclick="clk1('+')"><span>+</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('4')"><span>4</span></button>
+                  <button class="btn" onclick="clk('5')"><span>5</span></button>
+                  <button class="btn" onclick="clk('6')"><span>6</span></button>
+                  <button class="btn" onclick="clk1('-')"><span>-</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('7')"><span>7</span></button>
+                  <button class="btn" onclick="clk('8')"><span>8</span></button>
+                  <button class="btn" onclick="clk('9')"><span>9</span></button>
+                  <button class="btn" onclick="clk1('*')"><span>x</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="total()"><span>=</span></button>
+                  <button class="btn" onclick="clk('0')"><span>0</span></button>
+                  <button class="btn" onclick="clearall()"><span>C</span></button>
+                  <button class="btn" onclick="clk1('/')"><span>/</span></button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="inner-div" id="inner_div6">
+          <div class="front">
+            <div class="front-text">
+              <h2>Project 1</h2>
+              <h3>Calculater</h3>
+            </div>
+
+            <div class="Select_button_div">
+              <button class="Select_button" onclick="addnew('inner_div6','exit_icon6','outer_div','inner_div2')">Check Me</button>
+            </div>
+          </div>
+          <div class="back">
+            <a href="#" id="exit_icon6" class="exit-icon" onclick="removeold('inner_div6','exit_icon6','outer_div','inner_div2')"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
+
+            <div class="back_card_body">
+              <!-- <div class="cal">
+                <div>
+                  <div class="c_disp"><span id="display"></span></div>
+                  <div class="c_disp"><span id="display1"></span></div>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('1')"><span>1</span></button>
+                  <button class="btn" onclick="clk('2')"><span>2</span></button>
+                  <button class="btn" onclick="clk('3')"><span>3</span></button>
+                  <button class="btn" onclick="clk1('+')"><span>+</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('4')"><span>4</span></button>
+                  <button class="btn" onclick="clk('5')"><span>5</span></button>
+                  <button class="btn" onclick="clk('6')"><span>6</span></button>
+                  <button class="btn" onclick="clk1('-')"><span>-</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="clk('7')"><span>7</span></button>
+                  <button class="btn" onclick="clk('8')"><span>8</span></button>
+                  <button class="btn" onclick="clk('9')"><span>9</span></button>
+                  <button class="btn" onclick="clk1('*')"><span>x</span></button>
+                </div>
+                <div class="flex">
+                  <button class="btn" onclick="total()"><span>=</span></button>
+                  <button class="btn" onclick="clk('0')"><span>0</span></button>
+                  <button class="btn" onclick="clearall()"><span>C</span></button>
+                  <button class="btn" onclick="clk1('/')"><span>/</span></button>
+                </div>
+              </div> -->
             </div>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- java script -->
     <script src="assets/js/jquery-3.7.0.min.js"></script>
 
     <script>
-      // card js
-      $(document).ready(function () {
-        $(".connect-button").on("click", function () {
-          $(".inner-div").addClass("backface");
-          $(".outer-div").addClass("outer-div-clicked");
-          $(".social-icon").addClass("social-icon-backface");
-          $(".exit-icon").addClass("exit-backface");
-        });
+      // LOADER
+      // jQuery(window).on("load", function () {
+      //   // "use strict";
+      //   setTimeout(function () {
+      //     jQuery("#loader").css("opacity", 0);
+      //   }, 100);
 
-        $(".exit-icon").on("click", function () {
-          $(".inner-div").removeClass("backface");
-          $(".social-icon").removeClass("social-icon-backface");
-          $(".exit-icon").removeClass("exit-backface");
-        });
-      });
+      //   setTimeout(function () {
+      //     jQuery("#loader").hide();
+      //     jQuery("body").addClass("loaded-content");
+      //   }, 350);
+      // });
+
+      //hero anomation
+
+      // card js
+
+      //card section
+      // $(document).ready(function () {
+      //   $(".Select_button").on("click", function () {
+      //     $(".inner-div").addClass("backface");
+      //     $(".outer-div").addClass("outer-div-clicked");
+      //     $(".social-icon").addClass("social-icon-backface");
+      //     $(".exit-icon").addClass("exit-backface");
+      //   });
+
+      //   $(".exit-icon").on("click", function () {
+      //     $(".inner-div").removeClass("backface");
+      //     $(".social-icon").removeClass("social-icon-backface");
+      //     $(".exit-icon").removeClass("exit-backface");
+      //   });
+      // });
+
+      function addnew(id, ex_id, outer_div, ineer_1, ineer_2, ineer_3, ineer_4, ineer_5) {
+        let card_id = document.getElementById(id);
+        let card_exit_icon = document.getElementById(ex_id);
+        let card_outer_div = document.getElementById(outer_div);
+        let card_inner_div1 = document.getElementById(ineer_1);
+        let card_inner_div2 = document.getElementById(ineer_2);
+        let card_inner_div3 = document.getElementById(ineer_3);
+        let card_inner_div4 = document.getElementById(ineer_4);
+        let card_inner_div5 = document.getElementById(ineer_5);
+
+        card_id.classList.add("backface");
+        card_exit_icon.classList.add("exit-backface");
+        card_outer_div.classList.add("outer-div-clicked");
+        card_inner_div1.classList.add("d_none");
+        card_inner_div2.classList.add("d_none");
+        card_inner_div3.classList.add("d_none");
+        card_inner_div4.classList.add("d_none");
+        card_inner_div5.classList.add("d_none");
+      }
+
+      function removeold(id, ex_id, outer_div, ineer_1, ineer_2, ineer_3, ineer_4, ineer_5) {
+        let card_id = document.getElementById(id);
+        let card_exit_icon = document.getElementById(ex_id);
+        let card_outer_div = document.getElementById(outer_div);
+        let card_inner_div1 = document.getElementById(ineer_1);
+        let card_inner_div2 = document.getElementById(ineer_2);
+        let card_inner_div3 = document.getElementById(ineer_3);
+        let card_inner_div4 = document.getElementById(ineer_4);
+        let card_inner_div5 = document.getElementById(ineer_5);
+
+        card_id.classList.remove("backface");
+        card_exit_icon.classList.remove("exit-backface");
+        card_outer_div.classList.remove("outer-div-clicked");
+        card_inner_div1.classList.remove("d_none");
+        card_inner_div2.classList.remove("d_none");
+        card_inner_div3.classList.remove("d_none");
+        card_inner_div4.classList.remove("d_none");
+        card_inner_div5.classList.remove("d_none");
+      }
+
+      //calculate
+
+      var flag;
+
+      function clk(value) {
+        document.getElementById("display").innerHTML += value;
+        disp();
+        flag = 0;
+      }
+      function clk1(value) {
+        console.log(flag);
+        if (flag == 0) {
+          document.getElementById("display").innerHTML += value;
+          flag = 1;
+          disp();
+
+          // console.log(flag);
+        } else {
+          let lastVal = document.getElementById("display").innerHTML;
+          // console.log(lastVal);
+          let newVal = lastVal.substr(0, lastVal.length - 1) + value;
+          document.getElementById("display").innerHTML = newVal;
+          flag = 1;
+          disp();
+        }
+      }
+
+      function disp() {
+        var result = eval(document.getElementById("display").innerHTML);
+        document.getElementById("display1").innerHTML = result;
+      }
+
+      function clearall() {
+        // console.log("hii");
+        document.getElementById("display").innerHTML = 0;
+        document.getElementById("display1").innerHTML = 0;
+      }
+
+      function total() {
+        // console.log("hiii");
+        var result = eval(document.getElementById("display").innerHTML);
+        document.getElementById("display").innerHTML = result;
+        // console.log(result);
+      }
     </script>
   </body>
 </html>
