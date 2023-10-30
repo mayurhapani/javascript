@@ -10,7 +10,6 @@ body {
   height: 100vh;
   overflow: visible;
   font-family: "Overpass", sans-serif;
-
   width: 100%;
 }
 
@@ -21,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  max-height: 100vh;
+  height: 100vh;
   padding-top: 251px;
   padding-bottom: 87px;
 

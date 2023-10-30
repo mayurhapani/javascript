@@ -1,0 +1,49 @@
+<script>
+  var i = 0;
+
+  while (i < 9) {
+    var j = 0;
+    while (j <= i) {
+      document.write("&nbsp &nbsp");
+      j++;
+    }
+
+    j = 9;
+    while (j > i) {
+      if (i == 0 || j == 9 || j == i + 1) {
+        document.write("&nbsp * &nbsp");
+      } else {
+        // document.write("&nbsp + &nbsp");
+        document.write("&nbsp &nbsp &nbsp ");
+      }
+      j--;
+    }
+    i++;
+    document.write("<br>");
+  }
+</script>
+
+<script>
+  var i = 0;
+
+  do {
+    var j = 0;
+    do {
+      document.write("&nbsp &nbsp");
+      j++;
+    } while (j <= i);
+
+    j = 9;
+    do {
+      if (i == 0 || j == 9 || j == i + 1) {
+        document.write("&nbsp * &nbsp");
+      } else {
+        // document.write("&nbsp + &nbsp");
+        document.write("&nbsp &nbsp &nbsp ");
+      }
+      j--;
+    } while (j > i);
+    i++;
+    document.write("<br>");
+  } while (i < 9);
+</script>

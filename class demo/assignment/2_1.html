@@ -1,0 +1,61 @@
+<!-- 1). Write A JS Program To Input Week Number(1-7) And Print
+     Day Of Week Name Using Switch Case. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2_1</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label>Enter Any Number Between 1-7 For Weekdat</label> <br />
+      <br />
+      <input maxlength="1" id="input" type="text" /> <br />
+      <br />
+      <button onclick="run()">Submit</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+<script>
+  function run() {
+    let input = document.getElementById("input").value;
+    switch (input) {
+      case "1":
+        document.getElementById("result").innerHTML = "You Choose Monday";
+        break;
+      case "2":
+        document.getElementById("result").innerHTML = "You Choose Tuesday";
+        break;
+      case "3":
+        document.getElementById("result").innerHTML = "You Choose Wednesday";
+        break;
+      case "4":
+        document.getElementById("result").innerHTML = "You Choose Thurseday";
+        break;
+      case "5":
+        document.getElementById("result").innerHTML = "You Choose Friday";
+        break;
+      case "6":
+        document.getElementById("result").innerHTML = "You Choose Saturday";
+        break;
+      case "7":
+        document.getElementById("result").innerHTML = "You Choose Sunday";
+        break;
+      default:
+        document.getElementById("result").innerHTML = "You Choose Wrong Option";
+        break;
+    }
+  }
+</script>

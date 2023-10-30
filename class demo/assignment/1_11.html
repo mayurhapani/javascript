@@ -1,0 +1,263 @@
+<!-- 11). Write A JS Program To Input Electricity Unit Charge And Calculate The Total Electricity Bill According To The Given Condition:
+For First 50 Units Rs. 0.50/Unit
+For Next 100 Units Rs. 0.75/Unit
+For Next 100 Units Rs. 1.20/Unit
+For Unit Above 250 Rs. 1.50/Unit
+Additional Surcharge Of 20% -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_11</title>
+    <style>
+      .block {
+        display: block !important;
+      }
+      .none {
+        display: none;
+      }
+      .ps-40 {
+        padding-left: 40px;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <center id="login">
+      <div
+        style="
+          position: relative;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(219, 217, 217);
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 25%;
+            border-radius: 5%;
+            padding: 40px;
+            align-items: center;
+            background-color: rgb(208, 204, 204);
+          "
+        >
+          <h1>Input Your Electricity Bill Units</h1>
+          <input
+            style="outline: none; background: rgb(193, 192, 192); width: 60%; font-size: 20px"
+            type="number"
+            id="input"
+          />
+          <button style="margin-top: 20px; padding: 6px 20px" onclick="check()">Submit</button>
+        </div>
+      </div>
+    </center>
+
+    <center id="home" style="display: none">
+      <table border="0" width="700" height="140" cellpadding="0">
+        <tr>
+          <td colspan="2" rowspan="5" width="50%"></td>
+          <td align="right" width="25%" rowspan="4">
+            <b> Invoice Number</b> <br />
+            2563 <br />
+            <br />
+            <br />
+          </td>
+          <td align="right" width="25%" rowspan="4">
+            <b> Payment method</b> <br />
+            Bank Transfer <br />
+            Date <br />
+            20-01-2023
+          </td>
+        </tr>
+      </table>
+      <table border="0" width="700" height="40">
+        <tr></tr>
+      </table>
+      <table border="0" width="500" height="150" cellpadding="0">
+        <tr>
+          <td align="left" width="33.33%">
+            <b> Mr. </b>&nbsp; <span id="name"></span> <br />
+            <br />
+            <b> Account no.</b>
+            <span id="accountno"> </span>
+          </td>
+          <td width="33.33%"></td>
+          <td align="left" width="33.33%"><b> Address </b>&nbsp; <span id="address"> </span></td>
+        </tr>
+      </table>
+      <table border="0" width="700" height="300">
+        <tr align="center">
+          <th width="50%">Description</th>
+          <th width="20%">Units</th>
+          <th width="15%">Amount</th>
+          <th width="15%">Total</th>
+        </tr>
+        <tr align="center">
+          <td>For First 50 Units :</td>
+          <td id="units_50"></td>
+          <td><span>Rs </span><span id="rate_50"></span></td>
+          <td><span>Rs </span><span id="Total_50"></span></td>
+        </tr>
+        <tr align="center">
+          <td>For Next 100 Units :</td>
+          <td id="units_100"></td>
+          <td><span>Rs </span><span id="rate_100"></span></td>
+          <td><span>Rs </span><span id="Total_100"></span></td>
+        </tr>
+        <tr align="center">
+          <td>For Next 100 Units :</td>
+          <td id="units_100_2"></td>
+          <td><span>Rs </span><span id="rate_next_100"></span></td>
+          <td><span>Rs </span><span id="Total_100_2"></span></td>
+        </tr>
+        <tr align="center">
+          <td>Unit Above 250 :</td>
+          <td id="unit_250"></td>
+          <td><span>Rs </span><span id="rate_250"></span></td>
+          <td><span>Rs </span><span id="Total_250"></span></td>
+        </tr>
+        <!-- total -->
+        <tr align="center">
+          <th></th>
+          <th id="total_units"></th>
+          <th>Gross Total =</th>
+          <th><span>$</span><span id="G_TOTAL"></span></th>
+        </tr>
+        <tr align="center">
+          <th></th>
+          <th></th>
+          <th>Additional charge =</th>
+          <th><span>$</span><span id="A_Charge"></span></th>
+        </tr>
+        <tr align="center">
+          <th></th>
+          <th></th>
+          <th>Total =</th>
+          <th><span>$</span><span id="TOTAL"></span></th>
+        </tr>
+      </table>
+      <table border="0" width="700" height="60">
+        <tr></tr>
+      </table>
+      <table border="0" width="700" height="100">
+        <tr>
+          <td width="50%">
+            <b>Terms and conditions</b><br />
+            A constellation consists of visible stars that from <br />
+            a perceived outline or pattern, usually <br />
+            representting an animal a person..
+          </td>
+          <td align="right"></td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+
+<script>
+  //VALIDATION
+  function check() {
+    let rate_50 = 0.5;
+    let rate_100 = 0.75;
+    let rate_next_100 = 1.25;
+    let rate_250 = 1.5;
+
+    var Total_50 = 0;
+    var Total_100 = 0;
+    var Total_100_2 = 0;
+    var Total_250 = 0;
+
+    var Units = document.getElementById("input").value;
+
+    if (Units > 50) {
+      let rem_Units_50 = Units - 50;
+      let units_50 = 50;
+      document.getElementById("units_50").innerHTML = units_50;
+      Total_50 = units_50 * rate_50;
+      //   console.log(Total_50);
+
+      document.getElementById("rate_50").innerHTML = rate_50;
+      document.getElementById("Total_50").innerHTML = Total_50;
+
+      if (rem_Units_50 > 100) {
+        let rem_Units_100_1 = rem_Units_50 - 100;
+        let units_100 = 100;
+        document.getElementById("units_100").innerHTML = units_100;
+
+        Total_100 = units_100 * rate_100;
+
+        document.getElementById("rate_100").innerHTML = rate_100;
+        document.getElementById("Total_100").innerHTML = Total_100;
+
+        if (rem_Units_100_1 > 100) {
+          let unit_250 = rem_Units_100_1 - 100;
+          units_100 = 100;
+          document.getElementById("units_100_2").innerHTML = units_100;
+
+          Total_100_2 = units_100 * rate_next_100;
+
+          document.getElementById("rate_next_100").innerHTML = rate_next_100;
+          document.getElementById("Total_100_2").innerHTML = Total_100_2;
+          if (unit_250 > 0) {
+            document.getElementById("unit_250").innerHTML = unit_250;
+
+            Total_250 = unit_250 * rate_250;
+
+            document.getElementById("rate_250").innerHTML = rate_250;
+            document.getElementById("Total_250").innerHTML = Total_250;
+          }
+        } else {
+          units_100 = rem_Units_100_1;
+          document.getElementById("units_100_2").innerHTML = units_100;
+
+          Total_100_2 = units_100 * rate_next_100;
+
+          document.getElementById("rate_next_100").innerHTML = rate_next_100;
+          document.getElementById("Total_100_2").innerHTML = Total_100_2;
+        }
+      } else {
+        units_100 = rem_Units_50;
+        document.getElementById("units_100").innerHTML = units_100;
+
+        Total_100 = units_100 * rate_100;
+
+        document.getElementById("rate_100").innerHTML = rate_100;
+        document.getElementById("Total_100").innerHTML = Total_100;
+      }
+    } else {
+      units_50 = Units;
+      document.getElementById("units_50").innerHTML = units_50;
+
+      Total_50 = units_50 * rate_50;
+
+      document.getElementById("rate_50").innerHTML = rate_50;
+      document.getElementById("Total_50").innerHTML = Total_50;
+    }
+    add_print();
+    let G_TOTAL = Total_50 + Total_100 + Total_100_2 + Total_250;
+
+    document.getElementById("G_TOTAL").innerHTML = G_TOTAL;
+
+    let Additional = (G_TOTAL * 20) / 100;
+    document.getElementById("A_Charge").innerHTML = Additional;
+
+    document.getElementById("TOTAL").innerHTML = G_TOTAL + Additional;
+  }
+
+  function add_print() {
+    document.getElementById("home").style.display = "block";
+    document.getElementById("login").style.display = "none";
+
+    document.getElementById("address").innerHTML =
+      "<br>" + "Vansk Avenue 11" + "<br>" + "1111 City" + "<br>" + "CRN : 123 456 789A";
+
+    document.getElementById("accountno").innerHTML = "<br>" + "111 111 111 111";
+  }
+</script>

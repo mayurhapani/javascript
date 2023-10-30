@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_4</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div>
+      <label>enter number for find month between 1-12 </label> <br /><br />
+      <input maxlength="2" id="input" type="text" /> <br /><br />
+      <button onclick="run()">Submit</button>
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  function run() {
+    var input = parseInt(document.getElementById("input").value);
+    var month = ["January", "Fabruary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    console.log(month.length, input);
+    for (var i = 0; i < month.length - 1; i++) {
+      //   console.log(month[i], input, i + 1);
+      if (input == i + 1) {
+        document.getElementById("result").innerHTML = input + " = Is " + month[i];
+        break;
+      } else {
+        document.getElementById("result").innerHTML = input + " = is not valid number";
+      }
+    }
+
+    // if (input == 1) {
+    //   document.getElementById("result").innerHTML = input + " = Is January";
+    // } else if (input == 2) {
+    //   document.getElementById("result").innerHTML = input + " = Is Fabruary";
+    // } else if (input == 3) {
+    //   document.getElementById("result").innerHTML = input + " = Is March";
+    // } else if (input == 4) {
+    //   document.getElementById("result").innerHTML = input + " = Is April";
+    // } else if (input == 5) {
+    //   document.getElementById("result").innerHTML = input + " = Is May";
+    // } else if (input == 6) {
+    //   document.getElementById("result").innerHTML = input + " = Is June";
+    // } else if (input == 7) {
+    //   document.getElementById("result").innerHTML = input + " = Is July";
+    // } else if (input == 8) {
+    //   document.getElementById("result").innerHTML = input + " = Is August";
+    // } else if (input == 9) {
+    //   document.getElementById("result").innerHTML = input + " = Is September";
+    // } else if (input == 10) {
+    //   document.getElementById("result").innerHTML = input + " = Is October";
+    // } else if (input == 11) {
+    //   document.getElementById("result").innerHTML = input + " = Is November";
+    // } else if (input == 12) {
+    //   document.getElementById("result").innerHTML = input + " = Is December";
+    // } else {
+    //   document.getElementById("result").innerHTML = input + " = is not valid number";
+    // }
+  }
+</script>

@@ -17,10 +17,10 @@
         height: 100vh;
       }
       .cal {
-        width: 600px;
+        width: 300px;
         display: flex;
         flex-direction: column;
-        padding: 50px;
+        margin: auto;
       }
       .flex {
         display: flex;
@@ -28,13 +28,13 @@
         justify-content: space-evenly;
       }
       .btn {
-        width: 100px;
-        height: 100px;
-        border-radius: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
         background: linear-gradient(145deg, #cacaca, #f0f0f0);
-        box-shadow: 15px 15px 30px #a8a8a8, -15px -15px 30px #ffffff;
+        box-shadow: 5px 5px 15px #a8a8a8, -5px -5px 15px #ffffff;
         position: relative;
-        margin: 20px;
+        margin: 10px;
         cursor: pointer;
         border: none;
       }
@@ -43,24 +43,24 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 50px;
+        font-size: 25px;
         font-weight: 600;
       }
       .c_disp {
-        width: 460px;
-        height: 100px;
-        border-radius: 20px;
+        width: 270px;
+        height: 50px;
+        border-radius: 10px;
         background: linear-gradient(145deg, #cacaca, #f0f0f0);
-        box-shadow: 15px 15px 30px #a8a8a8, -15px -15px 30px #ffffff;
+        box-shadow: 5px 5px 15px #a8a8a8, -5px -5px 15px #ffffff;
         position: relative;
-        margin: 20px;
+        margin: 10px 15px;
         overflow-y: hidden;
       }
       .c_disp span {
         position: absolute;
-        top: 20px;
+        top: 10px;
         right: 5%;
-        font-size: 50px;
+        font-size: 25px;
         font-weight: 900;
       }
     </style>
@@ -131,8 +131,8 @@
 
   function clearall() {
     // console.log("hii");
-    document.getElementById("display").innerHTML = 0;
-    document.getElementById("display1").innerHTML = 0;
+    document.getElementById("display").innerHTML = " ";
+    document.getElementById("display1").innerHTML = " ";
   }
 
   function total() {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div style="display: flex">
+      <h2 id="hour"></h2>
+      <h2>:</h2>
+      <h2 id="minute"></h2>
+      <h2>:</h2>
+      <h2 id="seconts"></h2>
+      <h2 style="padding-left: 10px" id="am_pm"></h2>
+    </div>
+    <div id="analog_clock"></div>
+  </body>
+</html>
+
+<script>
+  setInterval(function () {
+    let time = new Date();
+
+    let hour = time.getHours();
+    let minute = time.getMinutes();
+    let seconts = time.getSeconds();
+
+    // degital clock
+    if (hour >= 12) {
+      document.getElementById("hour").innerHTML = String(hour - 12).padStart(2, "0");
+    } else {
+      document.getElementById("hour").innerHTML = String(hour).padStart(2, "0");
+    }
+    document.getElementById("minute").innerHTML = String(minute).padStart(2, "0");
+    document.getElementById("seconts").innerHTML = String(seconts).padStart(2, "0");
+
+    if (hour >= 12) {
+      document.getElementById("am_pm").innerHTML = "PM";
+    } else {
+      document.getElementById("am_pm").innerHTML = "AM";
+    }
+  }, 1000);
+</script>

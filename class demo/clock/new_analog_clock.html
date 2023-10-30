@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Analog clock</title>
+    <style>
+      body {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+        background-color: black;
+      }
+      .clock {
+        height: 400px;
+        width: 400px;
+        background-color: black;
+        border-radius: 50%;
+        position: relative;
+        /* transform: rotate(-3deg); */
+        /* text-align: center; */
+
+        filter: drop-shadow(46px 36px 24px #4090b5) drop-shadow(-55px -40px 25px #9e30a9);
+        animation: blinkShadowsFilter 8s ease-in infinite;
+      }
+      @keyframes blinkShadowsFilter {
+        0% {
+          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
+            drop-shadow(-55px -40px 28px #9e30a9);
+        }
+
+        25% {
+          filter: drop-shadow(46px -36px 24px rgba(64, 144, 181, 0.8980392157))
+            drop-shadow(-55px 40px 24px #9e30a9);
+        }
+
+        50% {
+          filter: drop-shadow(46px 36px 30px rgba(64, 144, 181, 0.8980392157))
+            drop-shadow(-55px 40px 30px rgba(159, 48, 169, 0.2941176471));
+        }
+
+        75% {
+          filter: drop-shadow(20px -18px 25px rgba(64, 144, 181, 0.8980392157))
+            drop-shadow(-20px 20px 25px rgba(159, 48, 169, 0.2941176471));
+        }
+
+        to {
+          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
+            drop-shadow(-55px -40px 28px #9e30a9);
+        }
+      }
+
+      .second {
+        position: absolute;
+        --sdeg: 0deg;
+        height: 100%;
+        width: 100%;
+        transform: rotate(calc(var(--sdeg)));
+        transition: all 1s linear;
+      }
+      .second_main {
+        height: 100%;
+        width: 100%;
+        transform: rotate(90deg) translate(0px, -8px);
+      }
+      .second_out {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        text-align: center;
+        padding-top: 15px;
+      }
+      .minute {
+        position: absolute;
+        --mdeg: 0deg;
+        height: 100%;
+        width: 100%;
+        transform: rotate(calc(var(--mdeg)));
+        transition: all 1s linear;
+      }
+      .minute_main {
+        height: 100%;
+        width: 100%;
+        transform: rotate(90deg) translate(0px, -38px);
+      }
+      .minute_out {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        text-align: center;
+        padding-top: 75px;
+      }
+      .hour {
+        position: absolute;
+        --hdeg: 0deg;
+        height: 100%;
+        width: 100%;
+        transform: rotate(calc(var(--hdeg)));
+        transition: all 1s linear;
+      }
+      .hour_main {
+        height: 100%;
+        width: 100%;
+        transform: rotate(90deg) translate(0px, -64px);
+      }
+      .hour_out {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        text-align: center;
+        padding-top: 130px;
+        font-size: 20px;
+      }
+      .d_clock {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      }
+
+      .second_main :nth-child(1),
+      .minute_main :nth-child(1) {
+        transform: rotate(-0deg);
+      }
+      .second_main :nth-child(2),
+      .minute_main :nth-child(2) {
+        transform: rotate(-6deg);
+      }
+      .second_main :nth-child(3),
+      .minute_main :nth-child(3) {
+        transform: rotate(-12deg);
+      }
+      .second_main :nth-child(4),
+      .minute_main :nth-child(4) {
+        transform: rotate(-18deg);
+      }
+      .second_main :nth-child(5),
+      .minute_main :nth-child(5) {
+        transform: rotate(-24deg);
+      }
+      .second_main :nth-child(6),
+      .minute_main :nth-child(6) {
+        transform: rotate(-30deg);
+      }
+      .second_main :nth-child(7),
+      .minute_main :nth-child(7) {
+        transform: rotate(-36deg);
+      }
+      .second_main :nth-child(8),
+      .minute_main :nth-child(8) {
+        transform: rotate(-42deg);
+      }
+      .second_main :nth-child(9),
+      .minute_main :nth-child(9) {
+        transform: rotate(-48deg);
+      }
+      .second_main :nth-child(10),
+      .minute_main :nth-child(10) {
+        transform: rotate(-54deg);
+      }
+      .second_main :nth-child(11),
+      .minute_main :nth-child(11) {
+        transform: rotate(-60deg);
+      }
+      .second_main :nth-child(12),
+      .minute_main :nth-child(12) {
+        transform: rotate(-66deg);
+      }
+      .second_main :nth-child(13),
+      .minute_main :nth-child(13) {
+        transform: rotate(-72deg);
+      }
+      .second_main :nth-child(14),
+      .minute_main :nth-child(14) {
+        transform: rotate(-78deg);
+      }
+      .second_main :nth-child(15),
+      .minute_main :nth-child(15) {
+        transform: rotate(-84deg);
+      }
+      .second_main :nth-child(16),
+      .minute_main :nth-child(16) {
+        transform: rotate(-90deg);
+      }
+      .second_main :nth-child(17),
+      .minute_main :nth-child(17) {
+        transform: rotate(-96deg);
+      }
+      .second_main :nth-child(18),
+      .minute_main :nth-child(18) {
+        transform: rotate(-102deg);
+      }
+      .second_main :nth-child(19),
+      .minute_main :nth-child(19) {
+        transform: rotate(-108deg);
+      }
+      .second_main :nth-child(20),
+      .minute_main :nth-child(20) {
+        transform: rotate(-114deg);
+      }
+      .second_main :nth-child(21),
+      .minute_main :nth-child(21) {
+        transform: rotate(-120deg);
+      }
+      .second_main :nth-child(22),
+      .minute_main :nth-child(22) {
+        transform: rotate(-126deg);
+      }
+      .second_main :nth-child(23),
+      .minute_main :nth-child(23) {
+        transform: rotate(-132deg);
+      }
+      .second_main :nth-child(24),
+      .minute_main :nth-child(24) {
+        transform: rotate(-138deg);
+      }
+      .second_main :nth-child(25),
+      .minute_main :nth-child(25) {
+        transform: rotate(-144deg);
+      }
+      .second_main :nth-child(26),
+      .minute_main :nth-child(26) {
+        transform: rotate(-150deg);
+      }
+      .second_main :nth-child(27),
+      .minute_main :nth-child(27) {
+        transform: rotate(-156deg);
+      }
+      .second_main :nth-child(28),
+      .minute_main :nth-child(28) {
+        transform: rotate(-162deg);
+      }
+      .second_main :nth-child(29),
+      .minute_main :nth-child(29) {
+        transform: rotate(-168deg);
+      }
+      .second_main :nth-child(30),
+      .minute_main :nth-child(30) {
+        transform: rotate(-174deg);
+      }
+      .second_main :nth-child(31),
+      .minute_main :nth-child(31) {
+        transform: rotate(-180deg);
+      }
+      .second_main :nth-child(32),
+      .minute_main :nth-child(32) {
+        transform: rotate(-186deg);
+      }
+      .second_main :nth-child(33),
+      .minute_main :nth-child(33) {
+        transform: rotate(-192deg);
+      }
+      .second_main :nth-child(34),
+      .minute_main :nth-child(34) {
+        transform: rotate(-198deg);
+      }
+      .second_main :nth-child(35),
+      .minute_main :nth-child(35) {
+        transform: rotate(-204deg);
+      }
+      .second_main :nth-child(36),
+      .minute_main :nth-child(36) {
+        transform: rotate(-210deg);
+      }
+      .second_main :nth-child(37),
+      .minute_main :nth-child(37) {
+        transform: rotate(-216deg);
+      }
+      .second_main :nth-child(38),
+      .minute_main :nth-child(38) {
+        transform: rotate(-222deg);
+      }
+      .second_main :nth-child(39),
+      .minute_main :nth-child(39) {
+        transform: rotate(-228deg);
+      }
+      .second_main :nth-child(40),
+      .minute_main :nth-child(40) {
+        transform: rotate(-234deg);
+      }
+      .second_main :nth-child(41),
+      .minute_main :nth-child(41) {
+        transform: rotate(-240deg);
+      }
+      .second_main :nth-child(42),
+      .minute_main :nth-child(42) {
+        transform: rotate(-246deg);
+      }
+      .second_main :nth-child(43),
+      .minute_main :nth-child(43) {
+        transform: rotate(-252deg);
+      }
+      .second_main :nth-child(44),
+      .minute_main :nth-child(44) {
+        transform: rotate(-258deg);
+      }
+      .second_main :nth-child(45),
+      .minute_main :nth-child(45) {
+        transform: rotate(-264deg);
+      }
+      .second_main :nth-child(46),
+      .minute_main :nth-child(46) {
+        transform: rotate(-270deg);
+      }
+      .second_main :nth-child(47),
+      .minute_main :nth-child(47) {
+        transform: rotate(-276deg);
+      }
+      .second_main :nth-child(48),
+      .minute_main :nth-child(48) {
+        transform: rotate(-282deg);
+      }
+      .second_main :nth-child(49),
+      .minute_main :nth-child(49) {
+        transform: rotate(-288deg);
+      }
+      .second_main :nth-child(50),
+      .minute_main :nth-child(50) {
+        transform: rotate(-294deg);
+      }
+      .second_main :nth-child(51),
+      .minute_main :nth-child(51) {
+        transform: rotate(-300deg);
+      }
+      .second_main :nth-child(52),
+      .minute_main :nth-child(52) {
+        transform: rotate(-306deg);
+      }
+      .second_main :nth-child(53),
+      .minute_main :nth-child(53) {
+        transform: rotate(-312deg);
+      }
+      .second_main :nth-child(54),
+      .minute_main :nth-child(54) {
+        transform: rotate(-318deg);
+      }
+      .second_main :nth-child(55),
+      .minute_main :nth-child(55) {
+        transform: rotate(-324deg);
+      }
+      .second_main :nth-child(56),
+      .minute_main :nth-child(56) {
+        transform: rotate(-330deg);
+      }
+      .second_main :nth-child(57),
+      .minute_main :nth-child(57) {
+        transform: rotate(-336deg);
+      }
+      .second_main :nth-child(58),
+      .minute_main :nth-child(58) {
+        transform: rotate(-342deg);
+      }
+      .second_main :nth-child(59),
+      .minute_main :nth-child(59) {
+        transform: rotate(-348deg);
+      }
+      .second_main :nth-child(60),
+      .minute_main :nth-child(60) {
+        transform: rotate(-354deg);
+      }
+
+      .hour_main :nth-child(1) {
+        transform: rotate(-30deg);
+      }
+      .hour_main :nth-child(2) {
+        transform: rotate(-60deg);
+      }
+      .hour_main :nth-child(3) {
+        transform: rotate(-90deg);
+      }
+      .hour_main :nth-child(4) {
+        transform: rotate(-120deg);
+      }
+      .hour_main :nth-child(5) {
+        transform: rotate(-150deg);
+      }
+      .hour_main :nth-child(6) {
+        transform: rotate(-180deg);
+      }
+      .hour_main :nth-child(7) {
+        transform: rotate(-210deg);
+      }
+      .hour_main :nth-child(8) {
+        transform: rotate(-240deg);
+      }
+      .hour_main :nth-child(9) {
+        transform: rotate(-270deg);
+      }
+      .hour_main :nth-child(10) {
+        transform: rotate(-300deg);
+      }
+      .hour_main :nth-child(11) {
+        transform: rotate(-330deg);
+      }
+      .hour_main :nth-child(12) {
+        transform: rotate(-0deg);
+      }
+
+      .view {
+        border: 2px solid rgb(232, 232, 232);
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        height: 30px;
+        width: 95px;
+        position: absolute;
+        right: 0;
+        top: 184px;
+      }
+
+      .hour_num,
+      .second_num,
+      .minute_num {
+        display: inline-block;
+        transform: rotate(-90deg) !important;
+      }
+      /* .hour_main :nth-child(7) .hour_num {
+        --c_hours: 0deg;
+        transform: rotate(calc(var(--c_hours)));
+      }
+      .hour_main :nth-child(8) .hour_num {
+        --c_hours: 0deg;
+        transform: rotate(calc(var(--c_hours)));
+      } */
+      /* .hour_main:nth-child(9).hour_num {
+        --c_hours: 0deg;
+        transform: rotate(calc(var(--c_hours))) !important;
+      } */
+      /*.hour_main :nth-child(10) .hour_num {
+        --c_hours: 0deg;
+        transform: rotate(calc(var(--c_hours)));
+      }
+      .hour_main :nth-child(11) .hour_num {
+        --c_hours: 0deg;
+        transform: rotate(calc(var(--c_hours)));
+      }
+      .hour_main :nth-child(12) .hour_num {
+        --c_hours: 0deg;
+        transform: rotate(calc(var(--c_hours)));
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="second">
+        <div class="second_main">
+          <div class="second_out"><span class="second_num">1</span></div>
+          <div class="second_out"><span class="second_num">2</span></div>
+          <div class="second_out"><span class="second_num">3</span></div>
+          <div class="second_out"><span class="second_num">4</span></div>
+          <div class="second_out"><span class="second_num">5</span></div>
+          <div class="second_out"><span class="second_num">6</span></div>
+          <div class="second_out"><span class="second_num">7</span></div>
+          <div class="second_out"><span class="second_num">8</span></div>
+          <div class="second_out"><span class="second_num">9</span></div>
+          <div class="second_out"><span class="second_num">10</span></div>
+          <div class="second_out"><span class="second_num">11</span></div>
+          <div class="second_out"><span class="second_num">12</span></div>
+          <div class="second_out"><span class="second_num">13</span></div>
+          <div class="second_out"><span class="second_num">14</span></div>
+          <div class="second_out"><span class="second_num">15</span></div>
+          <div class="second_out"><span class="second_num">16</span></div>
+          <div class="second_out"><span class="second_num">17</span></div>
+          <div class="second_out"><span class="second_num">18</span></div>
+          <div class="second_out"><span class="second_num">19</span></div>
+          <div class="second_out"><span class="second_num">20</span></div>
+          <div class="second_out"><span class="second_num">21</span></div>
+          <div class="second_out"><span class="second_num">22</span></div>
+          <div class="second_out"><span class="second_num">23</span></div>
+          <div class="second_out"><span class="second_num">24</span></div>
+          <div class="second_out"><span class="second_num">25</span></div>
+          <div class="second_out"><span class="second_num">26</span></div>
+          <div class="second_out"><span class="second_num">27</span></div>
+          <div class="second_out"><span class="second_num">28</span></div>
+          <div class="second_out"><span class="second_num">29</span></div>
+          <div class="second_out"><span class="second_num">30</span></div>
+          <div class="second_out"><span class="second_num">31</span></div>
+          <div class="second_out"><span class="second_num">32</span></div>
+          <div class="second_out"><span class="second_num">33</span></div>
+          <div class="second_out"><span class="second_num">34</span></div>
+          <div class="second_out"><span class="second_num">35</span></div>
+          <div class="second_out"><span class="second_num">36</span></div>
+          <div class="second_out"><span class="second_num">37</span></div>
+          <div class="second_out"><span class="second_num">38</span></div>
+          <div class="second_out"><span class="second_num">39</span></div>
+          <div class="second_out"><span class="second_num">40</span></div>
+          <div class="second_out"><span class="second_num">41</span></div>
+          <div class="second_out"><span class="second_num">42</span></div>
+          <div class="second_out"><span class="second_num">43</span></div>
+          <div class="second_out"><span class="second_num">44</span></div>
+          <div class="second_out"><span class="second_num">45</span></div>
+          <div class="second_out"><span class="second_num">46</span></div>
+          <div class="second_out"><span class="second_num">47</span></div>
+          <div class="second_out"><span class="second_num">48</span></div>
+          <div class="second_out"><span class="second_num">49</span></div>
+          <div class="second_out"><span class="second_num">50</span></div>
+          <div class="second_out"><span class="second_num">51</span></div>
+          <div class="second_out"><span class="second_num">52</span></div>
+          <div class="second_out"><span class="second_num">53</span></div>
+          <div class="second_out"><span class="second_num">54</span></div>
+          <div class="second_out"><span class="second_num">55</span></div>
+          <div class="second_out"><span class="second_num">56</span></div>
+          <div class="second_out"><span class="second_num">57</span></div>
+          <div class="second_out"><span class="second_num">58</span></div>
+          <div class="second_out"><span class="second_num">59</span></div>
+          <div class="second_out"><span class="second_num">0</span></div>
+        </div>
+      </div>
+      <div class="minute">
+        <div class="minute_main">
+          <div class="minute_out"><span class="minute_num">0</span></div>
+          <div class="minute_out"><span class="minute_num">1</span></div>
+          <div class="minute_out"><span class="minute_num">2</span></div>
+          <div class="minute_out"><span class="minute_num">3</span></div>
+          <div class="minute_out"><span class="minute_num">4</span></div>
+          <div class="minute_out"><span class="minute_num">5</span></div>
+          <div class="minute_out"><span class="minute_num">6</span></div>
+          <div class="minute_out"><span class="minute_num">7</span></div>
+          <div class="minute_out"><span class="minute_num">8</span></div>
+          <div class="minute_out"><span class="minute_num">9</span></div>
+          <div class="minute_out"><span class="minute_num">10</span></div>
+          <div class="minute_out"><span class="minute_num">11</span></div>
+          <div class="minute_out"><span class="minute_num">12</span></div>
+          <div class="minute_out"><span class="minute_num">13</span></div>
+          <div class="minute_out"><span class="minute_num">14</span></div>
+          <div class="minute_out"><span class="minute_num">15</span></div>
+          <div class="minute_out"><span class="minute_num">16</span></div>
+          <div class="minute_out"><span class="minute_num">17</span></div>
+          <div class="minute_out"><span class="minute_num">18</span></div>
+          <div class="minute_out"><span class="minute_num">19</span></div>
+          <div class="minute_out"><span class="minute_num">20</span></div>
+          <div class="minute_out"><span class="minute_num">21</span></div>
+          <div class="minute_out"><span class="minute_num">22</span></div>
+          <div class="minute_out"><span class="minute_num">23</span></div>
+          <div class="minute_out"><span class="minute_num">24</span></div>
+          <div class="minute_out"><span class="minute_num">25</span></div>
+          <div class="minute_out"><span class="minute_num">26</span></div>
+          <div class="minute_out"><span class="minute_num">27</span></div>
+          <div class="minute_out"><span class="minute_num">28</span></div>
+          <div class="minute_out"><span class="minute_num">29</span></div>
+          <div class="minute_out"><span class="minute_num">30</span></div>
+          <div class="minute_out"><span class="minute_num">31</span></div>
+          <div class="minute_out"><span class="minute_num">32</span></div>
+          <div class="minute_out"><span class="minute_num">33</span></div>
+          <div class="minute_out"><span class="minute_num">34</span></div>
+          <div class="minute_out"><span class="minute_num">35</span></div>
+          <div class="minute_out"><span class="minute_num">36</span></div>
+          <div class="minute_out"><span class="minute_num">37</span></div>
+          <div class="minute_out"><span class="minute_num">38</span></div>
+          <div class="minute_out"><span class="minute_num">39</span></div>
+          <div class="minute_out"><span class="minute_num">40</span></div>
+          <div class="minute_out"><span class="minute_num">41</span></div>
+          <div class="minute_out"><span class="minute_num">42</span></div>
+          <div class="minute_out"><span class="minute_num">43</span></div>
+          <div class="minute_out"><span class="minute_num">44</span></div>
+          <div class="minute_out"><span class="minute_num">45</span></div>
+          <div class="minute_out"><span class="minute_num">46</span></div>
+          <div class="minute_out"><span class="minute_num">47</span></div>
+          <div class="minute_out"><span class="minute_num">48</span></div>
+          <div class="minute_out"><span class="minute_num">49</span></div>
+          <div class="minute_out"><span class="minute_num">50</span></div>
+          <div class="minute_out"><span class="minute_num">51</span></div>
+          <div class="minute_out"><span class="minute_num">52</span></div>
+          <div class="minute_out"><span class="minute_num">53</span></div>
+          <div class="minute_out"><span class="minute_num">54</span></div>
+          <div class="minute_out"><span class="minute_num">55</span></div>
+          <div class="minute_out"><span class="minute_num">56</span></div>
+          <div class="minute_out"><span class="minute_num">57</span></div>
+          <div class="minute_out"><span class="minute_num">58</span></div>
+          <div class="minute_out"><span class="minute_num">59</span></div>
+        </div>
+      </div>
+      <div class="hour">
+        <div class="hour_main">
+          <div class="hour_out"><span class="hour_num">1</span></div>
+          <div class="hour_out"><span class="hour_num">2</span></div>
+          <div class="hour_out"><span class="hour_num">3</span></div>
+          <div class="hour_out"><span class="hour_num">4</span></div>
+          <div class="hour_out"><span class="hour_num">5</span></div>
+          <div class="hour_out"><span class="hour_num">6</span></div>
+          <div class="hour_out"><span class="hour_num">7</span></div>
+          <div class="hour_out"><span class="hour_num">8</span></div>
+          <div class="hour_out"><span class="hour_num">9</span></div>
+          <div class="hour_out"><span class="hour_num">10</span></div>
+          <div class="hour_out"><span class="hour_num">11</span></div>
+          <div class="hour_out"><span class="hour_num">12</span></div>
+        </div>
+      </div>
+      <div class="d_clock">
+        <h2 id="d_hour"></h2>
+        <h2>:</h2>
+        <h2 id="d_minute"></h2>
+        <h2>:</h2>
+        <h2 id="d_seconds"></h2>
+        <h2 style="padding-left: 10px" id="am_pm"></h2>
+      </div>
+      <div class="view"></div>
+    </div>
+  </body>
+</html>
+<script>
+  // for (var i = 1; i <= 60; i++) {
+  //   document.querySelector(".second_out").querySelector(":nth-child(" + i + ")");
+
+  //   // document.getElementById("second_num").innerHTML = i;
+  // }
+
+  setInterval(function () {
+    let time = new Date();
+
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let seconds = time.getSeconds();
+
+    const second = document.querySelector(".second");
+    const minute = document.querySelector(".minute");
+    const hour = document.querySelector(".hour");
+    // const c_hour7 = document.querySelector(".hour_main :nth-child(7) .hour_num");
+    // const c_hour8 = document.querySelector(".hour_main :nth-child(8) .hour_num");
+    // const c_hour9 = document.querySelector(".hour_main :nth-child(9) .hour_num");
+    // const c_hour10 = document.querySelector(".hour_main :nth-child(10) .hour_num");
+    // const c_hour11 = document.querySelector(".hour_main :nth-child(11) .hour_num");
+    // const c_hour12 = document.querySelector(".hour_main :nth-child(12) .hour_num");
+
+    let sdeg = seconds * 6;
+    let mdeg = minutes * 6;
+    let hdeg = hours * 30;
+    // let c_hourdeg = hdeg + 90; //(7-60)(8-30)(9-0)(10--30)(11--60)(12--90)
+    // console.log(hdeg);
+
+    second.style = `--sdeg:${sdeg}deg`;
+    minute.style = `--mdeg:${mdeg}deg`;
+    hour.style = `--hdeg:${hdeg}deg`;
+    // c_hour7.style = `--c_hours:${c_hourdeg}deg`;
+    // c_hour8.style = `--c_hours:${c_hourdeg}deg`;
+    // c_hour9.style = `--c_hours:${c_hourdeg}deg`;
+    // c_hour10.style = `--c_hours:${c_hourdeg}deg`;
+    // c_hour11.style = `--c_hours:${c_hourdeg}deg`;
+    // c_hour12.style = `--c_hours:${c_hourdeg}deg`;
+
+    // degital clock
+    if (hours >= 12) {
+      document.getElementById("d_hour").innerHTML = String(hours - 12).padStart(2, "0");
+    } else {
+      document.getElementById("d_hour").innerHTML = String(hours).padStart(2, "0");
+    }
+    document.getElementById("d_minute").innerHTML = String(minutes).padStart(2, "0");
+    document.getElementById("d_seconds").innerHTML = String(seconds).padStart(2, "0");
+
+    if (hours >= 12) {
+      document.getElementById("am_pm").innerHTML = "PM";
+    } else {
+      document.getElementById("am_pm").innerHTML = "AM";
+    }
+  }, 1000);
+</script>

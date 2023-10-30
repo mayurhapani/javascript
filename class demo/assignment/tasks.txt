@@ -1,0 +1,43 @@
+1). Write A JS Program To Input A Character From User And Check Whether The Given Character Is Alphabet Or Not Using If Else.
+2). Write A JS Program To Check Whether An Alphabet Is Vowel Or Consonant Using If Else.
+3). Write A JS Program To Input A Character From User And Check Whether Given Character Is Alphabet, Digit Or Special Character Using
+ If Else.
+4). Write A JS Program To Enter Month Number Between(1-12) And Print Number Of Days In Month Using If Else.
+5). Write A JS Program To Input Amount From User And Print Minimum Number Of Notes (Rs. 500, 100, 50, 20, 10, 5, 2, 1) Required For The Amount.
+6). Write A JS Program To Check Whether A Triangle Is Valid Or Not If Angles Are Given Using If Else.
+7). Write A JS Program To Input Sides Of A Triangle And Check Whether A Triangle Is Equilateral, Scalene Or Isosceles Triangle Using If Else.
+8). Write A JS Program To Input Cost Price And Selling Price Of A Product And Check Profit Or Loss. Also Calculate Total Profit Or Loss Using If Else.
+9). Write A JS Program To Input Marks Of Five Subjects Physics, Chemistry, Biology, Mathematics And Computer. Calculate Percentage And Grade.
+10). Write A JS Program To Input Basic Salary Of An Employee And Calculate Gross Salary According To Given Conditions.
+Basic Salary<=10000 : HRA=20%, DA=80%.
+Basic Salary Is Between 10001 To 20000 : HRA=25%, DA=90%.
+Basic Salary>= 20001 : HRA = 30%, DA = 95%.
+11). Write A JS Program To Input Electricity Unit Charge And Calculate The Total Electricity Bill According To The Given Condition:
+For First 50 Units Rs. 0.50/Unit
+For Next 100 Units Rs. 0.75/Unit
+For Next 100 Units Rs. 1.20/Unit
+For Unit Above 250 Rs. 1.50/Unit
+Additional Surcharge Of 20%
+
+//Switch
+
+1). Write A JS Program To Input Week Number(1-7) And Print Day Of Week Name Using Switch Case.
+
+2). Write A JS Program To Input Month Number And Print Total Number Of Days In Month Using Switch...Case
+3). Write A JS Program To Input Two Numbers From User And Find Maximum Between Two Numbers Using Switch Case.
+4). Write A JS Program To Input An Alphabet And Check Whether It Is Vowel Or Consonant Using Switch Case.
+5). Write A JS Program To Create Menu Driven Calculator That Performs Basic Arithmetic & Comparison Operations (Add, Subtract, Multiply And Divide) Using Switch Case And Functions.(Using Nested Switch)
+
+
+//Loop
+1). Write A JS Program To Print All Natural Numbers From 1 To N Using Loop.
+2). Write A JS Program To Print Alphabets From A To Z Using For Loop.
+3). Write A JS Program Find The Sum Of All Natural Numbers Between 1 To N Using For Loop.
+4). Write A JS Program Input Number From User And Find Sum Of All Even Numbers Between 1 To N.
+5). Write A JS Program Input A Number From User And Count Number Of Digits In The Given Integer Using Loop.
+
+6). Write A JS Program Input A Number From User And Find All Factors Of The Given Number Using For Loop.
+7). Write A JS Program Input A Number And Calculate Its Factorial Using For Loop.
+8). Write A JS Program To Input A Number From User And Check Whether Given Number Is Armstrong Number Or Not.
+9). Write A JS Program To Find First And Last Digit Of A Number.
+10). Write A JS Program To Input A Number From User And Find Reverse Of The Given Number Using For Loop.

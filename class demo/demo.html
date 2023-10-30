@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .clock {
+      height: 400px;
+      width: 400px;
+      background-color: black;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .outer {
+      transform: rotate(0deg);
+    }
+    span {
+      position: absolute;
+      color: white;
+      transform: translate(-50%, -50%) translateY(-180px);
+      /* transform: translateY(-180px); */
+    }
+    span:nth-child(1) {
+      /* transform: translateY(80px) rotate(0deg); */
+    }
+    span:nth-child(2) {
+      /* transform: translateY(180px) rotate(30deg); */
+    }
+  </style>
+  <body>
+    <div class="clock">
+      <div class="outer"><span>1</span></div>
+      <div class="outer"><span>2</span></div>
+    </div>
+  </body>
+</html>

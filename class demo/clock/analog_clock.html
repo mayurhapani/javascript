@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analog clock</title>
+    <style>
+      body {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 30px;
+        font-weight: 800;
+      }
+      .clock {
+        height: 400px;
+        width: 400px;
+        background-color: black;
+        border-radius: 50%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* transform: rotate(-3deg); */
+        /* text-align: center; */
+      }
+      .hour_main {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform-origin: 50%;
+        transform: translate(3%, 3%) rotate(-3deg);
+        /* transform: rotate(10deg); */
+
+        /* border: 1px solid red; */
+      }
+      .hour_out {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        /* border: 1px solid red; */
+      }
+      .hour_num {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform-origin: 50%;
+      }
+
+      .hour_out:nth-child(1) {
+        transform: rotate(30deg);
+      }
+      .hour_out:nth-child(2) {
+        transform: rotate(60deg);
+      }
+      .hour_out:nth-child(3) {
+        transform: rotate(90deg);
+      }
+      .hour_out:nth-child(4) {
+        transform: rotate(120deg);
+      }
+      .hour_out:nth-child(5) {
+        transform: rotate(150deg);
+      }
+      .hour_out:nth-child(6) {
+        transform: rotate(180deg);
+      }
+      .hour_out:nth-child(7) {
+        transform: rotate(210deg);
+      }
+      .hour_out:nth-child(8) {
+        transform: rotate(240deg);
+      }
+      .hour_out:nth-child(9) {
+        transform: rotate(270deg);
+      }
+      .hour_out:nth-child(10) {
+        transform: rotate(300deg);
+      }
+      .hour_out:nth-child(11) {
+        transform: rotate(330deg);
+      }
+      .hour_out:nth-child(12) {
+        transform: rotate(0deg);
+      }
+
+      .hour_out:nth-child(1) span {
+        transform: rotate(-30deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(2) span {
+        transform: rotate(-60deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(3) span {
+        transform: rotate(-90deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(4) span {
+        transform: rotate(-120deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(5) span {
+        transform: rotate(-150deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(6) span {
+        transform: rotate(-180deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(7) span {
+        transform: rotate(-210deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(8) span {
+        transform: rotate(-240deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(9) span {
+        transform: rotate(-270deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(10) span {
+        transform: rotate(-300deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(11) span {
+        transform: rotate(-330deg) translate(-50%, -50%);
+      }
+      .hour_out:nth-child(12) span {
+        transform: rotate(0deg) translate(-50%, -50%);
+      }
+
+      .slim_out {
+        position: absolute;
+        /* transform: translateY(-50%); */
+        --sdeg: 0deg;
+        transform: rotate(calc(var(--sdeg))) translateY(-50%);
+      }
+      .slim_hand {
+        height: 170px;
+        width: 2px;
+        background: #ffffff;
+      }
+      .big_out {
+        position: absolute;
+        --mdeg: 0deg;
+        transform: rotate(calc(var(--mdeg))) translateY(-50%);
+      }
+      .big_hand {
+        height: 140px;
+        width: 4px;
+        background: #ffffff;
+      }
+      .small_out {
+        position: absolute;
+        --hdeg: 0deg;
+        transform: rotate(calc(var(--hdeg))) translateY(-50%);
+      }
+      .small_hand {
+        height: 120px;
+        width: 8px;
+        background: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="hour_main">
+        <div class="hour_out"><span class="hour_num">1</span></div>
+        <div class="hour_out"><span class="hour_num">2</span></div>
+        <div class="hour_out"><span class="hour_num">3</span></div>
+        <div class="hour_out"><span class="hour_num">4</span></div>
+        <div class="hour_out"><span class="hour_num">5</span></div>
+        <div class="hour_out"><span class="hour_num">6</span></div>
+        <div class="hour_out"><span class="hour_num">7</span></div>
+        <div class="hour_out"><span class="hour_num">8</span></div>
+        <div class="hour_out"><span class="hour_num">9</span></div>
+        <div class="hour_out"><span class="hour_num">10</span></div>
+        <div class="hour_out"><span class="hour_num">11</span></div>
+        <div class="hour_out"><span class="hour_num">12</span></div>
+      </div>
+      <div class="slim_out">
+        <div class="slim_hand"></div>
+      </div>
+      <div class="big_out">
+        <div class="big_hand"></div>
+      </div>
+      <div class="small_out">
+        <div class="small_hand"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  setInterval(function () {
+    let time = new Date();
+
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let seconds = time.getSeconds();
+
+    if (hours > 12) {
+      hours -= 12;
+    }
+
+    // console.log(minutes);
+
+    const second = document.querySelector(".slim_out");
+    const minute = document.querySelector(".big_out");
+    const hour = document.querySelector(".small_out");
+
+    let sdeg = seconds * 6;
+    let mdeg = minutes * 6;
+    let hdeg = hours * 30 + minutes / 2;
+    console.log(hdeg);
+
+    second.style = `--sdeg:${sdeg}deg`;
+    minute.style = `--mdeg:${mdeg}deg`;
+    hour.style = `--hdeg:${hdeg}deg`;
+  }, 1000);
+</script>

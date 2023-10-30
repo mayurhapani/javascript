@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_5</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <!-- 5). Write A JS Program To Input Amount From User And Print Minimum 
+      Number Of Notes (Rs. 500, 100, 50, 20, 10, 5, 2, 1) Required For The
+       Amount. -->
+
+    <div>
+      <label>Enter Amount That You Want </label> <br /><br />
+      <input id="input" type="text" /> <br /><br />
+      <button onclick="run()">Submit</button>
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  function run() {
+    let og_input = parseInt(document.getElementById("input").value);
+    let input = og_input;
+
+    if (!isNaN(input)) {
+      let n500 = parseInt(input / 500);
+      input = input % 500;
+
+      let n100 = parseInt(input / 100);
+      input = input % 100;
+
+      let n50 = parseInt(input / 50);
+      input = input % 50;
+
+      let n20 = parseInt(input / 20);
+      input = input % 20;
+
+      let n10 = parseInt(input / 10);
+      input = input % 10;
+
+      let n5 = parseInt(input / 5);
+      input = input % 5;
+
+      let n2 = parseInt(input / 2);
+      input = input % 2;
+
+      let n1 = input;
+
+      console.log(og_input, n500, n100, n50, n20, n10, n5, n2, n1);
+      document.getElementById("result").innerHTML =
+        "Notes of 500 Rs = " +
+        n500 +
+        "<br>" +
+        "Notes of 100 Rs = " +
+        n100 +
+        "<br>" +
+        "Notes of 50 Rs = " +
+        n50 +
+        "<br>" +
+        "Notes of 20 Rs = " +
+        n20 +
+        "<br>" +
+        "Notes of 10 Rs = " +
+        n10 +
+        "<br>" +
+        "Notes of 5 Rs = " +
+        n5 +
+        "<br>" +
+        "Notes of 2 Rs = " +
+        n2 +
+        "<br>" +
+        "Notes of 1 Rs = " +
+        n1 +
+        "<br>";
+    } else {
+      document.getElementById("result").innerHTML = "Enter The Valid Number ";
+    }
+  }
+</script>

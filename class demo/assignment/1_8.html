@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_8</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <!-- 7). 8). Write A JS Program To Input Cost Price And Selling Price Of A 
+        Product And Check Profit Or Loss. Also Calculate Total Profit Or Loss
+         Using If Else.-->
+
+    <div>
+      <label>input product Purchase price and salling price</label> <br /><br />
+      <input id="input1" type="number" placeholder="Enter Purchese Prise" />
+      <input id="input2" type="number" placeholder="Enter Salling Prise" />
+      <button onclick="run()">Check</button>
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  function run() {
+    let pur = parseInt(document.getElementById("input1").value);
+    let sale = parseInt(document.getElementById("input2").value);
+
+    if (sale > pur) {
+      let Profit = sale - pur;
+      document.getElementById("result").innerHTML = "You Get Profit of Total : " + Profit + "Rs";
+    } else {
+      let lost = pur - sale;
+      document.getElementById("result").innerHTML = "You Get Lost of Total : " + lost + "Rs";
+    }
+  }
+</script>

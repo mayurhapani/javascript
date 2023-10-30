@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_7</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <!-- 7). Write A JS Program To Input Sides Of A Triangle And Check Whether
+         A Triangle Is Equilateral, Scalene Or Isosceles Triangle Using If Else.-->
+
+    <div>
+      <label>Enter 3 Angles To Check It Is Triangle Or Not</label> <br /><br />
+      <input id="input1" type="number" placeholder="Enter Angle for Triangle" />
+      <input id="input2" type="number" placeholder="Enter Angle for Triangle" />
+      <input id="input3" type="number" placeholder="Enter Angle for Triangle" /> <br /><br />
+      <button onclick="run()">Submit</button>
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  function run() {
+    let input1 = parseInt(document.getElementById("input1").value);
+    let input2 = parseInt(document.getElementById("input2").value);
+    let input3 = parseInt(document.getElementById("input3").value);
+
+    if (!isNaN(input1) && !isNaN(input2) && !isNaN(input3)) {
+      let input = input1 + input2 + input3;
+
+      if (input == 180) {
+        if (input1 == input2 && input1 == input3) {
+          document.getElementById("result").innerHTML = "A Triangle Is Equilateral ";
+        } else if (input1 != input2 && input1 != input3 && input2 != input3) {
+          document.getElementById("result").innerHTML = "A Triangle Is Scalene ";
+        } else {
+          document.getElementById("result").innerHTML = "A Triangle Is Isosceles ";
+        }
+      } else {
+        document.getElementById("result").innerHTML = "A Triangle Is Not Valid ";
+      }
+    } else {
+      document.getElementById("result").innerHTML = "Enter The Valid Angle In All Boxes ";
+    }
+  }
+</script>

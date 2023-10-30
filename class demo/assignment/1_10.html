@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>salary</title>
+    <title>1_10</title>
     <style>
       .block {
         display: block !important;
@@ -46,29 +46,13 @@
             background-color: rgb(208, 204, 204);
           "
         >
-          <h1>ENTER YOUR NAME AND SUBMIT</h1>
+          <h1>ENTER YOUR SALARY</h1>
           <input
             style="outline: none; background: rgb(193, 192, 192); width: 60%; font-size: 20px"
-            type="text"
-            name=""
+            type="number"
             id="input"
           />
           <button style="margin-top: 20px; padding: 6px 20px" onclick="check()">Submit</button>
-        </div>
-        <div
-          style="
-            position: absolute;
-            right: 5%;
-            bottom: 10%;
-            background-color: rgb(208, 204, 204);
-            border-radius: 5%;
-            padding: 20px 40px;
-          "
-        >
-          <h2>USERS</h2>
-          <p id="user1">MAYUR</p>
-          <p id="user2">DIVYANG</p>
-          <p id="user3">DEEP</p>
         </div>
       </div>
     </center>
@@ -112,43 +96,20 @@
         <tr>
           <th width="40%">Description</th>
           <th width="10%">Amount</th>
-          <th width="40%">Description</th>
-          <th width="10%">Amount</th>
         </tr>
         <tr>
           <td>Basic salry :</td>
           <td align="center"><span>$</span><span id="basic-s"></span></td>
-          <td class="ps-40">TDS ( 2% ) :</td>
-          <td align="center"><span>$</span><span id="TDS"></span></td>
         </tr>
         <tr>
-          <td>HBA ( 10% ) :</td>
-          <td align="center"><span>$</span><span id="HBA"></span></td>
-          <td class="ps-40">Health Insurance ( 4% ) :</td>
-          <td align="center"><span>$</span><span id="HEALTH"></span></td>
+          <td>HRA :</td>
+          <td align="center"><span>$</span><span id="HRA"></span></td>
         </tr>
         <tr>
-          <td>Extra Expance ( 3% ) :</td>
-          <td align="center"><span>$</span><span id="EXTRA"></span></td>
-          <td></td>
-          <td></td>
+          <td>DA :</td>
+          <td align="center"><span>$</span><span id="DA"></span></td>
         </tr>
         <tr>
-          <td>Transpotation Expance ( 5% ) :</td>
-          <td align="center"><span>$</span><span id="TRANSPO"></span></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <th>Sub Total A</th>
-          <th align="center"><span>$</span><span id="TOTAL_A"></span></th>
-          <th>Sub Total B</th>
-          <th align="center"><span>$</span><span id="TOTAL_B"></span></th>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
           <th>Gross Total =</th>
           <th align="center"><span>$</span><span id="G_TOTAL"></span></th>
         </tr>
@@ -176,99 +137,63 @@
 <script>
   //VALIDATION
   function check() {
-    var user = get_value("input");
-    var user1 = get_html("user1");
-    var user2 = get_html("user2");
-    var user3 = get_html("user3");
+    var Salary = document.getElementById("input").value;
 
     // console.log(user);
 
-    if (user == user1 || user == user2 || user == user3) {
+    if (Salary <= 10000) {
       document.getElementById("home").style.display = "block";
       document.getElementById("login").style.display = "none";
 
-      document.getElementById("name").innerHTML = user;
-      switch (user) {
-        case user1:
-          document.getElementById("address").innerHTML =
-            "<br>" + "Vansk Avenue 11" + "<br>" + "1111 City" + "<br>" + "CRN : 123 456 789A";
+      document.getElementById("address").innerHTML =
+        "<br>" + "Vansk Avenue 11" + "<br>" + "1111 City" + "<br>" + "CRN : 123 456 789A";
 
-          document.getElementById("accountno").innerHTML = "<br>" + "111 111 111 111";
+      document.getElementById("accountno").innerHTML = "<br>" + "111 111 111 111";
 
-          calc(20000);
+      calc(Salary, 20, 80);
+    } else if (Salary > 10001 || Salary < 20000) {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("login").style.display = "none";
 
-          break;
+      document.getElementById("address").innerHTML =
+        "<br>" + "Vansk Avenue 22" + "<br>" + "2222 City" + "<br>" + "CRN : 123 456 789A";
 
-        case user2:
-          document.getElementById("address").innerHTML =
-            "<br>" + "Vansk Avenue 22" + "<br>" + "2222 City" + "<br>" + "CRN : 123 456 789A";
+      document.getElementById("accountno").innerHTML = "<br>" + "222 222 222 222";
 
-          document.getElementById("accountno").innerHTML = "<br>" + "222 222 222 222";
+      calc(Salary, 25, 90);
+    } else if (Salary >= 20001) {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("login").style.display = "none";
 
-          calc(18000);
-          break;
+      document.getElementById("address").innerHTML =
+        "<br>" + "Vansk Avenue 33" + "<br>" + "3333 City" + "<br>" + "CRN : 123 456 789A";
 
-        case user3:
-          document.getElementById("address").innerHTML =
-            "<br>" + "Vansk Avenue 33" + "<br>" + "3333 City" + "<br>" + "CRN : 123 456 789A";
+      document.getElementById("accountno").innerHTML = "<br>" + "333 333 333 333";
 
-          document.getElementById("accountno").innerHTML = "<br>" + "333 333 333 333";
-
-          calc(17500);
-          break;
-      }
-    } else {
-      alert("Enter Valid User ID ...! ");
+      calc(Salary, 30, 95);
     }
   }
 
   //   calc
-  function calc(salary) {
+  function calc(salary, HRA_P, DA_P) {
     //BASIC SALARY
     print("basic-s", salary);
 
-    // TDS
-    var TDS = (salary * 2) / 100;
-    print("TDS", TDS);
+    // HRA
+    var HRA = (salary * HRA_P) / 100;
+    print("HRA", HRA);
 
-    // HBA
-    var HBA = (salary * 10) / 100;
-    print("HBA", HBA);
-
-    // HEALTH
-    var HEALTH = (salary * 4) / 100;
-    print("HEALTH", HEALTH);
-
-    // EXTRA
-    var EXTRA = (salary * 3) / 100;
-    print("EXTRA", EXTRA);
-
-    // TRANSPO
-    var TRANSPO = (salary * 5) / 100;
-    print("TRANSPO", TRANSPO);
+    // DA
+    var DA = (salary * DA_P) / 100;
+    print("DA", DA);
 
     // TOTAL_A
-    var TOTAL_A = salary + HBA + EXTRA + TRANSPO;
-    print("TOTAL_A", TOTAL_A);
-
-    // TOTAL_B
-    var TOTAL_B = TDS + HEALTH;
-    print("TOTAL_B", TOTAL_B);
-
-    //GROSS TOTAL
-    var G_TOTAL = TOTAL_A - TOTAL_B;
+    var G_TOTAL = parseInt(salary) + parseInt(HRA) + parseInt(DA);
     print("G_TOTAL", G_TOTAL);
   }
 
   // COMMAN
-  function get_value(id) {
-    var output = document.getElementById(id).value;
-    return output;
-  }
-  function get_html(id) {
-    var output = document.getElementById(id).innerHTML;
-    return output;
-  }
+
   function print(id, val) {
     document.getElementById(id).innerHTML = val;
   }

@@ -1,0 +1,77 @@
+<!-- 2). Write A JS Program To Input Month Number And Print Total
+     Number Of Days In Month Using Switch...Case -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2_2</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label>Enter Number Of Month Between 1-12 For Its Day</label> <br />
+      <br />
+      <input maxlength="1" id="input" type="number" /> <br />
+      <br />
+      <button onclick="run()">Submit</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+<script>
+  function run() {
+    let input = document.getElementById("input").value;
+    switch (input) {
+      case "1":
+        document.getElementById("result").innerHTML = "You Choose January And It Have 31 Days";
+        break;
+      case "2":
+        document.getElementById("result").innerHTML = "You Choose February And It Have 28 Days";
+        break;
+      case "3":
+        document.getElementById("result").innerHTML = "You Choose March And It Have 31 Days";
+        break;
+      case "4":
+        document.getElementById("result").innerHTML = "You Choose April And It Have 30 Days";
+        break;
+      case "5":
+        document.getElementById("result").innerHTML = "You Choose May And It Have 31 Days";
+        break;
+      case "6":
+        document.getElementById("result").innerHTML = "You Choose June And It Have 30 Days";
+        break;
+      case "7":
+        document.getElementById("result").innerHTML = "You Choose July And It Have 31 Days";
+        break;
+      case "8":
+        document.getElementById("result").innerHTML = "You Choose August And It Have 31 Days";
+        break;
+      case "9":
+        document.getElementById("result").innerHTML = "You Choose Septembar And It Have 30 Days";
+        break;
+      case "10":
+        document.getElementById("result").innerHTML = "You Choose October And It Have 31 Days";
+        break;
+      case "11":
+        document.getElementById("result").innerHTML = "You Choose November And It Have 30 Days";
+        break;
+      case "12":
+        document.getElementById("result").innerHTML = "You Choose December And It Have 31 Days";
+        break;
+      default:
+        document.getElementById("result").innerHTML = "You Choose Wrong Option";
+        break;
+    }
+  }
+</script>

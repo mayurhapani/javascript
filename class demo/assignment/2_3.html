@@ -1,0 +1,48 @@
+<!-- 3). Write A JS Program To Input Two Numbers From User And
+     Find Maximum Between Two Numbers Using Switch Case. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2_3</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label>Enter Tow Number For Find Max</label> <br />
+      <br />
+      <input id="input" type="number" /> <br />
+      <br />
+      <input id="input2" type="number" /> <br />
+      <br />
+      <button onclick="run()">Submit</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+<script>
+  function run() {
+    let input = document.getElementById("input").value;
+    let input2 = document.getElementById("input2").value;
+
+    switch (input > input2) {
+      case true:
+        document.getElementById("result").innerHTML = "Input 1 " + input + " is Max";
+        break;
+      case false:
+        document.getElementById("result").innerHTML = "Input 2 " + input2 + " is Max";
+        break;
+    }
+  }
+</script>

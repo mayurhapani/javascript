@@ -1,0 +1,57 @@
+<!-- 4). Write A JS Program To Input An Alphabet And Check Whether
+ It Is Vowel Or Consonant Using Switch Case. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2_4</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label>Enter Any Alphabet To Check It Is Vowel Or Consonant</label> <br />
+      <br />
+      <input id="input" type="text" /> <br />
+      <br />
+      <button onclick="run()">Submit</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+<script>
+  function run() {
+    let input = document.getElementById("input").value;
+    console.log(input);
+
+    switch (
+      input == "a" ||
+      input == "e" ||
+      input == "i" ||
+      input == "o" ||
+      input == "u" ||
+      input == "A" ||
+      input == "E" ||
+      input == "I" ||
+      input == "O" ||
+      input == "U"
+    ) {
+      case true:
+        document.getElementById("result").innerHTML = "Input " + input + " is Vowel";
+        break;
+      case false:
+        document.getElementById("result").innerHTML = "Input " + input + " is Consonant";
+        break;
+    }
+  }
+</script>

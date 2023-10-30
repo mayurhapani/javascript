@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1_9</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <!-- 7).9). Write A JS Program To Input Marks Of Five Subjects Physics,
+         Chemistry, Biology, Mathematics And Computer. Calculate Percentage
+          And Grade.-->
+
+    <div>
+      <label>Enter Marks You Got In Subjects Out Of 100</label> <br /><br />
+      <input id="Physics" type="number" placeholder="Enter Marks of Physics" /><br />
+      <br />
+      <input id="Chemistry" type="number" placeholder="Enter Marks of Chemistry" /><br />
+      <br />
+      <input id="Biology" type="number" placeholder="Enter Marks of Biology" /><br />
+      <br />
+      <input id="Mathematics" type="number" placeholder="Enter Marks of Mathematics" /><br />
+      <br />
+      <input id="Computer" type="number" placeholder="Enter Marks of Computer" /><br />
+      <br />
+      <button onclick="run()">Check</button>
+      <h2 id="result"></h2>
+      <h2 id="result1"></h2>
+      <h2 id="result2"></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  function run() {
+    let Physics = parseInt(document.getElementById("Physics").value);
+    let Chemistry = parseInt(document.getElementById("Chemistry").value);
+    let Biology = parseInt(document.getElementById("Biology").value);
+    let Mathematics = parseInt(document.getElementById("Mathematics").value);
+    let Computer = parseInt(document.getElementById("Computer").value);
+
+    if (Physics != "" && Chemistry != "" && Biology != "" && Mathematics != "" && Computer) {
+      if (
+        Physics >= 35 &&
+        Physics <= 100 &&
+        Chemistry >= 35 &&
+        Chemistry <= 100 &&
+        Biology >= 35 &&
+        Biology <= 100 &&
+        Mathematics >= 35 &&
+        Mathematics <= 100 &&
+        Computer >= 35 &&
+        Computer <= 100
+      ) {
+        let Total = Physics + Chemistry + Biology + Mathematics + Computer;
+        let par = (Total * 100) / 500;
+
+        document.getElementById("result").innerHTML = "You Got Total " + Total + " Marks";
+        document.getElementById("result1").innerHTML = "You Got Total " + par + " Parsentages";
+
+        if (par >= 90) {
+          document.getElementById("result2").innerHTML = "You Got A+ Grade ";
+        } else if (par >= 80) {
+          document.getElementById("result2").innerHTML = "You Got A Grade ";
+        } else if (par >= 65) {
+          document.getElementById("result2").innerHTML = "You Got B Grade ";
+        } else if (par >= 40) {
+          document.getElementById("result2").innerHTML = "You Got C Grade ";
+        } else {
+          document.getElementById("result2").innerHTML = "You Got D Grade ";
+        }
+      } else {
+        document.getElementById("result1").innerHTML = "You Are Fail";
+      }
+    } else {
+      document.getElementById("result").innerHTML = "Please Enter Marks For All Subjects";
+    }
+  }
+</script>
