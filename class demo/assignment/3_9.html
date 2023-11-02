@@ -1,0 +1,69 @@
+<!-- 9). Write A JS Program To Find First And Last Digit Of A Number. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3_9</title>
+  </head>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div>
+      <label>Enter Any Number To Find First And Last Digit Of The Given Number</label> <br />
+      <br />
+      <input maxlength="1" id="input" type="number" /> <br />
+      <br />
+      <button onclick="run()">Submit</button>
+      <button onclick="reset()">Reset</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+<script>
+  function run() {
+    var n = document.getElementById("input").value;
+    // console.log(n);
+    var sum = 0;
+    var rem = 0;
+
+    n1 = n;
+    var count = 0;
+
+    while (n1 != 0) {
+      n1 /= 10;
+      n1 = n1 | 0;
+      count++;
+    }
+    // console.log("count=" + count);
+
+    n1 = n;
+
+    while (n1 != 0) {
+      if (rem == 0) {
+        rem1 = n1 % 10;
+        // console.log("rem1=" + rem1);
+      }
+      rem = n1 % 10;
+      //   console.log("rem=" + rem);
+
+      n1 /= 10;
+      n1 = n1 | 0;
+    }
+    document.getElementById("result").innerHTML = "Last Digit = " + rem1 + " And First Digit = " + rem;
+  }
+  function reset() {
+    document.getElementById("input").value = "";
+    document.getElementById("result").innerHTML = "";
+  }
+</script>

@@ -1,0 +1,65 @@
+<!-- 2). Write A JS Program To Print Alphabets From A To Z 
+    Using For Loop. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3_2</title>
+  </head>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div>
+      <label>Enter An Alphabets To Find All Alphabets At Input</label> <br />
+      <br />
+      <input maxlength="1" id="input" type="text" placeholder="Enter Alphabets For End" /> <br />
+      <br />
+      <button onclick="run()">Submit</button>
+      <button onclick="reset()">Reset</button>
+
+      <h2 id="result"></h2>
+    </div>
+  </body>
+</html>
+<script>
+  function run() {
+    let n = document.getElementById("input").value;
+    if (n >= "a" && n <= "z") {
+      //   console.log(n.charCodeAt(n));
+      for (i = "97"; i <= n.charCodeAt(n); i++) {
+        alpha = String.fromCharCode(i) + " ";
+
+        // console.log(alpha);
+
+        document.getElementById("result").innerHTML += alpha;
+      }
+      //   console.log(i);
+    } else if (n >= "A" && n <= "Z") {
+      //   console.log(n.charCodeAt(n));
+      for (i = "65"; i <= n.charCodeAt(n); i++) {
+        alpha = String.fromCharCode(i) + " ";
+
+        // console.log(alpha);
+
+        document.getElementById("result").innerHTML += alpha;
+      }
+      //   console.log(i);
+    } else {
+      document.getElementById("result").innerHTML = "Enter Valid Alphabets";
+    }
+  }
+  function reset() {
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("input").value = "";
+  }
+</script>
