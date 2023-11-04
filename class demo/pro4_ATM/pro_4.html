@@ -1,0 +1,467 @@
+<!-- Create ATM logic usign Javascript And HTML/CSS
+     Enter User and PIN
+      1.Check Balance
+       2.Diposite
+        3.withdraw 
+        4.exit -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        position: relative;
+        z-index: -10;
+        color: white;
+      }
+      .block {
+        display: block !important;
+      }
+      .none {
+        display: none;
+      }
+      .ps-40 {
+        padding-left: 40px;
+      }
+      #login {
+        position: relative;
+        z-index: -1;
+      }
+      .outer {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(219, 217, 217);
+        z-index: -3;
+        background-color: rgb(0, 0, 0);
+      }
+      .inner {
+        display: flex;
+        flex-direction: column;
+        /* width: 25%; */
+        /* height: 25%; */
+        border-radius: 5%;
+        padding: 40px 80px;
+        align-items: center;
+        background-color: rgb(3, 12, 43);
+        z-index: -2;
+        margin: 10px auto;
+      }
+      #input {
+        outline: none;
+        background: rgb(193, 192, 192);
+        width: 60%;
+        font-size: 20px;
+      }
+
+      .option {
+        position: absolute;
+        right: 5%;
+        bottom: 10%;
+        background-color: rgb(3, 12, 43);
+        border-radius: 5%;
+        padding: 10px 20px;
+      }
+      #ATM_card {
+        position: absolute;
+        text-align: center;
+        z-index: -3;
+        cursor: pointer;
+        /* transform: translateX(-220%) translateY(60%); */
+      }
+      .ATM_card {
+        top: 10%;
+        right: 5%;
+      }
+      .ATM_card_animation {
+        animation: move_card 2s ease-in;
+        animation-fill-mode: forwards;
+      }
+      @keyframes move_card {
+        0% {
+          transform: translateX(0%) translateY(0%);
+        }
+        50% {
+          transform: translateX(-360%) translateY(0%);
+        }
+        100% {
+          transform: translateX(-360%) translateY(150%);
+        }
+      }
+      .ATM_Card_img {
+        margin-top: 10px;
+        border-radius: 7px;
+        width: 150px;
+      }
+
+      /* home */
+      #home {
+        display: none;
+        z-index: -4;
+        position: relative;
+      }
+
+      .home_btn {
+        position: relative;
+        width: 120px;
+        height: 40px;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+        border: none;
+        padding: 12px;
+        margin: 10px 0;
+        gap: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-wrap: nowrap;
+        /* z-index: 10; */
+      }
+
+      .home_btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: -4px;
+        top: 1px;
+        margin: auto;
+        width: 128px;
+        height: 48px;
+        border-radius: 10px;
+        background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+        z-index: -2;
+        pointer-events: none;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .home_btn::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+        transform: translate3d(0, 0, 0) scale(0.95);
+        filter: blur(20px);
+      }
+
+      .home_btn:hover::after {
+        filter: blur(30px);
+      }
+
+      .home_btn:hover::before {
+        transform: rotate(-180deg);
+      }
+
+      .home_btn:active::before {
+        scale: 0.7;
+      }
+
+      /* user_page */
+      #user_page {
+        display: none;
+      }
+      #result1 {
+        margin-bottom: 30px;
+      }
+      #result2 {
+        text-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      #Login_Card {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login">
+      <div class="outer">
+        <div id="Enter_card" class="inner">
+          <h1>ENTER YOUR ATM CARD</h1>
+        </div>
+        <div id="Login_Card" class="inner">
+          <h1>ENTER YOUR PIN</h1>
+          <input type="password" name="" id="input" />
+          <button class="home_btn" onclick="check()">Submit</button>
+        </div>
+        <div class="option">
+          <h5>USERS PIN</h5>
+          <p style="font-size: 10px" id="user1">1234</p>
+          <p style="font-size: 10px" id="user2">5678</p>
+          <p style="font-size: 10px" id="user3">1224</p>
+        </div>
+        <div id="ATM_card" class="ATM_card">
+          <h6 id="Atm_Title">Click On Card To Enter In Machine</h6>
+          <img id="ATM_Card_img" onclick="Atm_Enter()" class="ATM_Card_img" src="Atm_card.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div id="home">
+      <div class="outer">
+        <h2 id="result1"></h2>
+        <div class="inner" id="options">
+          <button class="home_btn" onclick="check_balance()">1.Check Balance</button>
+          <button class="home_btn" onclick="Diposite()">2.Diposite</button>
+          <button class="home_btn" onclick="Withdraw()">3.Withdraw</button>
+          <button class="home_btn" onclick="Exit()">4.Exit</button>
+        </div>
+        <div class="inner" id="user_page">
+          <div id="result2"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let s_bal = 220000;
+  let d_bal = 230000;
+  let m_bal = 240000;
+  //card_in
+
+  //VALIDATION
+  function check() {
+    let PIN = document.getElementById("input").value;
+
+    // console.log(user);
+
+    if (PIN == "1234" || PIN == "5678" || PIN == "1224") {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("login").style.display = "none";
+
+      // document.getElementById("name").innerHTML = user;
+    } else {
+      alert("Enter Valid PIN ...! ");
+    }
+    user_info();
+  }
+
+  function user_info() {
+    let PIN = document.getElementById("input").value;
+
+    switch (PIN) {
+      case "1234":
+        document.getElementById("result1").innerHTML = "Welcome Mr. Samadhan";
+        break;
+
+      case "5678":
+        document.getElementById("result1").innerHTML = "Welcome Mr. Divyang";
+        break;
+
+      case "1224":
+        document.getElementById("result1").innerHTML = "Welcome Mr. Mayur";
+        break;
+    }
+  }
+
+  // check_balance
+  function check_balance() {
+    document.getElementById("result2").innerHTML = "";
+    document.getElementById("options").style.display = "none";
+    document.getElementById("user_page").style.display = "block";
+
+    let PIN = document.getElementById("input").value;
+    // console.log(PIN);
+
+    switch (PIN) {
+      case "1234":
+        document.getElementById("result2").innerHTML = "Your Bank Balance is Rs. " + s_bal + back_btn;
+        break;
+
+      case "5678":
+        document.getElementById("result2").innerHTML = "Your Bank Balance is Rs. " + d_bal + back_btn;
+        break;
+
+      case "1224":
+        document.getElementById("result2").innerHTML = "Your Bank Balance is Rs. " + m_bal + back_btn;
+        break;
+    }
+  }
+
+  // Back_btn
+  function Back_btn() {
+    document.getElementById("options").style.display = "block";
+    document.getElementById("user_page").style.display = "none";
+    document.getElementById("result2").innerHTML = "";
+  }
+
+  // Diposite
+  function Diposite() {
+    user_info();
+    document.getElementById("result2").innerHTML = "";
+    document.getElementById("options").style.display = "none";
+    document.getElementById("user_page").style.display = "block";
+
+    let PIN = document.getElementById("input").value;
+    // console.log(PIN);
+
+    let bal;
+
+    switch (PIN) {
+      case "1234":
+        document.getElementById("result2").innerHTML = Dipo;
+
+        break;
+
+      case "5678":
+        document.getElementById("result2").innerHTML = Dipo;
+        break;
+
+      case "1224":
+        document.getElementById("result2").innerHTML = Dipo;
+        break;
+    }
+  }
+
+  function User_Diposite() {
+    let PIN = document.getElementById("input").value;
+
+    let User_input_amount = parseInt(document.getElementById("User_input_amount").value);
+    console.log(User_input_amount);
+
+    switch (PIN) {
+      case "1234":
+        s_bal += User_input_amount;
+        Back_btn();
+        break;
+
+      case "5678":
+        d_bal += User_input_amount;
+        Back_btn();
+        break;
+
+      case "1224":
+        m_bal += User_input_amount;
+        Back_btn();
+        break;
+    }
+  }
+
+  // Withdraw
+  function Withdraw() {
+    user_info();
+    document.getElementById("result2").innerHTML = "";
+    document.getElementById("options").style.display = "none";
+    document.getElementById("user_page").style.display = "block";
+
+    let PIN = document.getElementById("input").value;
+    // console.log(PIN);
+
+    let bal;
+
+    switch (PIN) {
+      case "1234":
+        document.getElementById("result2").innerHTML = withdro;
+
+        break;
+
+      case "5678":
+        document.getElementById("result2").innerHTML = withdro;
+        break;
+
+      case "1224":
+        document.getElementById("result2").innerHTML = withdro;
+        break;
+    }
+  }
+
+  function User_Withdraw() {
+    let PIN = document.getElementById("input").value;
+
+    let User_input_amount = parseInt(document.getElementById("User_input_amount").value);
+
+    switch (PIN) {
+      case "1234":
+        if (User_input_amount < s_bal) {
+          s_bal -= User_input_amount;
+          Back_btn();
+        } else {
+          alert("You Do Not Have sufficient Balance...  Enter Valid Amount..");
+        }
+
+        break;
+
+      case "5678":
+        if (User_input_amount < d_bal) {
+          d_bal -= User_input_amount;
+          Back_btn();
+        } else {
+          alert("You Do Not Have sufficient Balance...  Enter Valid Amount..");
+        }
+
+        break;
+
+      case "1224":
+        if (User_input_amount < m_bal) {
+          m_bal -= User_input_amount;
+          Back_btn();
+        } else {
+          alert("You Do Not Have sufficient Balance...  Enter Valid Amount..");
+        }
+
+        break;
+    }
+  }
+
+  // Exit
+  function Exit() {
+    document.getElementById("login").style.display = "block";
+    document.getElementById("home").style.display = "none";
+
+    document.getElementById("Enter_card").style.display = "block";
+    document.getElementById("Login_Card").style.display = "none";
+    document.getElementById("ATM_card").classList.remove("ATM_card_animation");
+
+    document.getElementById("result2").innerHTML = "";
+    document.getElementById("input").value = "";
+  }
+
+  //card
+  function Atm_Enter() {
+    // console.log("hiii");
+    document.getElementById("Atm_Title").style.display = "none";
+    document.getElementById("ATM_card").classList.add("ATM_card_animation");
+
+    // document.getElementById("Enter_card").style.display = "none";
+    // document.getElementById("Login_Card").style.display = "flex";
+    setTimeout(() => {
+      document.getElementById("Enter_card").style.display = "none";
+      document.getElementById("Login_Card").style.display = "flex";
+    }, 2000);
+  }
+</script>
+<script>
+  let Dipo = ` <label>Enter Amount That You Want To Diposite</label> <br />
+            <input id="User_input_amount" type="number" />
+            <br />
+            <br />
+            <button class="home_btn" onclick="User_Diposite()">Diposite</button>`;
+
+  let back_btn = `<br />
+            <br />
+            <button class="home_btn" onclick="Back_btn()">Back</button>`;
+
+  let withdro = `<label>Enter Amount That You Want To Withdraw</label> <br />
+            <input id="User_input_amount" type="number" />
+            <br />
+            <br />
+            <button class="home_btn" onclick="User_Withdraw()">Withdraw</button>`;
+</script>
