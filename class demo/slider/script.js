@@ -18,8 +18,14 @@ function c_next() {
   if (i < img_arr.length - 1) {
     ++i;
     live_img = img_arr[i].img;
-    console.log(i);
+    // console.log(i);
     document.querySelector("#slider").innerHTML = live_img;
+
+    // document.querySelector("#slider").style.transition = `all ${1}s linear`;
+    // document.querySelector("#slider> img").style.transition = `all ${1}s linear`;
+
+    // setTimeout(() => {
+    // }, 500);
   }
 }
 
@@ -27,7 +33,7 @@ function c_priv() {
   if (i > 0) {
     --i;
     live_img = img_arr[i].img;
-    console.log(i);
+    // console.log(i);
     document.querySelector("#slider").innerHTML = live_img;
   }
 }

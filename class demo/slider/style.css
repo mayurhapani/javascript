@@ -20,10 +20,12 @@ body {
 
   width: 100%;
   height: 100%;
+  transition: all 1s linear;
 }
 #slider > img {
   width: 100%;
   height: 100%;
+  transition: all 1s linear;
 }
 .btn {
   position: absolute;
