@@ -12,6 +12,7 @@ let img_arr = [
 let live_img;
 let i = 0;
 live_img = img_arr[i].img;
+
 document.querySelector("#slider").innerHTML = live_img;
 
 function c_next() {
