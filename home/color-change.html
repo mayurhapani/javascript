@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color change</title>
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        button{
-            padding: 10px;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        --color: white;
+        background: var(--color);
+      }
+      button {
+        padding: 10px;
+      }
     </style>
-</head>
-<body>
-    <button onclick="color_chnage()">Click To Change Color</button>
-</body>
+  </head>
+  <body>
+    <button onclick="c_change()">Click To Change Color</button>
+  </body>
 </html>
 
 <script>
-    function color_chnage(){
-        
+  function c_change() {
+    let num_color = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+
+    let c_color = "#";
+
+    for (i = 0; i < 6; i++) {
+      c_color += num_color[Math.floor(Math.random() * 16)];
     }
+    console.log(c_color);
+
+    document.querySelector("body").style.background = c_color;
+  }
 </script>
