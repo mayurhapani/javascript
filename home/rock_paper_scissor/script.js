@@ -1,16 +1,17 @@
-/* <div class="inner">
-    <button onclick="Call('Rock')">Rock</button>
+/* <button onclick="Call('Rock')">Rock</button>
     <button onclick="Call('Paper')">Paper</button>
     <button onclick="Call('Scissor')">Scissor</button>
   <h2 id="output"></h2>
-  <h2 id="Result"></h2>
-</div> */
+  <h2 id="Result"></h2> */
 
-let Score = {
-  Won: 0,
-  Loose: 0,
-  Tie: 0,
-};
+// let Score = {
+//   Won: 0,
+//   Loose: 0,
+//   Tie: 0,
+// };
+
+let Score = JSON.parse(localStorage.getItem("Score"));
+// console.log(Score);
 
 function Call(U_Select) {
   const randomForComputer = Math.random();
@@ -48,6 +49,8 @@ function Call(U_Select) {
   if (Result === "You Loose") Score.Loose += 1;
   if (Result === "Tie") Score.Tie += 1;
 
+  // localStorage.setItem("Score", JSON.stringify(Score));
+
   Final_Result();
 }
 
@@ -56,10 +59,14 @@ function Reset_Score() {
   Score.Loose = 0;
   Score.Tie = 0;
 
+  // localStorage.setItem("Score", JSON.stringify(Score));
+
   Final_Result();
 }
 
 function Final_Result() {
+  localStorage.setItem("Score", JSON.stringify(Score));
+
   document.querySelector("#Result").innerHTML = `You Won = ${Score.Won} &nbsp &nbsp
   You Loose = ${Score.Loose} &nbsp &nbsp
   Tie = ${Score.Tie}`;
