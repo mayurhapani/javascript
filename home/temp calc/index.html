@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEMP CALC</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .inner {
+        text-align: center;
+        width: 300px;
+        height: 180px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      input {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inner">
+      <h3>Temptartur Converter</h3>
+      <br />
+      <input id="temp_num" type="number" />
+      <select id="u_option">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+      </select>
+      <br />
+      <br />
+      <button id="Submit">Submit</button> <br />
+      <h3 id="result"></h3>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

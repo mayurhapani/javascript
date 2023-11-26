@@ -38,3 +38,5 @@ function c_priv() {
     document.querySelector("#slider").innerHTML = live_img;
   }
 }
+// console.log(c_next());
+// console.log(c_priv());
