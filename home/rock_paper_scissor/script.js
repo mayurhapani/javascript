@@ -5,13 +5,15 @@
   <h2 id="output"></h2>
   <h2 id="Result"></h2>
 </div> */
-let Won = 0;
-let Loose = 0;
-let Tie = 0;
+
+let Score = {
+  Won: 0,
+  Loose: 0,
+  Tie: 0,
+};
 
 function Call(U_Select) {
   const randomForComputer = Math.random();
-  //   console.log(randomForComputer);
 
   let computerSelect = "";
   let Result = "";
@@ -23,7 +25,6 @@ function Call(U_Select) {
   } else {
     computerSelect = "Scissor";
   }
-  //   console.log(computerSelect);
 
   if (U_Select === "Rock") {
     if (computerSelect === "Rock") Result = "Tie";
@@ -43,14 +44,24 @@ function Call(U_Select) {
    And Computer Selected ${computerSelect}. <br />
    ${Result}`;
 
-  if (Result === "You Won") Won++;
-  if (Result === "You Loose") Loose++;
-  if (Result === "Tie") Tie++;
+  if (Result === "You Won") Score.Won += 1;
+  if (Result === "You Loose") Score.Loose += 1;
+  if (Result === "Tie") Score.Tie += 1;
 
-  document.querySelector("#Result").innerHTML = `You Won = ${Won} &nbsp &nbsp
-   You Loose = ${Loose} &nbsp &nbsp
-   Tie = ${Tie}`;
+  Final_Result();
 }
-document.querySelector("#Result").innerHTML = `You Won = ${Won} &nbsp &nbsp
-   You Loose = ${Loose} &nbsp &nbsp
-   Tie = ${Tie}`;
+
+function Reset_Score() {
+  Score.Won = 0;
+  Score.Loose = 0;
+  Score.Tie = 0;
+
+  Final_Result();
+}
+
+function Final_Result() {
+  document.querySelector("#Result").innerHTML = `You Won = ${Score.Won} &nbsp &nbsp
+  You Loose = ${Score.Loose} &nbsp &nbsp
+  Tie = ${Score.Tie}`;
+}
+Final_Result();
