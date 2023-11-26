@@ -10,7 +10,7 @@
 //   Tie: 0,
 // };
 
-let Score = JSON.parse(localStorage.getItem("Score"));
+let Score = JSON.parse(localStorage.getItem("Score")) || { Won: 0, Loose: 0, Tie: 0 };
 // console.log(Score);
 
 function Call(U_Select) {
