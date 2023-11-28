@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .inner {
+        text-align: center;
+      }
+      span {
+        font-size: 12px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inner">
+      <form id="loginForm">
+        <label>Enter Your Email ID</label><br />
+        <input
+          id="email"
+          type="email"
+          pattern="[a-zA-z0-9._-=%]+@[a-zA-z0-9.-]+\.[a-zA-Z]{2,}"
+          placeholder="Enter Your Email ID"
+          required
+        />
+        <br />
+        <span id="emailValidation"></span>
+        <br />
+        <br />
+        <label>Enter Your Password</label><br />
+        <input id="password" type="password" oninput="passInput()" placeholder="Enter Your Password" />
+        <br />
+        <input type="checkbox" /><label>Show Password</label>
+        <br />
+        <span id="passwordValidation"></span>
+        <br />
+        <br />
+        <input id="submit" type="submit" value="submit" />
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const emailValidation = document.querySelector("#emailValidation");
+  const passwordValidation = document.querySelector("#passwordValidation");
+
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector("#email").value;
+
+    // emailValidation.innerHTML = "hii";
+    // console.log(email);
+
+    if (email === "") emailValidation.innerHTML = "Email Cannot Be Blank..!";
+    else {
+      if (email.includes("@")) {
+        emailValidation.innerHTML = "";
+      } else {
+        emailValidation.innerHTML = "Invalid Email";
+      }
+    }
+
+    if (password === "") passwordValidation.innerHTML = "Password Cannot Be Blank..!";
+    else {
+      // if (password.length >= 8) {
+      //   passwordValidation.innerHTML = "";
+      // } else {
+      //   passwordValidation.innerHTML = "Password Must Be At Least 8 Characters";
+      // }
+    }
+  });
+
+  function passInput() {
+    const password = document.querySelector("#password").value;
+
+    const passLenght = password.length;
+    const passUpper = password;
+
+    console.log(passLenght);
+  }
+</script>
