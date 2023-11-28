@@ -84,7 +84,8 @@
     const password = document.querySelector("#password").value;
 
     const passLenght = password.length;
-    const passUpper = password;
+    const passUpper = /[A-z]/.test(password);
+    const passNumber = /\d/.test(password);
 
     console.log(passLenght);
   }
