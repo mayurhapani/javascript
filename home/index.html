@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" /> -->
+    <style>
+      .passValidator {
+        height: 100dvh;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-2xl md:text-3xl lg:text-4xl text-center font-medium text-black py-8 mb-6 bg-blue-200">
+      Completed Password Validation in <span class="text-indigo-600">JavaScript Course</span>
+      <!-- <a href="https://github.com/deepk2891/Javascript/tree/main/projects/PassValidation.html" target="_blank" class="absolute right-6 top-0 text-sm">view code</a> -->
+    </h1>
+    <div class="m-auto w-full md:w-3/4 lg:w-3/5 xl:w-2/5 p-2 md:p-5 border shadow-2xl">
+      <h1 class="text-xl pb-3">Enter Password :</h1>
+      <ul class="ps-5 mb-5">
+        <li id="passCheck1">
+          <i class="fa-solid fa-circle-xmark text-red-600 pe-3"></i>password should be minimum 8 characters (1234Abcd)
+        </li>
+        <li id="passCheck2">
+          <i class="fa-solid fa-circle-xmark text-red-600 pe-3"></i>password must contain minimum 1 Upper case character (ABCD)
+        </li>
+        <li id="passCheck3"><i class="fa-solid fa-circle-xmark text-red-600 pe-3"></i>password must contain numbers (1-9)</li>
+      </ul>
+      <input
+        class="block w-full text-centermb-5 p-2 mb-5 border border-gray-500 rounded-none focus:ring focus:ring-indigo-300 focus:outline-none"
+        type="text"
+        placeholder="Enter password"
+        id="password"
+        oninput="checkPasswordStrength()"
+      />
+      <button class="text-indigo-600 w-full border border-indigo-600 p-2 mb-3 text-xl" onclick="checkPassword()">Check Password</button>
+
+      <p id="result" class="text-green-600"></p>
+    </div>
+
+    <script>
+      function checkPasswordStrength() {
+        var password = document.getElementById("password").value;
+
+        var isStrongPassword = password.length >= 8;
+        if (isStrongPassword) {
+          document.getElementById("passCheck1").innerHTML =
+            '<i class="fa-solid fa-circle-check text-green-600 pe-3"></i>password should be minimum 8 characters (1234Abcd)';
+        } else {
+          document.getElementById("passCheck1").innerHTML =
+            '<i class="fa-solid fa-circle-xmark text-red-600 pe-3"></i>password should be minimum 8 characters (1234Abcd)';
+        }
+
+        var hasUpperCase = /[A-Z]/.test(password);
+        if (hasUpperCase) {
+          document.getElementById("passCheck2").innerHTML =
+            '<i class="fa-solid fa-circle-check text-green-600 pe-3"></i>password must contain minimum 1 Upper case character (ABCD)';
+        } else {
+          document.getElementById("passCheck2").innerHTML =
+            '<i class="fa-solid fa-circle-xmark text-red-600 pe-3"></i>password must contain minimum 1 Upper case character (ABCD)';
+        }
+
+        var hasDigit = /\d/.test(password);
+        if (hasDigit) {
+          document.getElementById("passCheck3").innerHTML =
+            '<i class="fa-solid fa-circle-check text-green-600 pe-3"></i>password must contain numbers (1-9)';
+        } else {
+          document.getElementById("passCheck3").innerHTML =
+            '<i class="fa-solid fa-circle-xmark text-red-600 pe-3"></i>password must contain numbers (1-9)';
+        }
+      }
+
+      function checkPassword() {
+        var password = document.getElementById("password").value;
+
+        var isStrongPassword = password.length >= 8;
+        var hasUpperCase = /[A-Z]/.test(password);
+        var hasDigit = /\d/.test(password);
+
+        if (isStrongPassword && hasUpperCase && hasDigit) {
+          document.getElementById("result").innerHTML = "Signup successfull ...!!!";
+          alert("Welcome sir ...!!!");
+        } else {
+          document.getElementById("result").innerHTML =
+            '<p class="text-red-500">Password is not strong please make sure you fullfilled the requirements...!!!</p>';
+          alert("Password is not strong please make sure you fullfilled the requirements...!!!");
+        }
+      }
+    </script>
+  </body>
+</html>

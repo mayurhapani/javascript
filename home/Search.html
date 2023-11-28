@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Display</title>
+	</head>
+	<body>
+		<h1>Product Display</h1>
+
+		<label for="productName">Search by Name:</label>
+		<input type="text" id="productName" oninput="searchByName()" />
+
+		<label for="priceFilter">Filter by Price:</label>
+		<select id="priceFilter" onchange="filterByPrice()">
+			<option value="0">All</option>
+			<option value="50">50 and below</option>
+			<option value="100">100 and below</option>
+		</select>
+
+		<div id="productList"></div>
+
+		<script>
+			const products = [
+				{ name: "Product 1", price: 50, description: "Description 1", image: "image1.jpg" },
+				{ name: "Product 2", price: 80, description: "Description 2", image: "image2.jpg" },
+			]
+
+			function displayProducts(productList) {
+				const productListDiv = document.getElementById("productList")
+				productListDiv.innerHTML = ""
+
+				productList.forEach((product) => {
+					const productDiv = document.createElement("div")
+					productDiv.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>Price: $${product.price}</p>
+                    <p>Description: ${product.description}</p>
+                    <img src="${product.image}" alt="${product.name}">
+                `
+					productListDiv.appendChild(productDiv)
+				})
+			}
+
+			function searchByName() {
+				const searchText = document.getElementById("productName").value.toLowerCase()
+				const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchText))
+				filterByPrice(filteredProducts)
+			}
+
+			// Function to filter products by price
+			function filterByPrice(productList = products) {
+				const selectedPrice = document.getElementById("priceFilter").value
+				let filteredProducts
+
+				if (selectedPrice === "0") {
+					filteredProducts = productList
+				} else {
+					filteredProducts = productList.filter((product) => product.price <= parseInt(selectedPrice))
+				}
+
+				displayProducts(filteredProducts)
+			}
+
+			displayProducts(products)
+		</script>
+	</body>
+</html>
