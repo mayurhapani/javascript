@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo 1</title>
+  </head>
+  <body></body>
+
+  <!-- <script>
+    const Amazon = {
+      product1: "Basketball",
+      product1Price: 2095,
+      product2: "T-shirt",
+      product2Price: 1500,
+
+      priceCompaire() {
+        if (this.product1Price > this.product2Price) {
+          return this.product2;
+        } else {
+          return this.product1;
+        }
+      },
+    };
+
+    console.log(Amazon);
+
+    Amazon.product1Price -= 800;
+    // console.log(Amazon);
+
+    Amazon["deliveryTime"] = "3-days";
+
+    console.log(Amazon.priceCompaire());
+  </script> -->
+
+  <script>
+    const Amazon = {
+      product1: {
+        name: "Basketball",
+        price: 2095,
+      },
+      product2: {
+        name: "T-shirt",
+        price: 1500,
+      },
+      product3: {
+        name: "T-shirt",
+        price: 1500,
+      },
+      priceCompaire() {
+        if (this.product1.price > this.product2.price) {
+          return this.product2.name;
+        } else {
+          return this.product1.name;
+        }
+      },
+      isSameProduct() {
+        if (this.product3.name === this.product2.name && this.product3.price === this.product2.price) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    };
+
+    console.log(Amazon.priceCompaire());
+    console.log(Amazon.isSameProduct());
+  </script>
+</html>

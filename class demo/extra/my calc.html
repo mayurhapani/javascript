@@ -75,31 +75,31 @@
         <button class="btn" onclick="clk('1')"><span>1</span></button>
         <button class="btn" onclick="clk('2')"><span>2</span></button>
         <button class="btn" onclick="clk('3')"><span>3</span></button>
-        <button class="btn" onclick="clk('+')"><span>+</span></button>
+        <button class="btn" onclick="back()"><span><</span></button>
       </div>
       <div class="flex">
         <button class="btn" onclick="clk('4')"><span>4</span></button>
         <button class="btn" onclick="clk('5')"><span>5</span></button>
         <button class="btn" onclick="clk('6')"><span>6</span></button>
-        <button class="btn" onclick="clk('-')"><span>-</span></button>
+        <button class="btn" onclick="clk('+')"><span>+</span></button>
       </div>
       <div class="flex">
         <button class="btn" onclick="clk('7')"><span>7</span></button>
         <button class="btn" onclick="clk('8')"><span>8</span></button>
         <button class="btn" onclick="clk('9')"><span>9</span></button>
-        <button class="btn" onclick="clk('*')"><span>x</span></button>
-      </div>
-      <div class="flex">
-        <button class="btn" onclick="total()"><span>=</span></button>
-        <button class="btn" onclick="clk('0')"><span>0</span></button>
-        <button class="btn" onclick="clearall()"><span>C</span></button>
-        <button class="btn" onclick="clk('/')"><span>/</span></button>
+        <button class="btn" onclick="clk('-')"><span>-</span></button>
       </div>
       <div class="flex">
         <button class="btn" onclick="clk('.')"><span>.</span></button>
-        <button class="btn" onclick="back()"><span>clr</span></button>
+        <button class="btn" onclick="clk('0')"><span>0</span></button>
+        <button class="btn" onclick="clk('00')"><span>00</span></button>
+        <button class="btn" onclick="clk('*')"><span>x</span></button>
+      </div>
+      <div class="flex">
+        <button class="btn" onclick="clearall()"><span>C</span></button>
         <button class="btn" onclick=""><span></span></button>
-        <button class="btn" onclick=""><span></span></button>
+        <button class="btn" onclick="total()"><span>=</span></button>
+        <button class="btn" onclick="clk('/')"><span>/</span></button>
       </div>
     </div>
   </body>
@@ -136,7 +136,11 @@
 
   function disp() {
     var result = eval(document.getElementById("display").innerHTML);
-    document.getElementById("display1").innerHTML = result;
+    if (result === undefined) {
+      document.getElementById("display1").innerHTML = "";
+    } else {
+      document.getElementById("display1").innerHTML = result;
+    }
   }
 
   function clearall() {

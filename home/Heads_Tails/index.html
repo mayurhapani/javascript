@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NightKing Games</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .inner {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inner">
+      <h3>Select Your Choice To Play</h3>
+
+      <button onclick="choice('Heads')">Heads</button>
+      <button onclick="choice('Tails')">Tails</button>
+      <button onclick="Reset()">Reset</button>
+
+      <h3 id="result"><br /></h3>
+
+      <h3 id="score"><br /></h3>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
