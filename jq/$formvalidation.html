@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-style: italic;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .input-container {
+        filter: drop-shadow(46px 36px 24px #4090b5)
+          drop-shadow(-55px -40px 25px #9e30a9);
+        animation: blinkShadowsFilter 8s ease-in infinite;
+        width: 500px;
+      }
+      .input-content {
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        align-items: center;
+        padding-inline: 1em;
+      }
+      .input-content::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        filter: blur(40px);
+        -webkit-clip-path: polygon(
+          26% 0,
+          66% 0,
+          92% 0,
+          100% 8%,
+          100% 89%,
+          91% 100%,
+          7% 100%,
+          0 92%,
+          0 0
+        );
+        clip-path: polygon(
+          26% 0,
+          66% 0,
+          92% 0,
+          100% 8%,
+          100% 89%,
+          91% 100%,
+          7% 100%,
+          0 92%,
+          0 0
+        );
+        background: rgba(23, 53, 55, 0.557);
+        transition: all 1s ease-in-out;
+      }
+      .input-dist {
+        z-index: 80;
+        display: grid;
+        align-items: center;
+        width: 100%;
+        padding-inline: 1em;
+        padding-block: 1.2em;
+        grid-template-columns: 1fr;
+      }
+      .input-type {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        /* gap: 0.5em; */
+        font-size: 1.1rem;
+        background-color: transparent;
+        width: 100%;
+        border: none;
+      }
+      .input-is {
+        color: #fff;
+        font-size: 1.2rem;
+        background-color: transparent;
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+        transition: all 1s ease-in-out;
+        border-bottom: 1px solid hsl(221, 26%, 43%);
+      }
+      .input-is:hover {
+        transition: all 1s ease-in-out;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(102, 224, 255, 0.2) 27%,
+          rgba(102, 224, 255, 0.2) 63%,
+          transparent 100%
+        );
+      }
+      .input-content:focus-within::before {
+        transition: all 1s ease-in-out;
+        background: hsla(0, 17%, 63%, 0.814);
+      }
+      .input-is:focus {
+        outline: none;
+        border-bottom: 1px solid hsl(192, 100%, 100%);
+        color: hsl(192, 97%, 15%);
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(102, 224, 255, 0.2) 27%,
+          rgba(102, 224, 255, 0.2) 63%,
+          transparent 100%
+        );
+      }
+      .input-is::-moz-placeholder {
+        color: hsla(192, 100%, 88%, 0.806);
+      }
+      .input-is::placeholder {
+        color: hsla(192, 100%, 88%, 0.806);
+      }
+      @keyframes backglitch {
+        0% {
+          box-shadow: inset 0px 20px 20px 30px #212121;
+        }
+
+        50% {
+          box-shadow: inset 0px -20px 20px 30px hsl(297, 42%, 10%);
+        }
+
+        to {
+          box-shadow: inset 0px 20px 20px 30px #212121;
+        }
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg) translate(-50%, 20%);
+        }
+
+        50% {
+          transform: rotate(180deg) translate(40%, 10%);
+        }
+
+        to {
+          transform: rotate(360deg) translate(-50%, 20%);
+        }
+      }
+      @keyframes blinkShadowsFilter {
+        0% {
+          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
+            drop-shadow(-55px -40px 28px #9e30a9);
+        }
+
+        25% {
+          filter: drop-shadow(46px -36px 24px rgba(64, 144, 181, 0.8980392157))
+            drop-shadow(-55px 40px 24px #9e30a9);
+        }
+
+        50% {
+          filter: drop-shadow(46px 36px 30px rgba(64, 144, 181, 0.8980392157))
+            drop-shadow(-55px 40px 30px rgba(159, 48, 169, 0.2941176471));
+        }
+
+        75% {
+          filter: drop-shadow(20px -18px 25px rgba(64, 144, 181, 0.8980392157))
+            drop-shadow(-20px 20px 25px rgba(159, 48, 169, 0.2941176471));
+        }
+
+        to {
+          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
+            drop-shadow(-55px -40px 28px #9e30a9);
+        }
+      }
+      .btn1 {
+        font-size: 1.5rem;
+        display: inline-block;
+        width: 120px;
+        height: 50px;
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        background-color: rgb(14, 14, 26);
+        color: rgb(234, 234, 234);
+        font-weight: 700;
+        transition: 0.6s;
+        box-shadow: 0px 0px 60px #1f4c65;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+      }
+      .btn1:active {
+        scale: 0.92;
+      }
+      .btn1:hover {
+        background: rgb(2, 29, 78);
+        background: linear-gradient(
+          270deg,
+          rgba(2, 29, 78, 0.681) 0%,
+          rgba(31, 215, 232, 0.873) 60%
+        );
+        color: rgb(4, 4, 38);
+      }
+      .input-is2 {
+        padding: 10px;
+        background-color: rgba(16, 1, 44, 0.889);
+      }
+      span {
+        font-size: 15px;
+        letter-spacing: 2px;
+        color: rgb(255, 0, 0);
+      }
+      label {
+        color: white;
+      }
+      .font_color {
+        color: rgb(165, 206, 228);
+        font-size: 1.2rem !important;
+      }
+      .font_type {
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-size: 0.9rem;
+      }
+      /* .transparent {
+        background-color: transparent;
+      } */
+      select option {
+        transition: all 1s ease-in-out;
+        background: hsla(0, 17%, 63%, 0.814);
+      }
+    </style>
+  </head>
+  <body style="background-color: #212121">
+    <form class="container">
+      <div class="input-container">
+        <div class="input-content">
+          <div class="input-dist">
+            <div class="input-type">
+              <input
+                type="text"
+                class="input-is"
+                id="name"
+                placeholder="Enter Your Name"
+              />
+              <span id="nameValidation"><br /></span>
+              <input
+                id="email"
+                class="input-is"
+                type="email"
+                pattern="[a-zA-z0-9._-=%]+@[a-zA-z0-9.-]+\.[a-zA-Z]{2,}"
+                placeholder="Enter Your Email ID"
+                required
+              />
+              <span id="emailValidation"><br /></span>
+              <input
+                id="password"
+                class="input-is"
+                type="password"
+                placeholder="Enter Your Password"
+              />
+              <!-- <input
+                id="password"
+                class="input-is"
+                type="password"
+                oninput="passInput()"
+                placeholder="Enter Your Password"
+              /> -->
+              <div>
+                <input id="showPassword" type="checkbox" />
+                <label style="margin-left: 10px">Show Password</label>
+              </div>
+              <span id="passwordValidation"><br /></span><br />
+
+              <div>
+                <label class="font_color font_type">Select Your Gender : </label
+                >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <input
+                  id="gender_male"
+                  type="radio"
+                  name="gender"
+                  value="male"
+                />
+                <label class="font_type">Male</label> &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp;
+                <input
+                  id="gender_female"
+                  type="radio"
+                  name="gender"
+                  value="female"
+                />
+                <label class="font_type">Female</label>
+              </div>
+              <span id="genderValidation"> <br /></span>
+
+              <select id="course" class="input-is">
+                <option value="" disabled selected>Choose Your Course..</option>
+                <option value="Full-Stack">Full-Stack</option>
+                <option value="Front-End">Front-End</option>
+                <option value="Back-End">Back-End</option>
+                <option value="Java Script">Java Script</option>
+                <option value="PHP">PHP</option>
+              </select>
+              <span id="courseValidation"><br /></span>
+              <br />
+
+              <label class="font_color font_type">Select Your Hobbies :</label>
+              <div>
+                <input type="checkbox" name="hobby" value="Music" />
+                <label class="font_type">Music</label> &nbsp;&nbsp;
+                <input type="checkbox" name="hobby" value="Reading" />
+                <label class="font_type">Reading</label> &nbsp;&nbsp;
+                <input type="checkbox" name="hobby" value="Writing" />
+                <label class="font_type">Writing</label> &nbsp;&nbsp;
+                <input type="checkbox" name="hobby" value="Travaling" />
+                <label class="font_type">Travaling</label> &nbsp;&nbsp;
+              </div>
+              <span id="hobbiesValidation"><br /></span>
+              <br />
+
+              <input class="btn1" id="submit" type="submit" value="submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script src="jquery-3.7.0.min.js"></script>
+  </body>
+</html>
+
+<script>
+  const nameValidation = document.querySelector("#nameValidation");
+  const emailValidation = document.querySelector("#emailValidation");
+  const passwordValidation = document.querySelector("#passwordValidation");
+  const genderValidation = document.querySelector("#genderValidation");
+  const hobbiesValidation = document.querySelector("#hobbiesValidation");
+  const submit = document.querySelector("#submit");
+
+  let flag = 0;
+
+  $(document).ready(function () {
+    // alert("hiii");
+
+    $("#submit").on("click", () => {
+      const email = $("#email").val();
+      const name = $("#name").val();
+      const password = $("#password").val();
+      const course = $("#course").val();
+
+      let nameVarification =
+        (emailVarification =
+        passwordVarification =
+        genderVarification =
+        courseVarification =
+        hobbiesVarification =
+          true);
+
+      // <---------------------------nameValidation---------------------->
+      if (name == "") nameValidation.innerHTML = "Name Cannot Be Blank..!";
+      else {
+        nameValidation.innerHTML = "";
+        nameVarification = false;
+      }
+      // <---------------------------emailVarification---------------------->
+
+      if (email === "") emailValidation.innerHTML = "Email Cannot Be Blank..!";
+      else {
+        if (email.includes("@")) {
+          emailValidation.innerHTML = "";
+          emailVarification = false;
+        } else {
+          emailValidation.innerHTML = "Invalid Email";
+        }
+      }
+
+      // <---------------------------passwordValidation---------------------->
+
+      if (password === "")
+        passwordValidation.innerHTML = "Password Cannot Be Blank..!";
+      else {
+        passwordValidation.innerHTML = "";
+        if (flag) passwordVarification = false;
+      }
+      // console.log(passwordValidation);
+
+      // <---------------------------genderValidation---------------------->
+
+      const gender_male = document.querySelector("#gender_male");
+      const gender_female = document.querySelector("#gender_female");
+
+      if (gender_male.checked) {
+        genderValidation.innerHTML = "";
+        genderVarification = false;
+      } else if (gender_female.checked) {
+        genderValidation.innerHTML = "";
+        genderVarification = false;
+      } else genderValidation.innerHTML = "Please Select Your Gender..!";
+
+      // <---------------------------courseValidation---------------------->
+
+      if (course === "")
+        courseValidation.innerHTML = "Please Select Your Course..!";
+      else {
+        courseValidation.innerHTML = "";
+        courseVarification = false;
+      }
+
+      // <---------------------------hobbiesValidation---------------------->
+      const hobbies = document.querySelectorAll("input[name=hobby]");
+      let hobbiesFlag = 0;
+      // console.log(hobbies);
+      for (let i = 0; i < hobbies.length; i++) {
+        if (hobbies[i].checked === true) hobbiesFlag++;
+      }
+      if (!hobbiesFlag)
+        hobbiesValidation.innerHTML = "Please Select Atlist One Hobbies..!";
+      else {
+        hobbiesValidation.innerHTML = "";
+        hobbiesVarification = false;
+      }
+
+      // <---------------------------submitValidation---------------------->
+
+      if (
+        nameVarification ||
+        emailVarification ||
+        passwordVarification ||
+        genderVarification ||
+        courseVarification ||
+        hobbiesVarification === true
+      )
+        return false;
+      else alert("Login Successfull...");
+    });
+
+    $("#password").on("input", () => {
+      const password = $("#password").val();
+
+      const passLenght = password.length;
+      const passUpper = /[A-Z]/.test(password);
+      const passNumber = /\d/.test(password);
+      const passSpecial = /[-%+_*@]/.test(password);
+
+      if (passLenght >= 8 && passUpper && passNumber && passSpecial) {
+        passwordValidation.innerHTML = "";
+        flag++;
+      } else {
+        passwordValidation.innerHTML =
+          "Password Must Be At Least 8 Characters incude Capital letter Nand Special Character";
+      }
+
+      // console.log(passwordLenth);
+    });
+
+    $("#showPassword").on("click", () => {
+      const password = document.querySelector("#password");
+      console.log(password.type);
+
+      if (password.type === "password") {
+        password.type = "text";
+      } else {
+        password.type = "password";
+      }
+    });
+  });
+
+  // const emailValidation = document.querySelector("#emailValidation");
+  // const passwordValidation = document.querySelector("#passwordValidation");
+  // const submit = document.querySelector("#submit");
+  // let flag = 0;
+
+  // submit.addEventListener("click", (e) => {
+  //  // e.preventDefault();
+
+  //   const email = document.querySelector("#email").value;
+  //   const password = document.querySelector("#password").value;
+
+  //   // emailValidation.innerHTML = "hii";
+  //   console.log(email);
+
+  //   let emailVarification = true;
+  //   let passwordVarification = true;
+
+  //   if (email === "")
+  //     emailValidation.innerHTML = "Email Cannot Be Blank..!";
+  //   else {
+  //     if (email.includes("@")) {
+  //       emailValidation.innerHTML = "";
+  //       emailVarification = false;
+  //     } else {
+  //       emailValidation.innerHTML = "Invalid Email";
+  //     }
+  //   }
+
+  //   if (password === "")
+  //     passwordValidation.innerHTML = "Password Cannot Be Blank..!";
+  //   else {
+  //     passwordValidation.innerHTML = "";
+  //     if (flag) passwordVarification = false;
+  //   }
+  //   // console.log(passwordValidation);
+
+  //   if (emailVarification || passwordVarification === true) return false;
+  //   else alert("Login Successfull...");
+  // });
+
+  // const passInput = () => {
+  //   const password = document.querySelector("#password").value;
+
+  //   const passLenght = password.length;
+  //   const passUpper = /[A-Z]/.test(password);
+  //   const passNumber = /\d/.test(password);
+  //   const passSpecial = /[-%+_*]/.test(password);
+
+  //   // console.log(passSpecial);
+
+  //   if (passLenght >= 8 && passUpper && passNumber && passSpecial) {
+  //     // console.log("hiii");
+  //     passwordValidation.innerHTML = "";
+  //     flag++;
+  //   } else {
+  //     passwordValidation.innerHTML =
+  //       "Password Must Be At Least 8 Characters incude Capital letter Nand Special Character";
+  //   }
+  //   // console.log(flag);
+  // };
+
+  // showPassword.addEventListener("click", () => {
+  //   // console.log("Check box clicked");
+
+  //   const password = document.querySelector("#password");
+  //   if (password.type === "password") password.type = "text";
+  //   else password.type = "password";
+  // });
+
+  // <---------------------------php ai login emailVarification---------------------->
+
+  //       if (email == "" || password == "") {
+  //   alert("Please fill all the fields");
+  // } else {
+  //   $.ajax({
+  //     url: "login.php",
+  //     method: "POST",
+  //     data: {
+  //       email: email,
+  //       password: password,
+  //     },
+  //     success: function (data) {
+  //       // alert(data);
+  //       if (data == 1) {
+  //         window.location.href = "dashboard.php";
+  //       } else {
+  //         alert("Invalid Credentials");
+  //       }
+  //     },
+  //   });
+  // }
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>buttons</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: rgb(25, 25, 25);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .inner {
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        color: #000;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s linear;
+      }
+      .is_clicked {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inner">
+      <button class="btn">Gaming</button>
+      <!-- <button class="btn" onclick="is_toggle()">Music</button>
+      <button class="btn" onclick="is_toggle()">Tech</button> -->
+    </div>
+
+    <script>
+      const btns = document.querySelectorAll(".btn");
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (this.classList.contains(".is-clicked")) {
+            this.classList.add(".is-clicked");
+          } else {
+            this.classList.remove(".is-clicked");
+          }
+          //   btns.forEach((btn) => {
+          //     btn.classList.remove("is_clicked");
+          //   });
+          //   btn.classList.add("is_clicked");
+        });
+      });
+
+      //   function is_toggle() {
+      //     if (this.classList.contains("is_clicked")) {
+      //       this.classList.remove("is_clicked");
+      //     } else {
+      //       this.classList.add("is_clicked");
+      //     }
+      //   }
+
+      //only one button at a time
+      //   const btns = document.querySelectorAll(".btn");
+
+      //   btns.forEach((btn) => {
+      //     btn.addEventListener("click", () => {
+      //       btns.forEach((btn) => {
+      //         btn.classList.remove("is_clicked");
+      //       });
+      //       btn.classList.add("is_clicked");
+      //     });
+      //   });
+    </script>
+  </body>
+</html>

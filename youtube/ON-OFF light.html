@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>ON/OFF Light</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: rgb(25, 25, 25);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .inner {
+        text-align: center;
+      }
+      #result {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inner">
+      <p id="result">🌑</p>
+      <button id="btn">Light ON</button>
+      <button id="btn1" disabled>Light OFF</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector("#btn");
+      const btn1 = document.querySelector("#btn1");
+      const result = document.querySelector("#result");
+      const body = document.querySelector("body");
+
+      btn.addEventListener("click", () => {
+        btn.disabled = true;
+        btn1.disabled = false;
+        result.innerHTML = "🌕";
+        body.style.backgroundColor = "rgb(232, 232, 158)";
+      });
+      btn1.addEventListener("click", () => {
+        btn.disabled = false;
+        btn1.disabled = true;
+        result.innerHTML = "🌑";
+        body.style.backgroundColor = "rgb(25, 25, 25)";
+      });
+    </script>
+  </body>
+</html>
