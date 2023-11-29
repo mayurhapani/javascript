@@ -1,6 +1,6 @@
-/* <button onclick="Call('Rock')">Rock</button>
-    <button onclick="Call('Paper')">Paper</button>
-    <button onclick="Call('Scissor')">Scissor</button>
+/* <button onclick="Call('✊')">✊</button>
+    <button onclick="Call('🖐')">🖐</button>
+    <button onclick="Call('✌')">✌</button>
   <h2 id="output"></h2>
   <h2 id="Result"></h2> */
 
@@ -10,7 +10,11 @@
 //   Tie: 0,
 // };
 
-let Score = JSON.parse(localStorage.getItem("Score")) || { Won: 0, Loose: 0, Tie: 0 };
+let Score = JSON.parse(localStorage.getItem("Score")) || {
+  Won: 0,
+  Loose: 0,
+  Tie: 0,
+};
 // console.log(Score);
 
 function Call(U_Select) {
@@ -20,30 +24,32 @@ function Call(U_Select) {
   let Result = "";
 
   if (randomForComputer >= 0 && randomForComputer < 1 / 3) {
-    computerSelect = "Rock";
+    computerSelect = "✊";
   } else if (randomForComputer >= 1 / 3 && randomForComputer < 2 / 3) {
-    computerSelect = "Paper";
+    computerSelect = "🖐";
   } else {
-    computerSelect = "Scissor";
+    computerSelect = "✌";
   }
 
-  if (U_Select === "Rock") {
-    if (computerSelect === "Rock") Result = "Tie";
-    else if (computerSelect === "Paper") Result = "You Loose";
+  if (U_Select === "✊") {
+    if (computerSelect === "✊") Result = "Tie";
+    else if (computerSelect === "🖐") Result = "You Loose";
     else Result = "You Won";
-  } else if (U_Select === "Paper") {
-    if (computerSelect === "Paper") Result = "Tie";
-    else if (computerSelect === "Scissor") Result = "You Loose";
+  } else if (U_Select === "🖐") {
+    if (computerSelect === "🖐") Result = "Tie";
+    else if (computerSelect === "✌") Result = "You Loose";
     else Result = "You Won";
   } else {
-    if (computerSelect === "Scissor") Result = "Tie";
-    else if (computerSelect === "Rock") Result = "You Loose";
+    if (computerSelect === "✌") Result = "Tie";
+    else if (computerSelect === "✊") Result = "You Loose";
     else Result = "You Won";
   }
 
-  document.querySelector("#output").innerHTML = `You Have Selected ${U_Select}. <br />
-   And Computer Selected ${computerSelect}. <br />
-   ${Result}`;
+  document.querySelector(
+    "#output"
+  ).innerHTML = `<span class="result">${Result}</span><br /> <br />
+  Your Choice = <span class="icon">${U_Select}</span> &nbsp &nbsp &nbsp &nbsp
+  Computer's Choice = <span class="icon">${computerSelect}</span>`;
 
   if (Result === "You Won") Score.Won += 1;
   if (Result === "You Loose") Score.Loose += 1;
@@ -59,6 +65,10 @@ function Reset_Score() {
   Score.Loose = 0;
   Score.Tie = 0;
 
+  document.querySelector(
+    "#output"
+  ).innerHTML = `<br /> <br /><br /> <br /><br />`;
+
   // localStorage.setItem("Score", JSON.stringify(Score));
 
   Final_Result();
@@ -67,8 +77,10 @@ function Reset_Score() {
 function Final_Result() {
   localStorage.setItem("Score", JSON.stringify(Score));
 
-  document.querySelector("#Result").innerHTML = `You Won = ${Score.Won} &nbsp &nbsp
-  You Loose = ${Score.Loose} &nbsp &nbsp
-  Tie = ${Score.Tie}`;
+  document.querySelector(
+    "#Result"
+  ).innerHTML = `Wons = ${Score.Won} &nbsp &nbsp
+  Looses = ${Score.Loose} &nbsp &nbsp
+  Ties = ${Score.Tie}`;
 }
 Final_Result();

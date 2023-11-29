@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Amazon charset</title>
+  </head>
+  <body>
+    <button id="showQuantity">Show Quantity</button>
+    <button onclick="add(1)">Add to Cart</button>
+    <button onclick="add(2)">+2</button>
+    <button onclick="add(3)">+3</button>
+    <button onclick="add(4)">+4</button>
+    <button onclick="add(5)">+5</button>
+    <button onclick="remove(1)">Remove from Cart</button>
+    <button onclick="remove(2)">-2</button>
+    <button onclick="remove(3)">-3</button>
+    <p>Cart Quantity : <span id="result"></span></p>
+    <p id="error" style="color: red">Max Quantity 10</p>
+  </body>
+  <script>
+    const showQuantity = document.querySelector("#showQuantity");
+    const result = document.querySelector("#result");
+    const error = document.querySelector("#error");
+
+    let quantity = 0;
+
+    showQuantity.addEventListener("click", () => {
+      result.innerHTML = quantity;
+    });
+
+    function add(qnt) {
+      if (quantity + qnt <= 10) {
+        quantity += qnt;
+        result.innerHTML = quantity;
+      } else error.innerHTML = `You Can Selecte Maximum 10 Quantity...!`;
+    }
+    function remove(qnt) {
+      if (quantity <= 0 || quantity < qnt) {
+        error.innerHTML = `You Have ${quantity} Items In Cart So You Can't Remove ${qnt} Items...!`;
+      } else {
+        quantity -= qnt;
+        result.innerHTML = quantity;
+        error.innerHTML = `Max Quantity 10`;
+      }
+    }
+  </script>
+</html>

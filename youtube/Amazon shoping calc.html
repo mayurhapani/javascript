@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Amazon calc</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .userInput {
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      input[type="number"]::-webkit-inner-spin-button {
+        appearance: none;
+      }
+      .calculate {
+        font-size: 15px;
+        padding: 12px 15px;
+        border: none;
+        background-color: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Amazon Shoping Calculator</p>
+    <p>Order Under $40 = +$10 Shipping.</p>
+    <p>Order Over $40 = Free Shipping.</p>
+    <input
+      class="userInput"
+      id="userInput"
+      type="number"
+      onkeydown="calc()"
+      placeholder="Cost of Order"
+    />
+    <button class="calculate" id="calculate">Calculate</button><br /><br />
+    <span id="result"></span>
+  </body>
+  <script>
+    const calculate = document.querySelector("#calculate");
+    const result = document.querySelector("#result");
+    const shipping = 10 * 100;
+    // const userInput = document.querySelector("#userInput");
+
+    const calc = () => {
+      if (event.key === "Enter") calculate.click();
+    };
+
+    calculate.addEventListener("click", () => {
+      let userInput = +document.querySelector("#userInput").value * 100;
+      if (userInput <= 4000)
+        result.innerHTML = `$${(userInput + shipping) / 100}`;
+      else result.innerHTML = `$${userInput / 100}`;
+    });
+  </script>
+</html>
