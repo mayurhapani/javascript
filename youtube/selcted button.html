@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>buttons</title>
     <style>
       body {
@@ -41,8 +38,8 @@
   <body>
     <div class="inner">
       <button class="btn">Gaming</button>
-      <!-- <button class="btn" onclick="is_toggle()">Music</button>
-      <button class="btn" onclick="is_toggle()">Tech</button> -->
+      <button class="btn">Music</button>
+      <button class="btn">Tech</button>
     </div>
 
     <script>
@@ -50,25 +47,13 @@
 
       btns.forEach((btn) => {
         btn.addEventListener("click", () => {
-          if (this.classList.contains(".is-clicked")) {
-            this.classList.add(".is-clicked");
+          if (btn.classList.contains("is_clicked")) {
+            btn.classList.remove("is_clicked");
           } else {
-            this.classList.remove(".is-clicked");
+            btn.classList.add("is_clicked");
           }
-          //   btns.forEach((btn) => {
-          //     btn.classList.remove("is_clicked");
-          //   });
-          //   btn.classList.add("is_clicked");
         });
       });
-
-      //   function is_toggle() {
-      //     if (this.classList.contains("is_clicked")) {
-      //       this.classList.remove("is_clicked");
-      //     } else {
-      //       this.classList.add("is_clicked");
-      //     }
-      //   }
 
       //only one button at a time
       //   const btns = document.querySelectorAll(".btn");
