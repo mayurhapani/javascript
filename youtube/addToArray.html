@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AddToArray</title>
+  </head>
+  <body>
+    <p>Add To Array</p>
+    <input id="input" type="text" />
+    <button onclick="addItem()">Add</button>
+
+    <div id="result"></div>
+
+    <script>
+      const addTaskArr = [];
+
+      function addItem() {
+        const inputElements = document.querySelector("#input");
+        const result = document.querySelector("#result");
+        const itemName = inputElements.value;
+        let output = "";
+
+        addTaskArr.push(itemName);
+        inputElements.value = "";
+
+        addTaskArr.forEach((i) => {
+          output += `<p>${i}</p>`;
+        });
+
+        result.innerHTML = output;
+        console.log(addTaskArr);
+      }
+    </script>
+  </body>
+</html>

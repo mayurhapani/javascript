@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      p {
+        font-weight: bold;
+      }
+      input {
+        padding: 8px;
+        border-radius: 5px;
+        /* margin: 5px; */
+      }
+      button {
+        height: 35px;
+        width: 100px;
+        border: none;
+      }
+      #add {
+        background-color: green;
+        color: white;
+      }
+      .delete {
+        background-color: rgb(194, 0, 0);
+        color: white;
+      }
+      .align {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 200px 130px 100px;
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 10px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Todo List</p>
+    <div class="align">
+      <input id="input" type="text" placeholder="Todo Name" />
+      <input id="date" type="date" />
+      <button id="add" onclick="addItem()">Add</button>
+    </div>
+
+    <div class="align" id="result"></div>
+
+    <script>
+      const addTaskArr = JSON.parse(localStorage.getItem("addTaskArr")) || [];
+
+      function display() {
+        let output = "";
+
+        addTaskArr.forEach((elm, i) => {
+          const todoObject = elm;
+          //   const name = todoObject.name;
+          //   const date = todoObject.date;
+
+          const { name, date } = todoObject;
+
+          const out = `
+            <div>${name}</div>
+            <div>${date}</div>
+          
+            <button class='delete' onclick="
+            addTaskArr.splice(${i},1);
+            display();
+            ">Delete</button>
+            `;
+
+          output += out;
+
+          localStorage.setItem("addTaskArr", JSON.stringify(addTaskArr));
+        });
+
+        result.innerHTML = output;
+      }
+
+      function addItem() {
+        const inputElements = document.querySelector("#input");
+        const name = inputElements.value;
+
+        const dateElement = document.querySelector("#date");
+        const date = dateElement.value;
+
+        const result = document.querySelector("#result");
+
+        addTaskArr.push({
+          name,
+          date,
+          //name:name,
+          // date:date
+        });
+
+        inputElements.value = "";
+
+        display();
+      }
+      display();
+    </script>
+  </body>
+</html>
