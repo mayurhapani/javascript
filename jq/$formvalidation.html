@@ -20,8 +20,7 @@
         flex-direction: column;
       }
       .input-container {
-        filter: drop-shadow(46px 36px 24px #4090b5)
-          drop-shadow(-55px -40px 25px #9e30a9);
+        filter: drop-shadow(46px 36px 24px #4090b5) drop-shadow(-55px -40px 25px #9e30a9);
         animation: blinkShadowsFilter 8s ease-in infinite;
         width: 500px;
       }
@@ -38,28 +37,8 @@
         width: 100%;
         height: 100%;
         filter: blur(40px);
-        -webkit-clip-path: polygon(
-          26% 0,
-          66% 0,
-          92% 0,
-          100% 8%,
-          100% 89%,
-          91% 100%,
-          7% 100%,
-          0 92%,
-          0 0
-        );
-        clip-path: polygon(
-          26% 0,
-          66% 0,
-          92% 0,
-          100% 8%,
-          100% 89%,
-          91% 100%,
-          7% 100%,
-          0 92%,
-          0 0
-        );
+        -webkit-clip-path: polygon(26% 0, 66% 0, 92% 0, 100% 8%, 100% 89%, 91% 100%, 7% 100%, 0 92%, 0 0);
+        clip-path: polygon(26% 0, 66% 0, 92% 0, 100% 8%, 100% 89%, 91% 100%, 7% 100%, 0 92%, 0 0);
         background: rgba(23, 53, 55, 0.557);
         transition: all 1s ease-in-out;
       }
@@ -96,13 +75,7 @@
       }
       .input-is:hover {
         transition: all 1s ease-in-out;
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(102, 224, 255, 0.2) 27%,
-          rgba(102, 224, 255, 0.2) 63%,
-          transparent 100%
-        );
+        background: linear-gradient(90deg, transparent 0%, rgba(102, 224, 255, 0.2) 27%, rgba(102, 224, 255, 0.2) 63%, transparent 100%);
       }
       .input-content:focus-within::before {
         transition: all 1s ease-in-out;
@@ -112,13 +85,7 @@
         outline: none;
         border-bottom: 1px solid hsl(192, 100%, 100%);
         color: hsl(192, 97%, 15%);
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(102, 224, 255, 0.2) 27%,
-          rgba(102, 224, 255, 0.2) 63%,
-          transparent 100%
-        );
+        background: linear-gradient(90deg, transparent 0%, rgba(102, 224, 255, 0.2) 27%, rgba(102, 224, 255, 0.2) 63%, transparent 100%);
       }
       .input-is::-moz-placeholder {
         color: hsla(192, 100%, 88%, 0.806);
@@ -154,18 +121,15 @@
       }
       @keyframes blinkShadowsFilter {
         0% {
-          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
-            drop-shadow(-55px -40px 28px #9e30a9);
+          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706)) drop-shadow(-55px -40px 28px #9e30a9);
         }
 
         25% {
-          filter: drop-shadow(46px -36px 24px rgba(64, 144, 181, 0.8980392157))
-            drop-shadow(-55px 40px 24px #9e30a9);
+          filter: drop-shadow(46px -36px 24px rgba(64, 144, 181, 0.8980392157)) drop-shadow(-55px 40px 24px #9e30a9);
         }
 
         50% {
-          filter: drop-shadow(46px 36px 30px rgba(64, 144, 181, 0.8980392157))
-            drop-shadow(-55px 40px 30px rgba(159, 48, 169, 0.2941176471));
+          filter: drop-shadow(46px 36px 30px rgba(64, 144, 181, 0.8980392157)) drop-shadow(-55px 40px 30px rgba(159, 48, 169, 0.2941176471));
         }
 
         75% {
@@ -174,8 +138,7 @@
         }
 
         to {
-          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
-            drop-shadow(-55px -40px 28px #9e30a9);
+          filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706)) drop-shadow(-55px -40px 28px #9e30a9);
         }
       }
       .btn1 {
@@ -193,19 +156,14 @@
         font-weight: 700;
         transition: 0.6s;
         box-shadow: 0px 0px 60px #1f4c65;
-        -webkit-box-reflect: below 10px
-          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+        -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
       }
       .btn1:active {
         scale: 0.92;
       }
       .btn1:hover {
         background: rgb(2, 29, 78);
-        background: linear-gradient(
-          270deg,
-          rgba(2, 29, 78, 0.681) 0%,
-          rgba(31, 215, 232, 0.873) 60%
-        );
+        background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
         color: rgb(4, 4, 38);
       }
       .input-is2 {
@@ -213,7 +171,9 @@
         background-color: rgba(16, 1, 44, 0.889);
       }
       span {
-        font-size: 15px;
+        font-size: 10px;
+        font-weight: 100;
+        font-style: normal;
         letter-spacing: 2px;
         color: rgb(255, 0, 0);
       }
@@ -244,12 +204,7 @@
         <div class="input-content">
           <div class="input-dist">
             <div class="input-type">
-              <input
-                type="text"
-                class="input-is"
-                id="name"
-                placeholder="Enter Your Name"
-              />
+              <input onkeypress="edited('#name','#nameValidation')" type="text" class="input-is" id="name" placeholder="Enter Your Name" />
               <span id="nameValidation"><br /></span>
               <input
                 id="email"
@@ -258,14 +213,10 @@
                 pattern="[a-zA-z0-9._-=%]+@[a-zA-z0-9.-]+\.[a-zA-Z]{2,}"
                 placeholder="Enter Your Email ID"
                 required
+                onkeypress="edited('#email','#emailValidation')"
               />
               <span id="emailValidation"><br /></span>
-              <input
-                id="password"
-                class="input-is"
-                type="password"
-                placeholder="Enter Your Password"
-              />
+              <input id="password" class="input-is" type="password" placeholder="Enter Your Password" />
               <!-- <input
                 id="password"
                 class="input-is"
@@ -280,17 +231,11 @@
               <span id="passwordValidation"><br /></span><br />
 
               <div>
-                <label class="font_color font_type">Select Your Gender : </label
-                >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <label class="font_color font_type">Select Your Gender : </label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <input onclick="edited('#gender_male', '#genderValidation')" id="gender_male" type="radio" name="gender" value="male" />
+                <label class="font_type">Male</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <input
-                  id="gender_male"
-                  type="radio"
-                  name="gender"
-                  value="male"
-                />
-                <label class="font_type">Male</label> &nbsp; &nbsp; &nbsp;
-                &nbsp; &nbsp;
-                <input
+                  onclick="edited('#gender_female', '#genderValidation')"
                   id="gender_female"
                   type="radio"
                   name="gender"
@@ -300,7 +245,7 @@
               </div>
               <span id="genderValidation"> <br /></span>
 
-              <select id="course" class="input-is">
+              <select onchange="edited('#course','#courseValidation')" id="course" class="input-is">
                 <option value="" disabled selected>Choose Your Course..</option>
                 <option value="Full-Stack">Full-Stack</option>
                 <option value="Front-End">Front-End</option>
@@ -313,13 +258,13 @@
 
               <label class="font_color font_type">Select Your Hobbies :</label>
               <div>
-                <input type="checkbox" name="hobby" value="Music" />
+                <input onclick="edited('input[type=checkbox]','#hobbiesValidation')" type="checkbox" name="hobby" value="Music" />
                 <label class="font_type">Music</label> &nbsp;&nbsp;
-                <input type="checkbox" name="hobby" value="Reading" />
+                <input onclick="edited('input[type=checkbox]','#hobbiesValidation')" type="checkbox" name="hobby" value="Reading" />
                 <label class="font_type">Reading</label> &nbsp;&nbsp;
-                <input type="checkbox" name="hobby" value="Writing" />
+                <input onclick="edited('input[type=checkbox]','#hobbiesValidation')" type="checkbox" name="hobby" value="Writing" />
                 <label class="font_type">Writing</label> &nbsp;&nbsp;
-                <input type="checkbox" name="hobby" value="Travaling" />
+                <input onclick="edited('input[type=checkbox]','#hobbiesValidation')" type="checkbox" name="hobby" value="Travaling" />
                 <label class="font_type">Travaling</label> &nbsp;&nbsp;
               </div>
               <span id="hobbiesValidation"><br /></span>
@@ -342,8 +287,9 @@
   const passwordValidation = document.querySelector("#passwordValidation");
   const genderValidation = document.querySelector("#genderValidation");
   const hobbiesValidation = document.querySelector("#hobbiesValidation");
+  const courseValidation = document.querySelector("#courseValidation");
   const submit = document.querySelector("#submit");
-
+  // const course = document.querySelector("#course");
   let flag = 0;
 
   $(document).ready(function () {
@@ -354,6 +300,7 @@
       const name = $("#name").val();
       const password = $("#password").val();
       const course = $("#course").val();
+      // console.log(course);
 
       let nameVarification =
         (emailVarification =
@@ -366,7 +313,7 @@
       // <---------------------------nameValidation---------------------->
       if (name == "") nameValidation.innerHTML = "Name Cannot Be Blank..!";
       else {
-        nameValidation.innerHTML = "";
+        nameValidation.innerHTML = "<br>";
         nameVarification = false;
       }
       // <---------------------------emailVarification---------------------->
@@ -374,7 +321,7 @@
       if (email === "") emailValidation.innerHTML = "Email Cannot Be Blank..!";
       else {
         if (email.includes("@")) {
-          emailValidation.innerHTML = "";
+          emailValidation.innerHTML = "<br>";
           emailVarification = false;
         } else {
           emailValidation.innerHTML = "Invalid Email";
@@ -383,10 +330,9 @@
 
       // <---------------------------passwordValidation---------------------->
 
-      if (password === "")
-        passwordValidation.innerHTML = "Password Cannot Be Blank..!";
+      if (password === "") passwordValidation.innerHTML = "Password Cannot Be Blank..!";
       else {
-        passwordValidation.innerHTML = "";
+        passwordValidation.innerHTML = "<br>";
         if (flag) passwordVarification = false;
       }
       // console.log(passwordValidation);
@@ -397,19 +343,18 @@
       const gender_female = document.querySelector("#gender_female");
 
       if (gender_male.checked) {
-        genderValidation.innerHTML = "";
+        genderValidation.innerHTML = "<br>";
         genderVarification = false;
       } else if (gender_female.checked) {
-        genderValidation.innerHTML = "";
+        genderValidation.innerHTML = "<br>";
         genderVarification = false;
       } else genderValidation.innerHTML = "Please Select Your Gender..!";
 
       // <---------------------------courseValidation---------------------->
 
-      if (course === "")
-        courseValidation.innerHTML = "Please Select Your Course..!";
+      if (course === null) courseValidation.innerHTML = "Please Select Your Course..!";
       else {
-        courseValidation.innerHTML = "";
+        courseValidation.innerHTML = "<br>";
         courseVarification = false;
       }
 
@@ -420,10 +365,9 @@
       for (let i = 0; i < hobbies.length; i++) {
         if (hobbies[i].checked === true) hobbiesFlag++;
       }
-      if (!hobbiesFlag)
-        hobbiesValidation.innerHTML = "Please Select Atlist One Hobbies..!";
+      if (!hobbiesFlag) hobbiesValidation.innerHTML = "Please Select Atlist One Hobbies..!";
       else {
-        hobbiesValidation.innerHTML = "";
+        hobbiesValidation.innerHTML = "<br>";
         hobbiesVarification = false;
       }
 
@@ -450,11 +394,10 @@
       const passSpecial = /[-%+_*@]/.test(password);
 
       if (passLenght >= 8 && passUpper && passNumber && passSpecial) {
-        passwordValidation.innerHTML = "";
+        passwordValidation.innerHTML = "<br>";
         flag++;
       } else {
-        passwordValidation.innerHTML =
-          "Password Must Be At Least 8 Characters incude Capital letter Nand Special Character";
+        passwordValidation.innerHTML = "Password Must Be At Least 8 Characters incude Capital letter Nand Special Character";
       }
 
       // console.log(passwordLenth);
@@ -462,7 +405,7 @@
 
     $("#showPassword").on("click", () => {
       const password = document.querySelector("#password");
-      console.log(password.type);
+      // console.log(password);
 
       if (password.type === "password") {
         password.type = "text";
@@ -471,6 +414,14 @@
       }
     });
   });
+
+  function edited(id1, id2) {
+    // console.log(id1, id2);
+    const name = $(id1).val();
+    if (name != "") {
+      $(id2).html("<br>");
+    }
+  }
 
   // const emailValidation = document.querySelector("#emailValidation");
   // const passwordValidation = document.querySelector("#passwordValidation");
