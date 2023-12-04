@@ -54,6 +54,7 @@
 
     calculate.addEventListener("click", () => {
       let userInput = +document.querySelector("#userInput").value * 100;
+      console.log(userInput);
       if (userInput <= 4000)
         result.innerHTML = `$${(userInput + shipping) / 100}`;
       else result.innerHTML = `$${userInput / 100}`;
