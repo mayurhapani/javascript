@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array & loops</title>
+  </head>
+  <body>
+    <p></p>
+  </body>
+</html>
+<script>
+  /*
+    const nums = [10, 20, 30];
+    console.log(nums);
+
+    nums.splice(2, 1, 99);
+    console.log(nums);
+    */
+  // const numarr = [1, 20, 24, 5];
+  // const namearr = ["hi", "hello", "good"];
+
+  /*
+    function getLastValue() {
+      console.log(numarr[numarr.length - 1]);
+      console.log(namearr[namearr.length - 1]);
+    }
+
+    getLastValue();
+    */
+
+  /*
+    function arrswep(arr) {
+      console.log(arr);
+
+      let temp = "";
+      temp = arr[0];
+      arr[0] = arr[arr.length - 1];
+      arr[arr.length - 1] = temp;
+
+      console.log(arr);
+    }
+    arrswep(numarr);
+    arrswep(namearr);
+    */
+
+  /*
+    for (let i = 0; i <= 10; i++) {
+      if (i % 2 == 0) {
+        console.log(i);
+      }
+    }
+    */
+
+  /*
+    for (let i = 5; i >= 0; i--) {
+      console.log(i);
+    }
+    */
+
+  /*
+    let i = 0;
+    while (i <= 10) {
+      if (i % 2 == 0) console.log(i);
+      i++;
+    }
+
+    i = 5;
+    while (i >= 0) {
+      console.log(i);
+      i--;
+    }
+    */
+
+  // arr1 = [1, 2, 3];
+  // arr2 = [-2, -1, 0, 1, 99];
+  /*
+    function incrArr(arr) {
+      ansArr = [];
+      arr.forEach((elem) => {
+        ansArr.push((elem += 1));
+      });
+      console.log(ansArr);
+    }
+
+    incrArr(arr1);
+    incrArr(arr2);
+    */
+
+  /*
+    function addNum(arr, num) {
+      ansArr = [];
+      arr.forEach((elm) => {
+        ansArr.push(elm + num);
+      });
+      console.log(ansArr);
+    }
+
+    addNum(arr1, 5);
+    addNum(arr2, 4);
+  */
+
+  /*
+    arr1 = [1, 2, 3, 4];
+    arr2 = [5, 6, 7, 8];
+
+    function addTwoArr(arr1, arr2) {
+      ansArr = [];
+      arr1.forEach((elm, i) => {
+        ansArr.push(arr1[i] + arr2[i]);
+      });
+      console.log(ansArr);
+    }
+    addTwoArr(arr1, arr2);
+    */
+
+  /*
+    arr1 = [-1, 2, 9, -5, 4, -6, 10];
+    arr2 = [-6, 6, 8, 0, 9, 7, -5];
+    arr3 = [];
+    arr4 = [3];
+
+    function countPositive(arr) {
+      flag = 0;
+      arr.forEach((elm) => {
+        if (elm > 0) flag++;
+      });
+      console.log(flag);
+    }
+
+    countPositive(arr1);
+    countPositive(arr2);
+  */
+
+  /*
+    function minMax(arr) {
+      let max = (min = arr[0]);
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+
+        if (arr[i] < min) min = arr[i];
+      }
+      console.log(max);
+      console.log(min);
+    }
+
+    minMax(arr1);
+    minMax(arr2);
+    minMax(arr3);
+    minMax(arr4);
+    */
+
+  /*
+    const fruite = {};
+
+    countWord = ["apple", "grape", "apple", "apple", "orange"];
+
+    function countMatches(arr) {
+      let apple = 0;
+
+      console.log(arr);
+
+      for (let i = 0; i < arr.length; i++) {
+        const word = arr[i];
+
+        if (!fruite[word]) fruite[word] = 1;
+        else fruite[word]++;
+      }
+      console.log(fruite);
+    }
+    countMatches(countWord);
+    */
+
+  /*
+  const nameArr = ["hello", "world", "search", "good", "search"];
+
+  // console.log(nameArr.indexOf("search1"));
+  let index = -1;
+  for (let i = 0; i < nameArr.length; i++) {
+    if (nameArr[i] === "search") {
+      index = i;
+      // break;
+    }
+    console.log(index);
+  }
+  */
+
+  // const removeEgg = ["egg", "apple", "egg", "egg", "ham"];
+  // resultArr = [];
+  // flag = 2;
+
+  /*
+  for (let i = 0; i < removeEgg.length; i++) {
+    if (removeEgg[i] == "egg" && flag > 0) {
+      flag--;
+      continue;
+    } else resultArr.push(removeEgg[i]);
+  }
+  console.log(resultArr);
+  */
+
+  /*
+  const reverseEgg = removeEgg.reverse();
+  console.log(removeEgg);
+
+  for (let i = 0; i < reverseEgg.length; i++) {
+    if (reverseEgg[i] == "egg" && flag > 0) {
+      flag--;
+      continue;
+    } else resultArr.push(reverseEgg[i]);
+  }
+  console.log(resultArr.reverse());
+  */
+
+  const foods = ["egg", "apple", "egg", "egg", "ham"];
+  resultArr = [];
+  flag = 2;
+
+  function removeEgg(arr) {
+    console.log("hii");
+  }
+  console.log(removeEgg(foods));
+  console.log(foods);
+</script>
