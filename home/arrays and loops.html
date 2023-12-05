@@ -212,13 +212,34 @@
   console.log(resultArr.reverse());
   */
 
+  /*
   const foods = ["egg", "apple", "egg", "egg", "ham"];
-  resultArr = [];
   flag = 2;
 
   function removeEgg(arr) {
-    console.log("hii");
+    const resultArr = [];
+    // console.log("hii");
+    const reversFood = arr.slice();
+    // console.log(reversFood);
+
+    for (let i = 0; i < reversFood.length; i++) {
+      if (reversFood[i] === "egg" && flag > 0) {
+        flag--;
+        continue;
+      } else resultArr.push(reversFood[i]);
+    }
+    return resultArr;
   }
   console.log(removeEgg(foods));
   console.log(foods);
+  */
+
+  /*
+  for (let i = 1; i <= 20; i++) {
+    if (i % 3 === 0 && i % 5 === 0) console.log("FizzBuzz");
+    else if (i % 3 === 0) console.log("Fizz");
+    else if (i % 5 === 0) console.log("Buzz");
+    else console.log(i);
+  }
+  */
 </script>
