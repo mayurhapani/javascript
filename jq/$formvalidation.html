@@ -397,14 +397,16 @@
         passwordValidation.innerHTML = "<br>";
         flag++;
       } else {
-        passwordValidation.innerHTML = "Password Must Be At Least 8 Characters incude Capital letter Nand Special Character";
+        // passwordValidation.innerHTML = "Password Must Be At Least 8 Characters incude Capital letter Nand Special Character";
+        $("#passwordValidation").html("Password Must Be At Least 8 Characters incude Capital letter Nand Special Character");
       }
 
       // console.log(passwordLenth);
     });
 
     $("#showPassword").on("click", () => {
-      const password = document.querySelector("#password");
+      // const password = document.querySelector("#password");
+      const password = $("#password");
       // console.log(password);
 
       if (password.type === "password") {
