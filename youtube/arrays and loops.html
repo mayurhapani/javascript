@@ -242,4 +242,32 @@
     else console.log(i);
   }
   */
+
+  function removeCopy(arr) {
+    // console.log(arr);
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      // console.log(i);
+
+      for (let j = 0; j <= newArr.length; j++) {
+        // console.log(arr[i], newArr[j]);
+
+        if (arr[i] === newArr[j]) {
+          // console.log("if");
+          break;
+        } else if (arr[i] !== newArr[j] && newArr[j] === undefined) {
+          // console.log("else");
+          newArr.push(arr[i]);
+          break;
+        }
+      }
+    }
+    console.log(newArr);
+  }
+
+  const unique = ["green", "red", "blue", "red"];
+  const unique2 = ["red", "green", "green", "red"];
+
+  removeCopy(unique);
+  removeCopy(unique2);
 </script>

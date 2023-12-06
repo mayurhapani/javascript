@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advance Function</title>
+  </head>
+  <body>
+    <!-- <button id="start">Start</button> -->
+
+    <!-- <button id="addToCart">Add to cart</button>
+    <p id="added"></p> -->
+    <button id="add">Add</button>
+    <button id="remove">Remove</button>
+  </body>
+</html>
+<script>
+  /*
+  const add = function () {
+    console.log(2 + 3);
+  };
+
+  add();
+  add();
+
+  function runTwice(fun) {
+    fun();
+    fun();
+  }
+
+  runTwice(function () {
+    console.log("12b");
+  });
+
+  runTwice(add);
+  */
+
+  /*
+  const start = document.querySelector("#start");
+
+  start.addEventListener("click", function () {
+    setTimeout(function () {
+      start.innerHTML = "Finished!";
+    }, 1000);
+    start.innerHTML = "Lodding...";
+  });
+  */
+
+  /*
+  const add = document.querySelector("#addToCart");
+  const added = document.querySelector("#added");
+  add.addEventListener("click", function () {
+    added.innerHTML = "Added";
+    setTimeout(function () {
+      added.innerHTML = "";
+    }, 2000);
+  });
+  */
+
+  /*
+  const add = document.querySelector("#addToCart");
+  const added = document.querySelector("#added");
+  let showAdded;
+
+  add.addEventListener("click", function () {
+    added.innerHTML = "Added";
+
+    clearTimeout(showAdded);
+
+    showAdded = setTimeout(function () {
+      added.innerHTML = "";
+    }, 2000);
+  });
+  */
+
+  /*
+  let titleChange;
+
+  setInterval(function () {
+    clearInterval(titleChange);
+
+    titleChange = setInterval(function () {
+      document.title = "(2) New Massage";
+    }, 1000);
+    document.title = "App";
+  }, 2000);
+  */
+
+  /*
+  setInterval(function () {
+    if (document.title === "App") document.title = "(2) New Massage";
+    else document.title = "App";
+  }, 1000);
+  */
+
+  let massage = 2;
+  const add = document.querySelector("#add");
+  const remove = document.querySelector("#remove");
+
+  add.addEventListener("click", () => {
+    massage++;
+  });
+  remove.addEventListener("click", () => {
+    if (massage > 0) massage--;
+  });
+
+  setInterval(function () {
+    if (document.title === "App") document.title = `(${massage}) New Massage`;
+    else document.title = "App";
+  }, 1000);
+</script>
