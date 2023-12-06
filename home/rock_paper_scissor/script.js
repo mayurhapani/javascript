@@ -49,6 +49,15 @@ function pickComputerMove() {
   return computerSelect;
 }
 
+document.body.addEventListener("keydown", (event) => {
+  // console.log(event.key);
+  if (event.key === "r") Call("✊");
+  else if (event.key === "p") Call("🖐");
+  else if (event.key === "s") Call("✌");
+  else if (event.key === "a") autoPlay();
+  else if (event.key === "Backspace") Reset_Score()();
+});
+
 function Call(U_Select) {
   const computerSelect = pickComputerMove();
 
@@ -82,6 +91,26 @@ function Call(U_Select) {
 }
 
 function Reset_Score() {
+  const confirmReset = document.querySelector("#confirmReset");
+  confirmReset.innerHTML = `<div id="resetMsg">
+          <p>Are You Sure You Want To Reset Score?</p>
+          <button id="resetYes">Yes</button>
+          <button id="resetNo">No</button>
+        </div>`;
+
+  const resetYes = document.querySelector("#resetYes");
+  resetYes.addEventListener("click", () => {
+    // console.log("hii");
+    Confirm_Reset_Score();
+    confirmReset.innerHTML = "";
+  });
+  const resetNo = document.querySelector("#resetNo");
+  resetNo.addEventListener("click", () => {
+    confirmReset.innerHTML = "";
+  });
+}
+
+function Confirm_Reset_Score() {
   Score.Won = 0;
   Score.Loose = 0;
   Score.Tie = 0;

@@ -51,6 +51,19 @@
       color: rgb(25, 25, 25);
       background-color: white;
     }
+    #resetMsg {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    #resetYes,
+    #resetNo {
+      height: 30px;
+      width: 60px;
+      cursor: pointer;
+    }
   </style>
   <body>
     <div class="inner">
@@ -62,6 +75,7 @@
       <h4 id="Result"></h4>
       <button class="btn2" onclick="Reset_Score()">Reset Result</button>
       <button id="autoPlay" class="btn2" onclick="autoPlay()">Start Auto Play</button>
+      <div id="confirmReset"></div>
     </div>
 
     <script src="script.js"></script>
