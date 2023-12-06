@@ -16,30 +16,23 @@ let Score = JSON.parse(localStorage.getItem("Score")) || {
   Tie: 0,
 };
 // console.log(Score);
+let isAutoPlaying = false;
+let intervalId;
 
 function autoPlay() {
-  console.log("hii");
-  const userMove = computerSelect;
-  setInterval(function () {
-    Call(userMove);
-  }, 1000);
+  if (!isAutoPlaying) {
+    intervalId = setInterval(function () {
+      const userMove = pickComputerMove();
+      Call(userMove);
+    }, 1000);
+    document.querySelector("#autoPlay").innerHTML = "Stop Auto Play";
+    isAutoPlaying = true;
+  } else {
+    clearInterval(intervalId);
+    document.querySelector("#autoPlay").innerHTML = "Start Auto Play";
+    isAutoPlaying = false;
+  }
 }
-
-// let isAutoPlaying = false;
-// let intervalId;
-
-// function autoPlay() {
-//   if (!isAutoPlaying) {
-//     intervalId = setInterval(() => {
-//       const playerMove = pickComputerMove();
-//       playGame(playerMove);
-//     }, 1000);
-//     isAutoPlaying = true;
-//   } else {
-//     clearInterval(intervalId);
-//     isAutoPlaying = false;
-//   }
-// }
 
 function pickComputerMove() {
   const randomForComputer = Math.random();
