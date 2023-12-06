@@ -17,11 +17,34 @@ let Score = JSON.parse(localStorage.getItem("Score")) || {
 };
 // console.log(Score);
 
-function Call(U_Select) {
+function autoPlay() {
+  console.log("hii");
+  const userMove = computerSelect;
+  setInterval(function () {
+    Call(userMove);
+  }, 1000);
+}
+
+// let isAutoPlaying = false;
+// let intervalId;
+
+// function autoPlay() {
+//   if (!isAutoPlaying) {
+//     intervalId = setInterval(() => {
+//       const playerMove = pickComputerMove();
+//       playGame(playerMove);
+//     }, 1000);
+//     isAutoPlaying = true;
+//   } else {
+//     clearInterval(intervalId);
+//     isAutoPlaying = false;
+//   }
+// }
+
+function pickComputerMove() {
   const randomForComputer = Math.random();
 
   let computerSelect = "";
-  let Result = "";
 
   if (randomForComputer >= 0 && randomForComputer < 1 / 3) {
     computerSelect = "✊";
@@ -30,6 +53,13 @@ function Call(U_Select) {
   } else {
     computerSelect = "✌";
   }
+  return computerSelect;
+}
+
+function Call(U_Select) {
+  const computerSelect = pickComputerMove();
+
+  let Result = "";
 
   if (U_Select === "✊") {
     if (computerSelect === "✊") Result = "Tie";
@@ -45,9 +75,7 @@ function Call(U_Select) {
     else Result = "You Won";
   }
 
-  document.querySelector(
-    "#output"
-  ).innerHTML = `<span class="result">${Result}</span><br /> <br />
+  document.querySelector("#output").innerHTML = `<span class="result">${Result}</span><br /> <br />
   Your Choice = <span class="icon">${U_Select}</span> &nbsp &nbsp &nbsp &nbsp
   Computer's Choice = <span class="icon">${computerSelect}</span>`;
 
@@ -65,9 +93,7 @@ function Reset_Score() {
   Score.Loose = 0;
   Score.Tie = 0;
 
-  document.querySelector(
-    "#output"
-  ).innerHTML = `<br /> <br /><br /> <br /><br />`;
+  document.querySelector("#output").innerHTML = `<br /> <br /><br /> <br /><br />`;
 
   // localStorage.setItem("Score", JSON.stringify(Score));
 
@@ -77,9 +103,7 @@ function Reset_Score() {
 function Final_Result() {
   localStorage.setItem("Score", JSON.stringify(Score));
 
-  document.querySelector(
-    "#Result"
-  ).innerHTML = `Wons = ${Score.Won} &nbsp &nbsp
+  document.querySelector("#Result").innerHTML = `Wons = ${Score.Won} &nbsp &nbsp
   Looses = ${Score.Loose} &nbsp &nbsp
   Ties = ${Score.Tie}`;
 }
