@@ -1,7 +1,7 @@
-const productsCard = document.querySelector(".products-grid");
+let productsHTML = "";
 
 products.forEach((products) => {
-  productsCard.innerHTML += `<div class="product-container">
+  productsHTML += `<div class="product-container">
                     <div class="product-image-container">
                         <img class="product-image"
                         src="${products.image}">
@@ -24,7 +24,7 @@ products.forEach((products) => {
                     </div>
     
                     <div class="product-quantity-container">
-                        <select>
+                        <select class="productQuantity">
                         <option selected value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -45,8 +45,17 @@ products.forEach((products) => {
                         Added
                     </div>
     
-              <button class="add-to-cart-button button-primary">
+              <button class="add-to-cart-button button-primary js-add-to-cart-button">
                 Add to Cart
               </button>
             </div>`;
+});
+
+document.querySelector(".products-grid").innerHTML = productsHTML;
+
+document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const productQuantity = document.querySelector("#productQuantity");
+    console.log("hiii");
+  });
 });
