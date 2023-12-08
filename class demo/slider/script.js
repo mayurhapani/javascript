@@ -24,11 +24,13 @@ function c_next() {
 
     // document.querySelector("#slider").style.transition = `all ${1}s linear`;
     // document.querySelector("#slider> img").style.transition = `all ${1}s linear`;
-
-    // setTimeout(() => {
-    // }, 500);
+  } else {
+    i = 0;
   }
 }
+setInterval(() => {
+  c_next();
+}, 1000);
 
 function c_priv() {
   if (i > 0) {
