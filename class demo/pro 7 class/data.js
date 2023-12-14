@@ -55,7 +55,7 @@ class user {
         gender: gender,
         course: course,
       });
-      alert("Registered Successfull...");
+      alert("Registeretion Successfull...");
 
       u1.show();
     } else {
@@ -65,7 +65,7 @@ class user {
           u1.show();
         }
       });
-      alert("Added Successfull...");
+      alert("Edited Successfull...");
     }
   }
 
@@ -123,3 +123,8 @@ function edited(id1, id2) {
     $(id2).html("<br>");
   }
 }
+
+const login = document.querySelector("#login");
+login.addEventListener("click", function (e) {
+  u1.mainDisplay(page);
+});
