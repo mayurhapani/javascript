@@ -40,7 +40,7 @@ products.forEach((product) => {
     
                     <div class="product-spacer"></div>
     
-                    <div class="added-to-cart">
+                    <div class="added-to-cart added-to-cart-${product.id}">
                         <img src="images/icons/checkmark.png">
                         Added
                     </div>
@@ -53,30 +53,38 @@ products.forEach((product) => {
 });
 
 document.querySelector(".js-products-grid").innerHTML = productsHTML;
+let addedsttimeout;
 
 document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
+    const addedToCart = document.querySelector(`.added-to-cart-${productId}`);
     let matchingItem;
     let productQuantity;
+
+    console.log(addedToCart);
 
     document.querySelectorAll(".productQuantity").forEach((quantity) => {
       const quantityProductId = quantity.dataset.productId;
 
       if (productId === quantityProductId) {
-        // console.log(quantity.value);
         productQuantity = +quantity.value;
       }
     });
 
-    cart.forEach((cartProduct) => {
-      //   console.log(productId);
-      //   console.log(cartProduct);
-      //   console.log(cartProduct.productId);
-      //   console.log(cartProduct.quantity);
+    // <------------------------added massage start------------->
 
+    addedToCart.style.opacity = "1";
+    clearTimeout(addedsttimeout);
+
+    addedsttimeout = setTimeout(() => {
+      addedToCart.style.opacity = "0";
+    }, 2000);
+
+    // <------------------------added massage end------------->
+
+    cart.forEach((cartProduct) => {
       if (productId === cartProduct.productId) {
-        // console.log("hiii");
         matchingItem = cartProduct;
       }
     });
@@ -90,11 +98,10 @@ document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
       });
     }
 
-    console.log(cart);
+    // console.log(cart);
 
     let cartQuantity = 0;
     cart.forEach((quantity) => {
-      //   console.log(quantity);
       cartQuantity += quantity.quantity;
     });
 

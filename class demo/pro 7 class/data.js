@@ -55,7 +55,7 @@ class user {
         gender: gender,
         course: course,
       });
-      alert("Registeretion Successfull...");
+      alert("Registration Successfull...");
 
       u1.show();
     } else {
@@ -104,11 +104,23 @@ class user {
 
 const u1 = new user();
 
-ragister("login");
+u1.mainDisplay("login");
 
-function ragister(page) {
-  u1.mainDisplay(page);
-}
+// function ragister(page) {
+// u1.mainDisplay(page);
+// }
+
+const login = document.querySelector("#login");
+login.addEventListener("click", function (e) {
+  u1.mainDisplay("login");
+});
+
+const list = document.querySelector("#list");
+list.addEventListener("click", function (e) {
+  u1.mainDisplay("list");
+});
+
+// const deletebtn= document.querySelector('#')
 function deleteButton(index) {
   u1.delete(index);
 }
@@ -123,8 +135,3 @@ function edited(id1, id2) {
     $(id2).html("<br>");
   }
 }
-
-const login = document.querySelector("#login");
-login.addEventListener("click", function (e) {
-  u1.mainDisplay(page);
-});
