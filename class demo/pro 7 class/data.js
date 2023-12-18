@@ -106,10 +106,6 @@ const u1 = new user();
 
 u1.mainDisplay("login");
 
-// function ragister(page) {
-// u1.mainDisplay(page);
-// }
-
 const login = document.querySelector("#login");
 login.addEventListener("click", function (e) {
   u1.mainDisplay("login");
@@ -120,7 +116,6 @@ list.addEventListener("click", function (e) {
   u1.mainDisplay("list");
 });
 
-// const deletebtn= document.querySelector('#')
 function deleteButton(index) {
   u1.delete(index);
 }
