@@ -65,6 +65,7 @@ class user {
           u1.show();
         }
       });
+      indexNo = -1;
       alert("Edited Successfull...");
     }
   }
@@ -82,7 +83,8 @@ class user {
         } else document.querySelector("#gender_female").checked = true;
       }
     });
-    ragister("login");
+
+    u1.mainDisplay("login");
   }
 
   delete(index) {
