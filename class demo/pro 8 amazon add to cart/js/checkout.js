@@ -1,22 +1,22 @@
-import { cart, removeFromCart, updateCartQuantity } from "../data/cart.js";
+import { cart, removeFromCart, updateCartQuantity, updateQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 
-updateCartQuantity(".js-total-quantity");
-let cartItemHtml = "";
+function displayCart() {
+  updateCartQuantity(".js-total-quantity");
+  let cartItemHtml = "";
 
-cart.forEach((cartItem) => {
-  const productId = cartItem.productId;
+  cart.forEach((cartItem) => {
+    const productId = cartItem.productId;
 
-  let matchingItem;
+    let matchingItem;
 
-  products.forEach((product) => {
-    if (product.id === productId) {
-      matchingItem = product;
-    }
-  });
-  //   console.log(matchingItem);
+    products.forEach((product) => {
+      if (product.id === productId) {
+        matchingItem = product;
+      }
+    });
 
-  cartItemHtml += `<div class="cart-item-container  
+    cartItemHtml += `<div class="cart-item-container  
                 js-cart-item-container-${matchingItem.id}">          
               <div class="delivery-date">Delivery date: Tuesday, June 21</div>
 
@@ -27,10 +27,12 @@ cart.forEach((cartItem) => {
                   <div class="product-name">${matchingItem.name}</div>
                   <div class="product-price">$${(matchingItem.priceCents * 100).toFixed(2)}</div>
                   <div class="product-quantity">
-                    <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span>
+                    <span> Quantity: <span class="quantity-label js-quantity-label-${matchingItem.id}">${cartItem.quantity}</span> </span>
                     <span class="update-quantity-link link-primary js-update-link" data-product-id=${matchingItem.id}> Update </span>
-                    <input class="quantity-input js-update-cart-input d-none">
-                    <span class="save-quantity-link link-primary js-update-cart-input d-none">Save</span>
+                    <input class="quantity-input js-quantity-input-${matchingItem.id} d-none" type="number" min="1" 
+                    value="${cartItem.quantity}">
+                    <span class="save-quantity-link link-primary js-save-quantity-link d-none"
+                    data-product-id=${matchingItem.id}>Save</span>
                     
                     <span class="delete-quantity-link link-primary js-delete-link" data-product-id=${matchingItem.id}> Delete </span>
                   </div>
@@ -62,9 +64,10 @@ cart.forEach((cartItem) => {
                 </div>
               </div>
             </div>`;
-});
-
-document.querySelector(".js-order-summary").innerHTML = cartItemHtml;
+  });
+  document.querySelector(".js-order-summary").innerHTML = cartItemHtml;
+}
+displayCart();
 
 document.querySelectorAll(".js-delete-link").forEach((link) => {
   link.addEventListener("click", () => {
@@ -85,9 +88,24 @@ document.querySelectorAll(".js-update-link").forEach((link) => {
     const container = document.querySelector(`.js-cart-item-container-${productId}`);
 
     container.classList.add("is-editing-quantity");
-    console.log(container);
+  });
+});
+
+document.querySelectorAll(".js-save-quantity-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    const productId = link.dataset.productId;
+
+    const newInput = +document.querySelector(`.js-quantity-input-${productId}`).value;
+    updateQuantity(productId, newInput);
+
+    const container = document.querySelector(`.js-cart-item-container-${productId}`);
+    container.classList.remove("is-editing-quantity");
+
+    // displayCart();
+
     // const container = document.querySelector(`.js-cart-item-container-${productId}`);
     // container.remove();
-    // updateCartQuantity(".js-total-quantity");
+    document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newInput;
+    updateCartQuantity(".js-total-quantity");
   });
 });
