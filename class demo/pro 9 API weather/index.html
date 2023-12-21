@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weather_animated">
+      <select name="allCountriesName" id="allCountriesName">
+        <option value="" selected disabled>Select Country</option>
+      </select>
+      <select name="allCitiesName" id="allCitiesName">
+        <option value="" selected disabled>Select City</option>
+      </select>
+      <div class="location">
+        <span id="cityName"></span> &nbsp; &nbsp;
+        <span id="countryName"></span>
+      </div>
+      <div class="temperature-div">
+        <div class="temp">
+          <p>Temp</p>
+          <p id="temp">26°c</p>
+        </div>
+        <div class="temp">
+          <p>feels_like</p>
+          <p id="feels_like">26°c</p>
+        </div>
+        <div class="temp">
+          <p>humidity</p>
+          <p id="humidity ">26°c</p>
+        </div>
+        <div class="temp">
+          <p>pressure</p>
+          <p id="pressure">26°c</p>
+        </div>
+      </div>
+      <div class="temperature-div">
+        <div class="temp">
+          <p>Wind Deg</p>
+          <p id="windDeg">26°c</p>
+        </div>
+        <div class="temp">
+          <p>Wind Speed</p>
+          <p id="windSpeed">26°c</p>
+        </div>
+        <div class="temp">
+          <p>sunrise</p>
+          <p id="sunrise">26°c</p>
+        </div>
+        <div class="temp">
+          <p>sunset</p>
+          <p id="sunset">26°c</p>
+        </div>
+      </div>
+      <!-- <div class="forcast-week">
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+        </div>
+      </div> -->
+    </div>
+    <script src="jquery-3.7.0.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
