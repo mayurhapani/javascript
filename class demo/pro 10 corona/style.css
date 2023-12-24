@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(./corona3.jpg), linear-gradient(135deg, #1f4e69 0, #164058 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+}
+.title {
+  padding: 10px 0;
+  text-align: center;
+  color: rgb(3, 30, 58);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 70px;
+  font-weight: 900;
+}
+.subTitle {
+  padding: 20px 90px;
+  text-align: center;
+  color: rgb(3, 30, 58);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+}
+.mainBody {
+  display: flex;
+}
+.main-animated {
+  height: 300px;
+  width: 350px;
+  border-radius: 10px;
+  border: 4px solid #608094;
+  background: #16394cb0;
+  padding: 20px;
+  margin: 0 20px;
+}
+.boxHeader {
+  padding: 10px 0 0;
+}
+
+.location {
+  font-family: "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
+  font-size: 25px;
+  padding: 10px 0;
+  display: inline-block;
+}
+
+#allCountriesName,
+#allStatesName,
+#allCitiesName {
+  width: 200px;
+  height: 30px;
+  background: rgb(102, 168, 221);
+  color: rgb(11, 41, 66);
+  font-size: 15px;
+}
+#allCountriesName > option,
+#allStatesName > option,
+#allCitiesName > option {
+  background-color: transparent;
+  background: transparent;
+}
+
+.dataDiv {
+  height: 100px;
+  font-size: 22px;
+  font-family: "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
+  padding: 20px 5px;
+}
+.temp {
+  padding: 0 15px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.temp > p {
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#error {
+  margin-top: 20px;
+  background-color: black;
+  color: red;
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 25px;
+  text-align: center;
+}

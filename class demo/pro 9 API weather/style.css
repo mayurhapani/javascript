@@ -42,8 +42,12 @@ body {
   text-align: center;
   font-family: "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
 }
+.temp {
+  padding: 0 15px;
+}
 .temp > span {
-  font-size: 16px;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .forcast-week {
   display: flex;
