@@ -4,6 +4,7 @@ import { products } from "../data/products.js";
 let productsHTML = "";
 let productQuantity;
 let addedSetTimeout;
+var a = 1;
 
 updateCartQuantity(".js-cart-quantity");
 

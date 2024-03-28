@@ -5,17 +5,11 @@ const citySelect = document.querySelector("#allCitiesName");
 const API = "7bd87f17b32a0f9cda88052b4fdd97bc";
 const key1 = "ajNRWUduTGYza04ydmdPeUh1UFFab21OUEY5RWV3UkNUT2dkTmkyRw==";
 
-getCity();
+let countries = (countryCode = states = stateCode = cities = "");
 
-function getCity() {
-  let countries = "";
-  let countryCode;
+getCountry();
 
-  let states = "";
-  let stateCode;
-
-  let cities = "";
-
+function getCountry() {
   $.ajax({
     url: "https://api.countrystatecity.in/v1/countries",
     method: "GET",
@@ -33,52 +27,55 @@ function getCity() {
         allCountries.forEach((coun) => {
           if (counSelect.value === coun.name) {
             countryCode = coun.iso2;
-            // console.log(countryCode);
-
-            $.ajax({
-              url: `https://api.countrystatecity.in/v1/countries/${countryCode}/states`,
-              method: "GET",
-              async: false,
-              headers: {
-                "X-CSCAPI-KEY": key1,
-              },
-              success: function (allStates) {
-                states = `<option value="" selected disabled>Select State</option>`;
-                printAria(allStates, stateSelect, states);
-
-                stateSelect.addEventListener("change", () => {
-                  $("#stateName").html(`${stateSelect.value}`);
-
-                  allStates.forEach((state) => {
-                    if (stateSelect.value === state.name) {
-                      stateCode = state.iso2;
-
-                      $.ajax({
-                        url: `https://api.countrystatecity.in/v1/countries/${countryCode}/states/${stateCode}/cities`,
-                        method: "GET",
-                        async: false,
-                        headers: {
-                          "X-CSCAPI-KEY": key1,
-                        },
-                        success: function (allCities) {
-                          cities = `<option value="" selected disabled>Select City</option>`;
-                          printAria(allCities, citySelect, cities);
-
-                          citySelect.addEventListener("change", () => {
-                            $("#cityName").html(`${citySelect.value}`);
-
-                            // console.log(citySelect.value, countryCode);
-                            getLanLon(citySelect.value, countryCode);
-                          });
-                        },
-                      });
-                    }
-                  });
-                });
-              },
-            });
+            getState(countryCode);
           }
         });
+      });
+    },
+  });
+}
+
+function getState(countryCode) {
+  $.ajax({
+    url: `https://api.countrystatecity.in/v1/countries/${countryCode}/states`,
+    method: "GET",
+    async: false,
+    headers: {
+      "X-CSCAPI-KEY": key1,
+    },
+    success: function (allStates) {
+      states = `<option value="" selected disabled>Select State</option>`;
+      printAria(allStates, stateSelect, states);
+
+      stateSelect.addEventListener("change", () => {
+        $("#stateName").html(`${stateSelect.value}`);
+
+        allStates.forEach((state) => {
+          if (stateSelect.value === state.name) {
+            stateCode = state.iso2;
+            getCity(countryCode, stateCode);
+          }
+        });
+      });
+    },
+  });
+}
+
+function getCity(countryCode, stateCode) {
+  $.ajax({
+    url: `https://api.countrystatecity.in/v1/countries/${countryCode}/states/${stateCode}/cities`,
+    method: "GET",
+    async: false,
+    headers: {
+      "X-CSCAPI-KEY": key1,
+    },
+    success: function (allCities) {
+      cities = `<option value="" selected disabled>Select City</option>`;
+      printAria(allCities, citySelect, cities);
+
+      citySelect.addEventListener("change", () => {
+        $("#cityName").html(`${citySelect.value}`);
+        getLanLon(citySelect.value, countryCode);
       });
     },
   });
